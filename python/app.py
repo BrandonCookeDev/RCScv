@@ -7,6 +7,7 @@ RESOURCES_DIR = os.path.join('..', 'resources')
 melee_img = os.path.join(RESOURCES_DIR, 'meleeGO.jpg')
 smash4_img = os.path.join(RESOURCES_DIR, 'smash4GO.jpg')
 
+
 #read image into cv2 and crop area with GO! text
 img = cv2.imread(melee_img, 0)
 cropped_img = img[200:800, 450:1550]
