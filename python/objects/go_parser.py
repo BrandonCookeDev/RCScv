@@ -4,27 +4,40 @@ import numpy as np
 from matplotlib import pyplot as plt
 
 class go_parser(object):
-    def __init__(self, image_path, output_path, low_thresh=250, high_thresh=550, crop_x=None, crop_y=None):
+    def __init__(self, image_path, output_path, low_thresh=250, high_thresh=550,
+                        crop_y1=None, crop_y2=None, crop_x1=None, crop_x2=None):
         self.image_path = image_path
         self.output_path = output_path
         self.low_thresh = low_thresh
         self.high_thresh = high_thresh
-        self.crop_x = crop_x
-        self.crop_y = crop_y
+        self.crop_x1 = crop_x1
+        self.crop_x2 = crop_x2
+        self.crop_y1 = crop_y1
+        self.crop_y2 = crop_y2
 
         #property for the cv2 image object
         self.cv = cv2.imread(self.image_path, 0)
         self.cv_height = np.size(self.cv, 0)
         self.cv_width = np.size(self.cv, 1)
 
+        if(self.crop_x1 is None):
+            self.crop_x1 = 0
+        if(self.crop_x2 is None):
+            self.crop_x2 = self.cv_width
+        if(self.crop_y1 is None):
+            self.crop_y1 = 0
+        if(self.crop_y2 is None):
+            self.crop_y2 = self.cv_height
+
     def __str__(self):
-        return 'go_parser: [%s] [%s] [%s] [%s] [%s] [%s]' % \
+        return 'go_parser: [%s] [%s] [%s] [%s] [%s:%s] [%s:%s]' % \
             (self.image_path, self.output_path, 
              self.low_thresh, self.high_thresh, 
-             self.crop_x, self.crop_y)
+             self.crop_x1, self.crop_x2,
+             self.crop_y1, self.crop_y2)
 
     def do(self):
-        print('cropping [%s] [%s]' % (self.crop_y, self.crop_x))
+        print('cropping [%s:%s] [%s:%s]' % (self.crop_y1, self.crop_y2, self.crop_x1, self.crop_x2))
         self.crop()
 
         print('edging [%s] [%s]' % (self.low_thresh, self.high_thresh))
@@ -36,7 +49,7 @@ class go_parser(object):
     def crop(self):
         # todo assert crop_x and crop_y are valid subset arrays
         if(self.cv is not None):
-            self.cv = self.cv[self.crop_y, self.crop_x]
+            self.cv = self.cv[self.crop_y1:self.crop_y2, self.crop_x1:self.crop_x2]
         else:
             raise Exception('cv image cannot be null')
 
