@@ -59,3 +59,31 @@ class go_parser(object):
             return edges
         else:
             raise Exception('cv image cannot be null')
+
+    def compare(self, frame):
+        if(self.cv is not None):
+            output = self.load_output_file()
+            output_hist = go_parser.hist(output)
+            frame_hist = go_parser.hist(frame)
+
+            diff = cv2.compareHist(output_hist, frame_hist, cv2.HISTCMP_BHATTACHARYYA)
+            return diff
+        else:
+            raise Exception('cv image cannot be null')
+
+    def load_output_file(self):
+        try:
+            img = cv2.imread(self.output_path, 0)
+            return img
+        except:
+            try:
+                self.do()
+                img = cv2.imread(self.output_path, 0)
+                return img
+            except Exception as e:
+                print(e);
+                sys.exit(1)
+
+    @staticmethod
+    def hist(img):
+        return cv2.calcHist([img], [0], None, [256], [0, 256])
