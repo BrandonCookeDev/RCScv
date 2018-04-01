@@ -81,7 +81,7 @@ class go_parser(object):
                 img = cv2.imread(self.output_path, 0)
                 return img
             except Exception as e:
-                print(e);
+                print(e)
                 sys.exit(1)
 
     @staticmethod
