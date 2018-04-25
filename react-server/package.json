@@ -4,6 +4,8 @@
   "description": "",
   "main": "express-server.js",
   "scripts": {
+    "build": "cd webapp && npm run build",
+    "watch": "cd webapp && npm run watch",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",

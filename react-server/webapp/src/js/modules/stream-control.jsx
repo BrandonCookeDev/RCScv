@@ -8,6 +8,12 @@ const API_URL = 'http://localhost:8080';
 const WRITE_JSON_URL = API_URL + '/streamcontrol/write';
 const READ_JSON_URL = API_URL + '/streamcontrol/read';
 
+const characters = [
+    "Sheik",
+    "Falco",
+    "Fox"
+]
+
 export default class StreamControl extends React.Component{
 
     constructor(props){
@@ -86,6 +92,18 @@ export default class StreamControl extends React.Component{
                                         onChange={this.handleChange} value={this.state.p1_games} />
                                 </td>
                             </tr>
+                            <tr>
+                                <td><label>Character: </label></td>
+                                <td>
+                                    <select name='p1_char' id='p1_char' value={this.state.p1_char}>
+                                        {
+                                            characters.map(character => {
+                                                return <option>{character}</option>
+                                            })
+                                        }
+                                    </select>
+                                </td>
+                            </tr>
                         </table>
                     </div>
                     <hr />
@@ -105,6 +123,18 @@ export default class StreamControl extends React.Component{
                                         onChange={this.handleChange}  value={this.state.p2_games} />
                                 </td>
                             </tr>
+                            <tr>
+                                <td><label>Character: </label></td>
+                                <td>
+                                    <select name='p2_char' id='p2_char' value={this.state.p2_char}>
+                                        {
+                                            characters.map(character => {
+                                                return <option>{character}</option>
+                                            })
+                                        }
+                                    </select>
+                                </td>
+                            </tr>
                         </table>
                     </div>
                     <input type='submit' value='submit' />
@@ -112,7 +142,6 @@ export default class StreamControl extends React.Component{
             </div>
         )
     }
-
 }
 
 ReactDOM.render(<StreamControl />, document.getElementById('stream-control'));

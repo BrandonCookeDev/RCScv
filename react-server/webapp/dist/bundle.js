@@ -23936,6 +23936,8 @@
 	var WRITE_JSON_URL = API_URL + '/streamcontrol/write';
 	var READ_JSON_URL = API_URL + '/streamcontrol/read';
 
+	var characters = ["Sheik", "Falco", "Fox"];
+
 	var StreamControl = (function (_React$Component) {
 	    _inherits(StreamControl, _React$Component);
 
@@ -24003,6 +24005,8 @@
 	    }, {
 	        key: 'render',
 	        value: function render() {
+	            var _this2 = this;
+
 	            return _react2['default'].createElement(
 	                'div',
 	                null,
@@ -24053,6 +24057,34 @@
 	                                    _react2['default'].createElement('input', { type: 'number', name: 'p1_games',
 	                                        onChange: this.handleChange, value: this.state.p1_games })
 	                                )
+	                            ),
+	                            _react2['default'].createElement(
+	                                'tr',
+	                                null,
+	                                _react2['default'].createElement(
+	                                    'td',
+	                                    null,
+	                                    _react2['default'].createElement(
+	                                        'label',
+	                                        null,
+	                                        'Character: '
+	                                    )
+	                                ),
+	                                _react2['default'].createElement(
+	                                    'td',
+	                                    null,
+	                                    _react2['default'].createElement(
+	                                        'select',
+	                                        { name: 'p1_char', id: 'p1_char' },
+	                                        characters.map(function (character) {
+	                                            return _react2['default'].createElement(
+	                                                'option',
+	                                                { value: _this2.state.p1_char },
+	                                                character
+	                                            );
+	                                        })
+	                                    )
+	                                )
 	                            )
 	                        )
 	                    ),
@@ -24099,6 +24131,34 @@
 	                                    null,
 	                                    _react2['default'].createElement('input', { type: 'number', name: 'p2_games',
 	                                        onChange: this.handleChange, value: this.state.p2_games })
+	                                )
+	                            ),
+	                            _react2['default'].createElement(
+	                                'tr',
+	                                null,
+	                                _react2['default'].createElement(
+	                                    'td',
+	                                    null,
+	                                    _react2['default'].createElement(
+	                                        'label',
+	                                        null,
+	                                        'Character: '
+	                                    )
+	                                ),
+	                                _react2['default'].createElement(
+	                                    'td',
+	                                    null,
+	                                    _react2['default'].createElement(
+	                                        'select',
+	                                        { name: 'p2_char', id: 'p2_char' },
+	                                        characters.map(function (character) {
+	                                            return _react2['default'].createElement(
+	                                                'option',
+	                                                { value: _this2.state.p2_char },
+	                                                character
+	                                            );
+	                                        })
+	                                    )
 	                                )
 	                            )
 	                        )
@@ -24980,7 +25040,7 @@
 /* 216 */
 /***/ (function(module, exports, __webpack_require__) {
 
-	var __WEBPACK_AMD_DEFINE_RESULT__;var require;/* WEBPACK VAR INJECTION */(function(process, setImmediate, global, module) {/*!
+	var require;var __WEBPACK_AMD_DEFINE_RESULT__;/* WEBPACK VAR INJECTION */(function(process, setImmediate, global, module) {/*!
 	 * @overview es6-promise - a tiny implementation of Promises/A+.
 	 * @copyright Copyright (c) 2014 Yehuda Katz, Tom Dale, Stefan Penner and contributors (Conversion to ES6 API by Jake Archibald)
 	 * @license   Licensed under MIT license
