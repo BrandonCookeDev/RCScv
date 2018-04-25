@@ -1,7 +1,12 @@
-import React from '../../node_modules/react/dist/react';
-import ReactDOM from '../../node_modules/react/lib/ReactDOM'
+import React from 'react';
+import axios from 'axios'
 
-export default class Config extends React.Component{
+const JSON_PATH = '';
+const API_URL = '';
+const UPDATE_JSON_URL = API_URL + '/';
+const READ_JSON_URL = API_URL + '/';
+
+export default class StreamControl extends React.Component{
 
     constructor(props){
         super(props);
@@ -9,12 +14,19 @@ export default class Config extends React.Component{
         this.state = {
             p1_name: '',
             p1_games: 0,
+            p1_char: '',
+            p1_sponsor: '',
             p2_name: '',
-            p2_games: 0
+            p2_games: 0,
+            p2_char: '',
+            p2_sponsor: ''
         };
 
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.updateState  = this.updateState.bind(this);
+        this.readFromFile = this.readFromFile.bind(this);
+        this.writeToFile  = this.writeToFile.bind(this);
     }
 
 
@@ -23,7 +35,35 @@ export default class Config extends React.Component{
     }
 
     handleSubmit(){
+        let postParams = this.state;
+        axios.post()
+    }
 
+    updateState(json){
+        this.state = json;
+    }
+
+    readFromFile(){
+        //Call json file for reading
+        axios.get(JSON_PATH)
+            .then(r => r.json)
+            .then(json => {
+                this.updateStateFromJSON(json);
+            })
+            .catch(console.error);
+    }
+
+    writeToFile(){
+        let oldState = this.state;
+
+        //Call server to update file
+        axios.post(UPDATE_JSON_URL, postParams)
+            .then(status => {
+                if(!status == 200){
+                    console.error('Got non 200 back from write operation: ' + status);
+                }
+            })
+            .catch(console.error);
     }
 
     render(){
@@ -56,5 +96,3 @@ export default class Config extends React.Component{
     }
 
 }
-
-ReactDOM.render(<Config />, document.getElementById('config'));
