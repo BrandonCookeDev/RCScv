@@ -7,8 +7,8 @@ logger = logging.getLogger('RCScv')
 
 class RCScv(object):
 
-    def __init__(self, image_path, output_name):
-        if image_path is None:
+    def __init__(self, image_path, output_name, cvimage=None):
+        if image_path is None and cvimage is None:
             raise Exception('image_path cannot be None for RCScv object')
         self.image_path = image_path
 
@@ -16,12 +16,15 @@ class RCScv(object):
             raise Exception('output_name cannot be None for RCScv obejct')
         self.output_name = output_name
 
-        try:
-            logger.info('loading image from path %s' % str(self.image_path))
-            self.cvimage = cv.imread(self.image_path)
-        except Exception as e:
-            logger.error(str(e))
-            exit(1)
+        if cvimage is None:
+            try:
+                logger.info('loading image from path %s' % str(self.image_path))
+                self.cvimage = cv.imread(self.image_path)
+            except Exception as e:
+                logger.error(str(e))
+                exit(1)
+        else:
+            self.cvimage = cvimage
 
     def get_cvimage(self):
         return self.cvimage 

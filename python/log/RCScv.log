@@ -255,3 +255,1153 @@
 2018-04-25 23:27:16 - [INFO]: applying canny edge algorithm to cvimage
 2018-04-25 23:27:16 - [INFO]: showing cvimage preview
 2018-04-25 23:27:17 - [INFO]: getting cvimage histogram
+2018-04-25 23:42:40 - [INFO]: Logging setup for D:\workspace\RCScv\python\util\..\log\RCScv.log
+2018-04-25 23:42:40 - [INFO]: RCScv: Beginning Main
+2018-04-25 23:42:40 - [INFO]: loading image from path ..\resources\Melee4.jpg
+2018-04-25 23:42:40 - [INFO]: cropping cvimage to follcalcHist([img], [0], None, [256], [0, 256])owing specs [top 355, bottom 390, left 10, right 140]
+2018-04-25 23:42:40 - [INFO]: applying greyscale to cvimage
+2018-04-25 23:42:40 - [INFO]: applying canny edge algorithm to cvimage
+2018-04-25 23:42:40 - [INFO]: showing cvimage preview
+2018-04-25 23:42:41 - [INFO]: getting cvimage histogram
+2018-04-25 23:42:41 - [INFO]: loading image from path ..\resources\Melee4.jpg
+2018-04-25 23:42:41 - [INFO]: cropping cvimage to follcalcHist([img], [0], None, [256], [0, 256])owing specs [top 355, bottom 390, left 155, right 245]
+2018-04-25 23:42:41 - [INFO]: applying greyscale to cvimage
+2018-04-25 23:42:41 - [INFO]: applying canny edge algorithm to cvimage
+2018-04-25 23:42:41 - [INFO]: showing cvimage preview
+2018-04-25 23:42:42 - [INFO]: getting cvimage histogram
+2018-04-25 23:42:42 - [INFO]: loading image from path ..\resources\Melee4.jpg
+2018-04-25 23:42:42 - [INFO]: cropping cvimage to follcalcHist([img], [0], None, [256], [0, 256])owing specs [top 355, bottom 390, left 290, right 405]
+2018-04-25 23:42:42 - [INFO]: applying greyscale to cvimage
+2018-04-25 23:42:42 - [INFO]: applying canny edge algorithm to cvimage
+2018-04-25 23:42:42 - [INFO]: showing cvimage preview
+2018-04-25 23:42:43 - [INFO]: getting cvimage histogram
+2018-04-25 23:42:43 - [INFO]: loading image from path ..\resources\Melee4.jpg
+2018-04-25 23:42:43 - [INFO]: cropping cvimage to follcalcHist([img], [0], None, [256], [0, 256])owing specs [top 355, bottom 390, left 430, right 520]
+2018-04-25 23:42:43 - [INFO]: applying greyscale to cvimage
+2018-04-25 23:42:43 - [INFO]: applying canny edge algorithm to cvimage
+2018-04-25 23:42:43 - [INFO]: showing cvimage preview
+2018-04-25 23:42:44 - [INFO]: getting cvimage histogram
+2018-04-25 23:42:48 - [INFO]: Logging setup for D:\workspace\RCScv\python\util\..\log\RCScv.log
+2018-04-25 23:42:48 - [INFO]: RCScv: Beginning Main
+2018-04-25 23:42:48 - [INFO]: loading image from path ..\resources\Melee3.jpg
+2018-04-25 23:42:48 - [INFO]: cropping cvimage to follcalcHist([img], [0], None, [256], [0, 256])owing specs [top 355, bottom 390, left 10, right 140]
+2018-04-25 23:42:48 - [INFO]: applying greyscale to cvimage
+2018-04-25 23:42:48 - [INFO]: applying canny edge algorithm to cvimage
+2018-04-25 23:42:48 - [INFO]: showing cvimage preview
+2018-04-25 23:42:49 - [INFO]: getting cvimage histogram
+2018-04-25 23:42:49 - [INFO]: loading image from path ..\resources\Melee3.jpg
+2018-04-25 23:42:49 - [INFO]: cropping cvimage to follcalcHist([img], [0], None, [256], [0, 256])owing specs [top 355, bottom 390, left 155, right 245]
+2018-04-25 23:42:49 - [INFO]: applying greyscale to cvimage
+2018-04-25 23:42:49 - [INFO]: applying canny edge algorithm to cvimage
+2018-04-25 23:42:49 - [INFO]: showing cvimage preview
+2018-04-25 23:42:50 - [INFO]: getting cvimage histogram
+2018-04-25 23:42:50 - [INFO]: loading image from path ..\resources\Melee3.jpg
+2018-04-25 23:42:50 - [INFO]: cropping cvimage to follcalcHist([img], [0], None, [256], [0, 256])owing specs [top 355, bottom 390, left 290, right 405]
+2018-04-25 23:42:50 - [INFO]: applying greyscale to cvimage
+2018-04-25 23:42:50 - [INFO]: applying canny edge algorithm to cvimage
+2018-04-25 23:42:50 - [INFO]: showing cvimage preview
+2018-04-25 23:42:51 - [INFO]: getting cvimage histogram
+2018-04-25 23:42:51 - [INFO]: loading image from path ..\resources\Melee3.jpg
+2018-04-25 23:42:51 - [INFO]: cropping cvimage to follcalcHist([img], [0], None, [256], [0, 256])owing specs [top 355, bottom 390, left 430, right 520]
+2018-04-25 23:42:51 - [INFO]: applying greyscale to cvimage
+2018-04-25 23:42:51 - [INFO]: applying canny edge algorithm to cvimage
+2018-04-25 23:42:51 - [INFO]: showing cvimage preview
+2018-04-25 23:42:51 - [INFO]: getting cvimage histogram
+2018-04-25 23:42:58 - [INFO]: Logging setup for D:\workspace\RCScv\python\util\..\log\RCScv.log
+2018-04-25 23:42:58 - [INFO]: RCScv: Beginning Main
+2018-04-25 23:42:58 - [INFO]: loading image from path ..\resources\Melee3.jpg
+2018-04-25 23:42:58 - [INFO]: cropping cvimage to follcalcHist([img], [0], None, [256], [0, 256])owing specs [top 355, bottom 390, left 10, right 140]
+2018-04-25 23:42:58 - [INFO]: applying greyscale to cvimage
+2018-04-25 23:42:58 - [INFO]: applying canny edge algorithm to cvimage
+2018-04-25 23:42:58 - [INFO]: showing cvimage preview
+2018-04-25 23:42:59 - [INFO]: getting cvimage histogram
+2018-04-25 23:42:59 - [INFO]: loading image from path ..\resources\Melee3.jpg
+2018-04-25 23:42:59 - [INFO]: cropping cvimage to follcalcHist([img], [0], None, [256], [0, 256])owing specs [top 355, bottom 390, left 155, right 245]
+2018-04-25 23:42:59 - [INFO]: applying greyscale to cvimage
+2018-04-25 23:42:59 - [INFO]: applying canny edge algorithm to cvimage
+2018-04-25 23:42:59 - [INFO]: showing cvimage preview
+2018-04-25 23:43:00 - [INFO]: getting cvimage histogram
+2018-04-25 23:43:00 - [INFO]: loading image from path ..\resources\Melee3.jpg
+2018-04-25 23:43:00 - [INFO]: cropping cvimage to follcalcHist([img], [0], None, [256], [0, 256])owing specs [top 355, bottom 390, left 290, right 405]
+2018-04-25 23:43:00 - [INFO]: applying greyscale to cvimage
+2018-04-25 23:43:00 - [INFO]: applying canny edge algorithm to cvimage
+2018-04-25 23:43:00 - [INFO]: showing cvimage preview
+2018-04-25 23:43:01 - [INFO]: getting cvimage histogram
+2018-04-25 23:43:01 - [INFO]: loading image from path ..\resources\Melee3.jpg
+2018-04-25 23:43:01 - [INFO]: cropping cvimage to follcalcHist([img], [0], None, [256], [0, 256])owing specs [top 355, bottom 390, left 430, right 520]
+2018-04-25 23:43:01 - [INFO]: applying greyscale to cvimage
+2018-04-25 23:43:01 - [INFO]: applying canny edge algorithm to cvimage
+2018-04-25 23:43:01 - [INFO]: showing cvimage preview
+2018-04-25 23:43:02 - [INFO]: getting cvimage histogram
+2018-04-26 00:04:54 - [INFO]: Logging setup for D:\workspace\RCScv\python\util\..\log\RCScv.log
+2018-04-26 00:04:54 - [INFO]: RCScv: Beginning Main
+2018-04-26 00:05:28 - [INFO]: Logging setup for D:\workspace\RCScv\python\util\..\log\RCScv.log
+2018-04-26 00:05:28 - [INFO]: RCScv: Beginning Main
+2018-04-26 00:05:38 - [INFO]: Logging setup for D:\workspace\RCScv\python\util\..\log\RCScv.log
+2018-04-26 00:05:38 - [INFO]: RCScv: Beginning Main
+2018-04-26 00:06:02 - [INFO]: Logging setup for D:\workspace\RCScv\python\util\..\log\RCScv.log
+2018-04-26 00:06:02 - [INFO]: RCScv: Beginning Main
+2018-04-26 00:07:08 - [INFO]: Logging setup for D:\workspace\RCScv\python\util\..\log\RCScv.log
+2018-04-26 00:07:08 - [INFO]: RCScv: Beginning Main
+2018-04-26 00:07:08 - [INFO]: loading image from path [[[34 31  0]
+  [34 31  0]
+  [34 31  0]
+  ...
+  [ 0  0  0]
+  [ 0  0  0]
+  [ 0  0  0]]
+
+ [[34 31  0]
+  [34 31  0]
+  [34 31  0]
+  ...
+  [ 0  0  0]
+  [ 0  0  0]
+  [ 0  0  0]]
+
+ [[34 31  0]
+  [34 31  0]
+  [34 31  0]
+  ...
+  [ 0  0  0]
+  [ 0  0  0]
+  [ 0  0  0]]
+
+ ...
+
+ [[12  8  0]
+  [12  8  0]
+  [11  7  0]
+  ...
+  [84 79 30]
+  [69 68  7]
+  [58 57  0]]
+
+ [[11  7  0]
+  [11  7  0]
+  [11  7  0]
+  ...
+  [91 86 37]
+  [75 74 13]
+  [62 61  0]]
+
+ [[11  7  0]
+  [11  7  0]
+  [11  7  0]
+  ...
+  [97 92 43]
+  [82 81 20]
+  [68 67  6]]]
+2018-04-26 00:07:08 - [ERROR]: bad argument type for built-in operation
+2018-04-26 00:08:21 - [INFO]: Logging setup for d:\workspace\RCScv\python\util\..\log\RCScv.log
+2018-04-26 00:08:21 - [INFO]: RCScv: Beginning Main
+2018-04-26 00:08:40 - [INFO]: loading image from path [[[34 31  0]
+  [34 31  0]
+  [34 31  0]
+  ...
+  [ 0  0  0]
+  [ 0  0  0]
+  [ 0  0  0]]
+
+ [[34 31  0]
+  [34 31  0]
+  [34 31  0]
+  ...
+  [ 0  0  0]
+  [ 0  0  0]
+  [ 0  0  0]]
+
+ [[34 31  0]
+  [34 31  0]
+  [34 31  0]
+  ...
+  [ 0  0  0]
+  [ 0  0  0]
+  [ 0  0  0]]
+
+ ...
+
+ [[12  8  0]
+  [12  8  0]
+  [11  7  0]
+  ...
+  [84 79 30]
+  [69 68  7]
+  [58 57  0]]
+
+ [[11  7  0]
+  [11  7  0]
+  [11  7  0]
+  ...
+  [91 86 37]
+  [75 74 13]
+  [62 61  0]]
+
+ [[11  7  0]
+  [11  7  0]
+  [11  7  0]
+  ...
+  [97 92 43]
+  [82 81 20]
+  [68 67  6]]]
+2018-04-26 00:08:42 - [ERROR]: bad argument type for built-in operation
+2018-04-26 00:09:00 - [INFO]: Logging setup for d:\workspace\RCScv\python\util\..\log\RCScv.log
+2018-04-26 00:09:00 - [INFO]: RCScv: Beginning Main
+2018-04-26 00:09:02 - [INFO]: loading image from path d:\workspace\RCScv\python\..\resources\Melee4.jpg
+2018-04-26 00:11:22 - [INFO]: Logging setup for d:\workspace\RCScv\python\util\..\log\RCScv.log
+2018-04-26 00:11:22 - [INFO]: RCScv: Beginning Main
+2018-04-26 00:13:40 - [INFO]: Logging setup for d:\workspace\RCScv\python\util\..\log\RCScv.log
+2018-04-26 00:13:40 - [INFO]: RCScv: Beginning Main
+2018-04-26 00:14:34 - [INFO]: loading image from path d:\workspace\RCScv\python\..\resources\Melee3.jpg
+2018-04-26 00:14:34 - [INFO]: cropping cvimage to follcalcHist([img], [0], None, [256], [0, 256])owing specs [top 355, bottom 390, left 10, right 140]
+2018-04-26 00:14:34 - [INFO]: applying greyscale to cvimage
+2018-04-26 00:14:34 - [INFO]: applying canny edge algorithm to cvimage
+2018-04-26 00:14:34 - [INFO]: showing cvimage preview
+2018-04-26 00:14:43 - [INFO]: Logging setup for d:\workspace\RCScv\python\util\..\log\RCScv.log
+2018-04-26 00:14:43 - [INFO]: RCScv: Beginning Main
+2018-04-26 00:14:48 - [INFO]: loading image from path d:\workspace\RCScv\python\..\resources\Melee3.jpg
+2018-04-26 00:14:48 - [INFO]: cropping cvimage to follcalcHist([img], [0], None, [256], [0, 256])owing specs [top 355, bottom 390, left 10, right 140]
+2018-04-26 00:14:48 - [INFO]: applying greyscale to cvimage
+2018-04-26 00:14:48 - [INFO]: applying canny edge algorithm to cvimage
+2018-04-26 00:14:48 - [INFO]: showing cvimage preview
+2018-04-26 00:14:57 - [INFO]: Logging setup for d:\workspace\RCScv\python\util\..\log\RCScv.log
+2018-04-26 00:14:57 - [INFO]: RCScv: Beginning Main
+2018-04-26 00:14:59 - [INFO]: loading image from path d:\workspace\RCScv\python\..\resources\Melee3.jpg
+2018-04-26 00:14:59 - [INFO]: cropping cvimage to follcalcHist([img], [0], None, [256], [0, 256])owing specs [top 355, bottom 390, left 10, right 140]
+2018-04-26 00:14:59 - [INFO]: applying greyscale to cvimage
+2018-04-26 00:14:59 - [INFO]: applying canny edge algorithm to cvimage
+2018-04-26 00:14:59 - [INFO]: showing cvimage preview
+2018-04-26 00:15:13 - [INFO]: Logging setup for d:\workspace\RCScv\python\util\..\log\RCScv.log
+2018-04-26 00:15:14 - [INFO]: RCScv: Beginning Main
+2018-04-26 00:19:24 - [INFO]: Logging setup for d:\workspace\RCScv\python\util\..\log\RCScv.log
+2018-04-26 00:19:24 - [INFO]: RCScv: Beginning Main
+2018-04-26 00:19:53 - [INFO]: Logging setup for d:\workspace\RCScv\python\util\..\log\RCScv.log
+2018-04-26 00:19:53 - [INFO]: RCScv: Beginning Main
+2018-04-26 00:20:06 - [INFO]: cropping cvimage to follcalcHist([img], [0], None, [256], [0, 256])owing specs [top 355, bottom 390, left 10, right 140]
+2018-04-26 00:20:06 - [INFO]: applying greyscale to cvimage
+2018-04-26 00:20:06 - [INFO]: applying canny edge algorithm to cvimage
+2018-04-26 00:20:07 - [INFO]: showing cvimage preview
+2018-04-26 00:20:12 - [INFO]: getting cvimage histogram
+2018-04-26 00:20:12 - [INFO]: loading image from path d:\workspace\RCScv\python\..\resources\Melee3.jpg
+2018-04-26 00:20:12 - [INFO]: cropping cvimage to follcalcHist([img], [0], None, [256], [0, 256])owing specs [top 355, bottom 390, left 155, right 245]
+2018-04-26 00:20:12 - [INFO]: applying greyscale to cvimage
+2018-04-26 00:20:12 - [INFO]: applying canny edge algorithm to cvimage
+2018-04-26 00:20:12 - [INFO]: showing cvimage preview
+2018-04-26 00:20:13 - [INFO]: getting cvimage histogram
+2018-04-26 00:20:13 - [INFO]: loading image from path d:\workspace\RCScv\python\..\resources\Melee3.jpg
+2018-04-26 00:20:13 - [INFO]: cropping cvimage to follcalcHist([img], [0], None, [256], [0, 256])owing specs [top 355, bottom 390, left 290, right 405]
+2018-04-26 00:20:13 - [INFO]: applying greyscale to cvimage
+2018-04-26 00:20:13 - [INFO]: applying canny edge algorithm to cvimage
+2018-04-26 00:20:13 - [INFO]: showing cvimage preview
+2018-04-26 00:20:13 - [INFO]: getting cvimage histogram
+2018-04-26 00:20:13 - [INFO]: loading image from path d:\workspace\RCScv\python\..\resources\Melee3.jpg
+2018-04-26 00:20:13 - [INFO]: cropping cvimage to follcalcHist([img], [0], None, [256], [0, 256])owing specs [top 355, bottom 390, left 430, right 520]
+2018-04-26 00:20:13 - [INFO]: applying greyscale to cvimage
+2018-04-26 00:20:13 - [INFO]: applying canny edge algorithm to cvimage
+2018-04-26 00:20:13 - [INFO]: showing cvimage preview
+2018-04-26 00:20:13 - [INFO]: getting cvimage histogram
+2018-04-26 00:20:13 - [INFO]: loading image from path [[[34 31  0]
+  [34 31  0]
+  [34 31  0]
+  ...
+  [ 0  0  0]
+  [ 0  0  0]
+  [ 0  0  0]]
+
+ [[34 31  0]
+  [34 31  0]
+  [34 31  0]
+  ...
+  [ 0  0  0]
+  [ 0  0  0]
+  [ 0  0  0]]
+
+ [[34 31  0]
+  [34 31  0]
+  [34 31  0]
+  ...
+  [ 0  0  0]
+  [ 0  0  0]
+  [ 0  0  0]]
+
+ ...
+
+ [[12  8  0]
+  [12  8  0]
+  [11  7  0]
+  ...
+  [84 79 30]
+  [69 68  7]
+  [58 57  0]]
+
+ [[11  7  0]
+  [11  7  0]
+  [11  7  0]
+  ...
+  [91 86 37]
+  [75 74 13]
+  [62 61  0]]
+
+ [[11  7  0]
+  [11  7  0]
+  [11  7  0]
+  ...
+  [97 92 43]
+  [82 81 20]
+  [68 67  6]]]
+2018-04-26 00:20:13 - [ERROR]: bad argument type for built-in operation
+2018-04-26 00:20:18 - [INFO]: getting cvimage histogram
+2018-04-26 00:20:18 - [INFO]: cropping cvimage to follcalcHist([img], [0], None, [256], [0, 256])owing specs [top 355, bottom 390, left 155, right 245]
+2018-04-26 00:20:18 - [INFO]: applying greyscale to cvimage
+2018-04-26 00:20:18 - [INFO]: applying canny edge algorithm to cvimage
+2018-04-26 00:20:18 - [INFO]: showing cvimage preview
+2018-04-26 00:20:18 - [INFO]: getting cvimage histogram
+2018-04-26 00:20:18 - [INFO]: cropping cvimage to follcalcHist([img], [0], None, [256], [0, 256])owing specs [top 355, bottom 390, left 290, right 405]
+2018-04-26 00:20:18 - [INFO]: applying greyscale to cvimage
+2018-04-26 00:20:18 - [INFO]: applying canny edge algorithm to cvimage
+2018-04-26 00:20:18 - [INFO]: showing cvimage preview
+2018-04-26 00:20:20 - [INFO]: getting cvimage histogram
+2018-04-26 00:20:20 - [INFO]: cropping cvimage to follcalcHist([img], [0], None, [256], [0, 256])owing specs [top 355, bottom 390, left 430, right 520]
+2018-04-26 00:20:20 - [INFO]: applying greyscale to cvimage
+2018-04-26 00:20:20 - [INFO]: applying canny edge algorithm to cvimage
+2018-04-26 00:20:20 - [INFO]: showing cvimage preview
+2018-04-26 00:20:21 - [INFO]: getting cvimage histogram
+2018-04-26 00:20:30 - [INFO]: cropping cvimage to follcalcHist([img], [0], None, [256], [0, 256])owing specs [top 355, bottom 390, left 10, right 140]
+2018-04-26 00:20:30 - [INFO]: applying greyscale to cvimage
+2018-04-26 00:20:30 - [INFO]: applying canny edge algorithm to cvimage
+2018-04-26 00:20:30 - [INFO]: showing cvimage preview
+2018-04-26 00:20:30 - [INFO]: getting cvimage histogram
+2018-04-26 00:20:30 - [INFO]: cropping cvimage to follcalcHist([img], [0], None, [256], [0, 256])owing specs [top 355, bottom 390, left 155, right 245]
+2018-04-26 00:20:30 - [INFO]: applying greyscale to cvimage
+2018-04-26 00:20:30 - [INFO]: applying canny edge algorithm to cvimage
+2018-04-26 00:20:30 - [INFO]: showing cvimage preview
+2018-04-26 00:20:30 - [INFO]: getting cvimage histogram
+2018-04-26 00:20:30 - [INFO]: cropping cvimage to follcalcHist([img], [0], None, [256], [0, 256])owing specs [top 355, bottom 390, left 290, right 405]
+2018-04-26 00:20:30 - [INFO]: applying greyscale to cvimage
+2018-04-26 00:20:30 - [INFO]: applying canny edge algorithm to cvimage
+2018-04-26 00:20:30 - [INFO]: showing cvimage preview
+2018-04-26 00:20:30 - [INFO]: getting cvimage histogram
+2018-04-26 00:20:30 - [INFO]: cropping cvimage to follcalcHist([img], [0], None, [256], [0, 256])owing specs [top 355, bottom 390, left 430, right 520]
+2018-04-26 00:20:30 - [INFO]: applying greyscale to cvimage
+2018-04-26 00:20:30 - [INFO]: applying canny edge algorithm to cvimage
+2018-04-26 00:20:30 - [INFO]: showing cvimage preview
+2018-04-26 00:20:33 - [INFO]: getting cvimage histogram
+2018-04-26 00:20:33 - [INFO]: cropping cvimage to follcalcHist([img], [0], None, [256], [0, 256])owing specs [top 355, bottom 390, left 10, right 140]
+2018-04-26 00:20:33 - [INFO]: applying greyscale to cvimage
+2018-04-26 00:20:33 - [INFO]: applying canny edge algorithm to cvimage
+2018-04-26 00:20:33 - [INFO]: showing cvimage preview
+2018-04-26 00:20:33 - [INFO]: getting cvimage histogram
+2018-04-26 00:20:33 - [INFO]: cropping cvimage to follcalcHist([img], [0], None, [256], [0, 256])owing specs [top 355, bottom 390, left 155, right 245]
+2018-04-26 00:20:33 - [INFO]: applying greyscale to cvimage
+2018-04-26 00:20:33 - [INFO]: applying canny edge algorithm to cvimage
+2018-04-26 00:20:33 - [INFO]: showing cvimage preview
+2018-04-26 00:20:33 - [INFO]: getting cvimage histogram
+2018-04-26 00:20:33 - [INFO]: cropping cvimage to follcalcHist([img], [0], None, [256], [0, 256])owing specs [top 355, bottom 390, left 290, right 405]
+2018-04-26 00:20:33 - [INFO]: applying greyscale to cvimage
+2018-04-26 00:20:33 - [INFO]: applying canny edge algorithm to cvimage
+2018-04-26 00:20:33 - [INFO]: showing cvimage preview
+2018-04-26 00:20:33 - [INFO]: getting cvimage histogram
+2018-04-26 00:20:33 - [INFO]: cropping cvimage to follcalcHist([img], [0], None, [256], [0, 256])owing specs [top 355, bottom 390, left 430, right 520]
+2018-04-26 00:20:33 - [INFO]: applying greyscale to cvimage
+2018-04-26 00:20:33 - [INFO]: applying canny edge algorithm to cvimage
+2018-04-26 00:20:33 - [INFO]: showing cvimage preview
+2018-04-26 00:20:33 - [INFO]: getting cvimage histogram
+2018-04-26 00:20:33 - [INFO]: cropping cvimage to follcalcHist([img], [0], None, [256], [0, 256])owing specs [top 355, bottom 390, left 10, right 140]
+2018-04-26 00:20:33 - [INFO]: applying greyscale to cvimage
+2018-04-26 00:20:33 - [INFO]: applying canny edge algorithm to cvimage
+2018-04-26 00:20:33 - [INFO]: showing cvimage preview
+2018-04-26 00:20:33 - [INFO]: getting cvimage histogram
+2018-04-26 00:20:33 - [INFO]: cropping cvimage to follcalcHist([img], [0], None, [256], [0, 256])owing specs [top 355, bottom 390, left 155, right 245]
+2018-04-26 00:20:33 - [INFO]: applying greyscale to cvimage
+2018-04-26 00:20:33 - [INFO]: applying canny edge algorithm to cvimage
+2018-04-26 00:20:33 - [INFO]: showing cvimage preview
+2018-04-26 00:20:33 - [INFO]: getting cvimage histogram
+2018-04-26 00:20:33 - [INFO]: cropping cvimage to follcalcHist([img], [0], None, [256], [0, 256])owing specs [top 355, bottom 390, left 290, right 405]
+2018-04-26 00:20:33 - [INFO]: applying greyscale to cvimage
+2018-04-26 00:20:33 - [INFO]: applying canny edge algorithm to cvimage
+2018-04-26 00:20:33 - [INFO]: showing cvimage preview
+2018-04-26 00:20:33 - [INFO]: getting cvimage histogram
+2018-04-26 00:20:33 - [INFO]: cropping cvimage to follcalcHist([img], [0], None, [256], [0, 256])owing specs [top 355, bottom 390, left 430, right 520]
+2018-04-26 00:20:33 - [INFO]: applying greyscale to cvimage
+2018-04-26 00:20:33 - [INFO]: applying canny edge algorithm to cvimage
+2018-04-26 00:20:33 - [INFO]: showing cvimage preview
+2018-04-26 00:20:33 - [INFO]: getting cvimage histogram
+2018-04-26 00:20:33 - [INFO]: cropping cvimage to follcalcHist([img], [0], None, [256], [0, 256])owing specs [top 355, bottom 390, left 10, right 140]
+2018-04-26 00:20:33 - [INFO]: applying greyscale to cvimage
+2018-04-26 00:20:33 - [INFO]: applying canny edge algorithm to cvimage
+2018-04-26 00:20:33 - [INFO]: showing cvimage preview
+2018-04-26 00:20:33 - [INFO]: getting cvimage histogram
+2018-04-26 00:20:33 - [INFO]: cropping cvimage to follcalcHist([img], [0], None, [256], [0, 256])owing specs [top 355, bottom 390, left 155, right 245]
+2018-04-26 00:20:33 - [INFO]: applying greyscale to cvimage
+2018-04-26 00:20:33 - [INFO]: applying canny edge algorithm to cvimage
+2018-04-26 00:20:33 - [INFO]: showing cvimage preview
+2018-04-26 00:20:33 - [INFO]: getting cvimage histogram
+2018-04-26 00:20:34 - [INFO]: cropping cvimage to follcalcHist([img], [0], None, [256], [0, 256])owing specs [top 355, bottom 390, left 290, right 405]
+2018-04-26 00:20:34 - [INFO]: applying greyscale to cvimage
+2018-04-26 00:20:34 - [INFO]: applying canny edge algorithm to cvimage
+2018-04-26 00:20:34 - [INFO]: showing cvimage preview
+2018-04-26 00:20:34 - [INFO]: getting cvimage histogram
+2018-04-26 00:20:34 - [INFO]: cropping cvimage to follcalcHist([img], [0], None, [256], [0, 256])owing specs [top 355, bottom 390, left 430, right 520]
+2018-04-26 00:20:34 - [INFO]: applying greyscale to cvimage
+2018-04-26 00:20:34 - [INFO]: applying canny edge algorithm to cvimage
+2018-04-26 00:20:34 - [INFO]: showing cvimage preview
+2018-04-26 00:20:34 - [INFO]: getting cvimage histogram
+2018-04-26 00:20:34 - [INFO]: cropping cvimage to follcalcHist([img], [0], None, [256], [0, 256])owing specs [top 355, bottom 390, left 10, right 140]
+2018-04-26 00:20:34 - [INFO]: applying greyscale to cvimage
+2018-04-26 00:20:34 - [INFO]: applying canny edge algorithm to cvimage
+2018-04-26 00:20:34 - [INFO]: showing cvimage preview
+2018-04-26 00:20:34 - [INFO]: getting cvimage histogram
+2018-04-26 00:20:34 - [INFO]: cropping cvimage to follcalcHist([img], [0], None, [256], [0, 256])owing specs [top 355, bottom 390, left 155, right 245]
+2018-04-26 00:20:34 - [INFO]: applying greyscale to cvimage
+2018-04-26 00:20:34 - [INFO]: applying canny edge algorithm to cvimage
+2018-04-26 00:20:34 - [INFO]: showing cvimage preview
+2018-04-26 00:20:34 - [INFO]: getting cvimage histogram
+2018-04-26 00:20:34 - [INFO]: cropping cvimage to follcalcHist([img], [0], None, [256], [0, 256])owing specs [top 355, bottom 390, left 290, right 405]
+2018-04-26 00:20:34 - [INFO]: applying greyscale to cvimage
+2018-04-26 00:20:34 - [INFO]: applying canny edge algorithm to cvimage
+2018-04-26 00:20:34 - [INFO]: showing cvimage preview
+2018-04-26 00:20:34 - [INFO]: getting cvimage histogram
+2018-04-26 00:20:34 - [INFO]: cropping cvimage to follcalcHist([img], [0], None, [256], [0, 256])owing specs [top 355, bottom 390, left 430, right 520]
+2018-04-26 00:20:34 - [INFO]: applying greyscale to cvimage
+2018-04-26 00:20:34 - [INFO]: applying canny edge algorithm to cvimage
+2018-04-26 00:20:34 - [INFO]: showing cvimage preview
+2018-04-26 00:20:34 - [INFO]: getting cvimage histogram
+2018-04-26 00:20:34 - [INFO]: cropping cvimage to follcalcHist([img], [0], None, [256], [0, 256])owing specs [top 355, bottom 390, left 10, right 140]
+2018-04-26 00:20:34 - [INFO]: applying greyscale to cvimage
+2018-04-26 00:20:34 - [INFO]: applying canny edge algorithm to cvimage
+2018-04-26 00:20:34 - [INFO]: showing cvimage preview
+2018-04-26 00:20:34 - [INFO]: getting cvimage histogram
+2018-04-26 00:20:34 - [INFO]: cropping cvimage to follcalcHist([img], [0], None, [256], [0, 256])owing specs [top 355, bottom 390, left 155, right 245]
+2018-04-26 00:20:34 - [INFO]: applying greyscale to cvimage
+2018-04-26 00:20:34 - [INFO]: applying canny edge algorithm to cvimage
+2018-04-26 00:20:34 - [INFO]: showing cvimage preview
+2018-04-26 00:20:34 - [INFO]: getting cvimage histogram
+2018-04-26 00:20:34 - [INFO]: cropping cvimage to follcalcHist([img], [0], None, [256], [0, 256])owing specs [top 355, bottom 390, left 290, right 405]
+2018-04-26 00:20:34 - [INFO]: applying greyscale to cvimage
+2018-04-26 00:20:34 - [INFO]: applying canny edge algorithm to cvimage
+2018-04-26 00:20:34 - [INFO]: showing cvimage preview
+2018-04-26 00:20:34 - [INFO]: getting cvimage histogram
+2018-04-26 00:20:34 - [INFO]: cropping cvimage to follcalcHist([img], [0], None, [256], [0, 256])owing specs [top 355, bottom 390, left 430, right 520]
+2018-04-26 00:20:34 - [INFO]: applying greyscale to cvimage
+2018-04-26 00:20:34 - [INFO]: applying canny edge algorithm to cvimage
+2018-04-26 00:20:34 - [INFO]: showing cvimage preview
+2018-04-26 00:20:34 - [INFO]: getting cvimage histogram
+2018-04-26 00:20:34 - [INFO]: cropping cvimage to follcalcHist([img], [0], None, [256], [0, 256])owing specs [top 355, bottom 390, left 10, right 140]
+2018-04-26 00:20:34 - [INFO]: applying greyscale to cvimage
+2018-04-26 00:20:34 - [INFO]: applying canny edge algorithm to cvimage
+2018-04-26 00:20:34 - [INFO]: showing cvimage preview
+2018-04-26 00:20:34 - [INFO]: getting cvimage histogram
+2018-04-26 00:20:34 - [INFO]: cropping cvimage to follcalcHist([img], [0], None, [256], [0, 256])owing specs [top 355, bottom 390, left 155, right 245]
+2018-04-26 00:20:34 - [INFO]: applying greyscale to cvimage
+2018-04-26 00:20:34 - [INFO]: applying canny edge algorithm to cvimage
+2018-04-26 00:20:34 - [INFO]: showing cvimage preview
+2018-04-26 00:20:34 - [INFO]: getting cvimage histogram
+2018-04-26 00:20:34 - [INFO]: cropping cvimage to follcalcHist([img], [0], None, [256], [0, 256])owing specs [top 355, bottom 390, left 290, right 405]
+2018-04-26 00:20:34 - [INFO]: applying greyscale to cvimage
+2018-04-26 00:20:34 - [INFO]: applying canny edge algorithm to cvimage
+2018-04-26 00:20:34 - [INFO]: showing cvimage preview
+2018-04-26 00:20:34 - [INFO]: getting cvimage histogram
+2018-04-26 00:20:34 - [INFO]: cropping cvimage to follcalcHist([img], [0], None, [256], [0, 256])owing specs [top 355, bottom 390, left 430, right 520]
+2018-04-26 00:20:34 - [INFO]: applying greyscale to cvimage
+2018-04-26 00:20:34 - [INFO]: applying canny edge algorithm to cvimage
+2018-04-26 00:20:34 - [INFO]: showing cvimage preview
+2018-04-26 00:20:34 - [INFO]: getting cvimage histogram
+2018-04-26 00:20:34 - [INFO]: cropping cvimage to follcalcHist([img], [0], None, [256], [0, 256])owing specs [top 355, bottom 390, left 10, right 140]
+2018-04-26 00:20:34 - [INFO]: applying greyscale to cvimage
+2018-04-26 00:20:34 - [INFO]: applying canny edge algorithm to cvimage
+2018-04-26 00:20:34 - [INFO]: showing cvimage preview
+2018-04-26 00:20:34 - [INFO]: getting cvimage histogram
+2018-04-26 00:20:34 - [INFO]: cropping cvimage to follcalcHist([img], [0], None, [256], [0, 256])owing specs [top 355, bottom 390, left 155, right 245]
+2018-04-26 00:20:34 - [INFO]: applying greyscale to cvimage
+2018-04-26 00:20:34 - [INFO]: applying canny edge algorithm to cvimage
+2018-04-26 00:20:34 - [INFO]: showing cvimage preview
+2018-04-26 00:20:34 - [INFO]: getting cvimage histogram
+2018-04-26 00:20:34 - [INFO]: cropping cvimage to follcalcHist([img], [0], None, [256], [0, 256])owing specs [top 355, bottom 390, left 290, right 405]
+2018-04-26 00:20:34 - [INFO]: applying greyscale to cvimage
+2018-04-26 00:20:34 - [INFO]: applying canny edge algorithm to cvimage
+2018-04-26 00:20:34 - [INFO]: showing cvimage preview
+2018-04-26 00:20:34 - [INFO]: getting cvimage histogram
+2018-04-26 00:20:34 - [INFO]: cropping cvimage to follcalcHist([img], [0], None, [256], [0, 256])owing specs [top 355, bottom 390, left 430, right 520]
+2018-04-26 00:20:34 - [INFO]: applying greyscale to cvimage
+2018-04-26 00:20:34 - [INFO]: applying canny edge algorithm to cvimage
+2018-04-26 00:20:34 - [INFO]: showing cvimage preview
+2018-04-26 00:20:34 - [INFO]: getting cvimage histogram
+2018-04-26 00:20:34 - [INFO]: cropping cvimage to follcalcHist([img], [0], None, [256], [0, 256])owing specs [top 355, bottom 390, left 10, right 140]
+2018-04-26 00:20:34 - [INFO]: applying greyscale to cvimage
+2018-04-26 00:20:34 - [INFO]: applying canny edge algorithm to cvimage
+2018-04-26 00:20:34 - [INFO]: showing cvimage preview
+2018-04-26 00:20:34 - [INFO]: getting cvimage histogram
+2018-04-26 00:20:34 - [INFO]: cropping cvimage to follcalcHist([img], [0], None, [256], [0, 256])owing specs [top 355, bottom 390, left 155, right 245]
+2018-04-26 00:20:34 - [INFO]: applying greyscale to cvimage
+2018-04-26 00:20:34 - [INFO]: applying canny edge algorithm to cvimage
+2018-04-26 00:20:34 - [INFO]: showing cvimage preview
+2018-04-26 00:20:34 - [INFO]: getting cvimage histogram
+2018-04-26 00:20:34 - [INFO]: cropping cvimage to follcalcHist([img], [0], None, [256], [0, 256])owing specs [top 355, bottom 390, left 290, right 405]
+2018-04-26 00:20:34 - [INFO]: applying greyscale to cvimage
+2018-04-26 00:20:34 - [INFO]: applying canny edge algorithm to cvimage
+2018-04-26 00:20:34 - [INFO]: showing cvimage preview
+2018-04-26 00:20:34 - [INFO]: getting cvimage histogram
+2018-04-26 00:20:34 - [INFO]: cropping cvimage to follcalcHist([img], [0], None, [256], [0, 256])owing specs [top 355, bottom 390, left 430, right 520]
+2018-04-26 00:20:34 - [INFO]: applying greyscale to cvimage
+2018-04-26 00:20:34 - [INFO]: applying canny edge algorithm to cvimage
+2018-04-26 00:20:34 - [INFO]: showing cvimage preview
+2018-04-26 00:20:34 - [INFO]: getting cvimage histogram
+2018-04-26 00:20:34 - [INFO]: cropping cvimage to follcalcHist([img], [0], None, [256], [0, 256])owing specs [top 355, bottom 390, left 10, right 140]
+2018-04-26 00:20:34 - [INFO]: applying greyscale to cvimage
+2018-04-26 00:20:34 - [INFO]: applying canny edge algorithm to cvimage
+2018-04-26 00:20:34 - [INFO]: showing cvimage preview
+2018-04-26 00:20:34 - [INFO]: getting cvimage histogram
+2018-04-26 00:20:34 - [INFO]: cropping cvimage to follcalcHist([img], [0], None, [256], [0, 256])owing specs [top 355, bottom 390, left 155, right 245]
+2018-04-26 00:20:34 - [INFO]: applying greyscale to cvimage
+2018-04-26 00:20:34 - [INFO]: applying canny edge algorithm to cvimage
+2018-04-26 00:20:34 - [INFO]: showing cvimage preview
+2018-04-26 00:20:34 - [INFO]: getting cvimage histogram
+2018-04-26 00:20:34 - [INFO]: cropping cvimage to follcalcHist([img], [0], None, [256], [0, 256])owing specs [top 355, bottom 390, left 290, right 405]
+2018-04-26 00:20:34 - [INFO]: applying greyscale to cvimage
+2018-04-26 00:20:34 - [INFO]: applying canny edge algorithm to cvimage
+2018-04-26 00:20:34 - [INFO]: showing cvimage preview
+2018-04-26 00:20:34 - [INFO]: getting cvimage histogram
+2018-04-26 00:20:35 - [INFO]: cropping cvimage to follcalcHist([img], [0], None, [256], [0, 256])owing specs [top 355, bottom 390, left 430, right 520]
+2018-04-26 00:20:35 - [INFO]: applying greyscale to cvimage
+2018-04-26 00:20:35 - [INFO]: applying canny edge algorithm to cvimage
+2018-04-26 00:20:35 - [INFO]: showing cvimage preview
+2018-04-26 00:20:35 - [INFO]: getting cvimage histogram
+2018-04-26 00:20:35 - [INFO]: cropping cvimage to follcalcHist([img], [0], None, [256], [0, 256])owing specs [top 355, bottom 390, left 10, right 140]
+2018-04-26 00:20:35 - [INFO]: applying greyscale to cvimage
+2018-04-26 00:20:35 - [INFO]: applying canny edge algorithm to cvimage
+2018-04-26 00:20:35 - [INFO]: showing cvimage preview
+2018-04-26 00:20:35 - [INFO]: getting cvimage histogram
+2018-04-26 00:20:35 - [INFO]: cropping cvimage to follcalcHist([img], [0], None, [256], [0, 256])owing specs [top 355, bottom 390, left 155, right 245]
+2018-04-26 00:20:35 - [INFO]: applying greyscale to cvimage
+2018-04-26 00:20:35 - [INFO]: applying canny edge algorithm to cvimage
+2018-04-26 00:20:35 - [INFO]: showing cvimage preview
+2018-04-26 00:20:35 - [INFO]: getting cvimage histogram
+2018-04-26 00:20:35 - [INFO]: cropping cvimage to follcalcHist([img], [0], None, [256], [0, 256])owing specs [top 355, bottom 390, left 290, right 405]
+2018-04-26 00:20:35 - [INFO]: applying greyscale to cvimage
+2018-04-26 00:20:35 - [INFO]: applying canny edge algorithm to cvimage
+2018-04-26 00:20:35 - [INFO]: showing cvimage preview
+2018-04-26 00:20:35 - [INFO]: getting cvimage histogram
+2018-04-26 00:20:35 - [INFO]: cropping cvimage to follcalcHist([img], [0], None, [256], [0, 256])owing specs [top 355, bottom 390, left 430, right 520]
+2018-04-26 00:20:35 - [INFO]: applying greyscale to cvimage
+2018-04-26 00:20:35 - [INFO]: applying canny edge algorithm to cvimage
+2018-04-26 00:20:35 - [INFO]: showing cvimage preview
+2018-04-26 00:20:35 - [INFO]: getting cvimage histogram
+2018-04-26 00:20:35 - [INFO]: cropping cvimage to follcalcHist([img], [0], None, [256], [0, 256])owing specs [top 355, bottom 390, left 10, right 140]
+2018-04-26 00:20:35 - [INFO]: applying greyscale to cvimage
+2018-04-26 00:20:35 - [INFO]: applying canny edge algorithm to cvimage
+2018-04-26 00:20:35 - [INFO]: showing cvimage preview
+2018-04-26 00:20:35 - [INFO]: getting cvimage histogram
+2018-04-26 00:20:35 - [INFO]: cropping cvimage to follcalcHist([img], [0], None, [256], [0, 256])owing specs [top 355, bottom 390, left 155, right 245]
+2018-04-26 00:20:35 - [INFO]: applying greyscale to cvimage
+2018-04-26 00:20:35 - [INFO]: applying canny edge algorithm to cvimage
+2018-04-26 00:20:35 - [INFO]: showing cvimage preview
+2018-04-26 00:20:35 - [INFO]: getting cvimage histogram
+2018-04-26 00:20:35 - [INFO]: cropping cvimage to follcalcHist([img], [0], None, [256], [0, 256])owing specs [top 355, bottom 390, left 290, right 405]
+2018-04-26 00:20:35 - [INFO]: applying greyscale to cvimage
+2018-04-26 00:20:35 - [INFO]: applying canny edge algorithm to cvimage
+2018-04-26 00:20:35 - [INFO]: showing cvimage preview
+2018-04-26 00:20:35 - [INFO]: getting cvimage histogram
+2018-04-26 00:20:35 - [INFO]: cropping cvimage to follcalcHist([img], [0], None, [256], [0, 256])owing specs [top 355, bottom 390, left 430, right 520]
+2018-04-26 00:20:35 - [INFO]: applying greyscale to cvimage
+2018-04-26 00:20:35 - [INFO]: applying canny edge algorithm to cvimage
+2018-04-26 00:20:35 - [INFO]: showing cvimage preview
+2018-04-26 00:20:35 - [INFO]: getting cvimage histogram
+2018-04-26 00:20:35 - [INFO]: cropping cvimage to follcalcHist([img], [0], None, [256], [0, 256])owing specs [top 355, bottom 390, left 10, right 140]
+2018-04-26 00:20:35 - [INFO]: applying greyscale to cvimage
+2018-04-26 00:20:35 - [INFO]: applying canny edge algorithm to cvimage
+2018-04-26 00:20:35 - [INFO]: showing cvimage preview
+2018-04-26 00:20:35 - [INFO]: getting cvimage histogram
+2018-04-26 00:20:35 - [INFO]: cropping cvimage to follcalcHist([img], [0], None, [256], [0, 256])owing specs [top 355, bottom 390, left 155, right 245]
+2018-04-26 00:20:35 - [INFO]: applying greyscale to cvimage
+2018-04-26 00:20:35 - [INFO]: applying canny edge algorithm to cvimage
+2018-04-26 00:20:35 - [INFO]: showing cvimage preview
+2018-04-26 00:20:35 - [INFO]: getting cvimage histogram
+2018-04-26 00:20:35 - [INFO]: cropping cvimage to follcalcHist([img], [0], None, [256], [0, 256])owing specs [top 355, bottom 390, left 290, right 405]
+2018-04-26 00:20:35 - [INFO]: applying greyscale to cvimage
+2018-04-26 00:20:35 - [INFO]: applying canny edge algorithm to cvimage
+2018-04-26 00:20:35 - [INFO]: showing cvimage preview
+2018-04-26 00:20:35 - [INFO]: getting cvimage histogram
+2018-04-26 00:20:35 - [INFO]: cropping cvimage to follcalcHist([img], [0], None, [256], [0, 256])owing specs [top 355, bottom 390, left 430, right 520]
+2018-04-26 00:20:35 - [INFO]: applying greyscale to cvimage
+2018-04-26 00:20:35 - [INFO]: applying canny edge algorithm to cvimage
+2018-04-26 00:20:35 - [INFO]: showing cvimage preview
+2018-04-26 00:20:35 - [INFO]: getting cvimage histogram
+2018-04-26 00:20:35 - [INFO]: cropping cvimage to follcalcHist([img], [0], None, [256], [0, 256])owing specs [top 355, bottom 390, left 10, right 140]
+2018-04-26 00:20:35 - [INFO]: applying greyscale to cvimage
+2018-04-26 00:20:35 - [INFO]: applying canny edge algorithm to cvimage
+2018-04-26 00:20:35 - [INFO]: showing cvimage preview
+2018-04-26 00:20:35 - [INFO]: getting cvimage histogram
+2018-04-26 00:20:35 - [INFO]: cropping cvimage to follcalcHist([img], [0], None, [256], [0, 256])owing specs [top 355, bottom 390, left 155, right 245]
+2018-04-26 00:20:35 - [INFO]: applying greyscale to cvimage
+2018-04-26 00:20:35 - [INFO]: applying canny edge algorithm to cvimage
+2018-04-26 00:20:35 - [INFO]: showing cvimage preview
+2018-04-26 00:20:35 - [INFO]: getting cvimage histogram
+2018-04-26 00:20:35 - [INFO]: cropping cvimage to follcalcHist([img], [0], None, [256], [0, 256])owing specs [top 355, bottom 390, left 290, right 405]
+2018-04-26 00:20:35 - [INFO]: applying greyscale to cvimage
+2018-04-26 00:20:35 - [INFO]: applying canny edge algorithm to cvimage
+2018-04-26 00:20:35 - [INFO]: showing cvimage preview
+2018-04-26 00:20:35 - [INFO]: getting cvimage histogram
+2018-04-26 00:20:35 - [INFO]: cropping cvimage to follcalcHist([img], [0], None, [256], [0, 256])owing specs [top 355, bottom 390, left 430, right 520]
+2018-04-26 00:20:35 - [INFO]: applying greyscale to cvimage
+2018-04-26 00:20:35 - [INFO]: applying canny edge algorithm to cvimage
+2018-04-26 00:20:35 - [INFO]: showing cvimage preview
+2018-04-26 00:20:35 - [INFO]: getting cvimage histogram
+2018-04-26 00:20:35 - [INFO]: cropping cvimage to follcalcHist([img], [0], None, [256], [0, 256])owing specs [top 355, bottom 390, left 10, right 140]
+2018-04-26 00:20:35 - [INFO]: applying greyscale to cvimage
+2018-04-26 00:20:35 - [INFO]: applying canny edge algorithm to cvimage
+2018-04-26 00:20:35 - [INFO]: showing cvimage preview
+2018-04-26 00:20:35 - [INFO]: getting cvimage histogram
+2018-04-26 00:20:35 - [INFO]: cropping cvimage to follcalcHist([img], [0], None, [256], [0, 256])owing specs [top 355, bottom 390, left 155, right 245]
+2018-04-26 00:20:35 - [INFO]: applying greyscale to cvimage
+2018-04-26 00:20:35 - [INFO]: applying canny edge algorithm to cvimage
+2018-04-26 00:20:35 - [INFO]: showing cvimage preview
+2018-04-26 00:20:35 - [INFO]: getting cvimage histogram
+2018-04-26 00:20:35 - [INFO]: cropping cvimage to follcalcHist([img], [0], None, [256], [0, 256])owing specs [top 355, bottom 390, left 290, right 405]
+2018-04-26 00:20:35 - [INFO]: applying greyscale to cvimage
+2018-04-26 00:20:35 - [INFO]: applying canny edge algorithm to cvimage
+2018-04-26 00:20:35 - [INFO]: showing cvimage preview
+2018-04-26 00:20:35 - [INFO]: getting cvimage histogram
+2018-04-26 00:20:35 - [INFO]: cropping cvimage to follcalcHist([img], [0], None, [256], [0, 256])owing specs [top 355, bottom 390, left 430, right 520]
+2018-04-26 00:20:35 - [INFO]: applying greyscale to cvimage
+2018-04-26 00:20:35 - [INFO]: applying canny edge algorithm to cvimage
+2018-04-26 00:20:35 - [INFO]: showing cvimage preview
+2018-04-26 00:20:35 - [INFO]: getting cvimage histogram
+2018-04-26 00:20:35 - [INFO]: cropping cvimage to follcalcHist([img], [0], None, [256], [0, 256])owing specs [top 355, bottom 390, left 10, right 140]
+2018-04-26 00:20:35 - [INFO]: applying greyscale to cvimage
+2018-04-26 00:20:35 - [INFO]: applying canny edge algorithm to cvimage
+2018-04-26 00:20:35 - [INFO]: showing cvimage preview
+2018-04-26 00:20:35 - [INFO]: getting cvimage histogram
+2018-04-26 00:20:35 - [INFO]: cropping cvimage to follcalcHist([img], [0], None, [256], [0, 256])owing specs [top 355, bottom 390, left 155, right 245]
+2018-04-26 00:20:35 - [INFO]: applying greyscale to cvimage
+2018-04-26 00:20:35 - [INFO]: applying canny edge algorithm to cvimage
+2018-04-26 00:20:35 - [INFO]: showing cvimage preview
+2018-04-26 00:20:35 - [INFO]: getting cvimage histogram
+2018-04-26 00:20:35 - [INFO]: cropping cvimage to follcalcHist([img], [0], None, [256], [0, 256])owing specs [top 355, bottom 390, left 290, right 405]
+2018-04-26 00:20:35 - [INFO]: applying greyscale to cvimage
+2018-04-26 00:20:35 - [INFO]: applying canny edge algorithm to cvimage
+2018-04-26 00:20:35 - [INFO]: showing cvimage preview
+2018-04-26 00:20:35 - [INFO]: getting cvimage histogram
+2018-04-26 00:20:35 - [INFO]: cropping cvimage to follcalcHist([img], [0], None, [256], [0, 256])owing specs [top 355, bottom 390, left 430, right 520]
+2018-04-26 00:20:35 - [INFO]: applying greyscale to cvimage
+2018-04-26 00:20:35 - [INFO]: applying canny edge algorithm to cvimage
+2018-04-26 00:20:35 - [INFO]: showing cvimage preview
+2018-04-26 00:20:35 - [INFO]: getting cvimage histogram
+2018-04-26 00:20:35 - [INFO]: cropping cvimage to follcalcHist([img], [0], None, [256], [0, 256])owing specs [top 355, bottom 390, left 10, right 140]
+2018-04-26 00:20:35 - [INFO]: applying greyscale to cvimage
+2018-04-26 00:20:35 - [INFO]: applying canny edge algorithm to cvimage
+2018-04-26 00:20:35 - [INFO]: showing cvimage preview
+2018-04-26 00:20:35 - [INFO]: getting cvimage histogram
+2018-04-26 00:20:36 - [INFO]: cropping cvimage to follcalcHist([img], [0], None, [256], [0, 256])owing specs [top 355, bottom 390, left 155, right 245]
+2018-04-26 00:20:36 - [INFO]: applying greyscale to cvimage
+2018-04-26 00:20:36 - [INFO]: applying canny edge algorithm to cvimage
+2018-04-26 00:20:36 - [INFO]: showing cvimage preview
+2018-04-26 00:20:36 - [INFO]: getting cvimage histogram
+2018-04-26 00:20:36 - [INFO]: cropping cvimage to follcalcHist([img], [0], None, [256], [0, 256])owing specs [top 355, bottom 390, left 290, right 405]
+2018-04-26 00:20:36 - [INFO]: applying greyscale to cvimage
+2018-04-26 00:20:36 - [INFO]: applying canny edge algorithm to cvimage
+2018-04-26 00:20:36 - [INFO]: showing cvimage preview
+2018-04-26 00:20:36 - [INFO]: getting cvimage histogram
+2018-04-26 00:20:36 - [INFO]: cropping cvimage to follcalcHist([img], [0], None, [256], [0, 256])owing specs [top 355, bottom 390, left 430, right 520]
+2018-04-26 00:20:36 - [INFO]: applying greyscale to cvimage
+2018-04-26 00:20:36 - [INFO]: applying canny edge algorithm to cvimage
+2018-04-26 00:20:36 - [INFO]: showing cvimage preview
+2018-04-26 00:20:36 - [INFO]: getting cvimage histogram
+2018-04-26 00:20:36 - [INFO]: cropping cvimage to follcalcHist([img], [0], None, [256], [0, 256])owing specs [top 355, bottom 390, left 10, right 140]
+2018-04-26 00:20:36 - [INFO]: applying greyscale to cvimage
+2018-04-26 00:20:36 - [INFO]: applying canny edge algorithm to cvimage
+2018-04-26 00:20:36 - [INFO]: showing cvimage preview
+2018-04-26 00:20:36 - [INFO]: getting cvimage histogram
+2018-04-26 00:20:36 - [INFO]: cropping cvimage to follcalcHist([img], [0], None, [256], [0, 256])owing specs [top 355, bottom 390, left 155, right 245]
+2018-04-26 00:20:36 - [INFO]: applying greyscale to cvimage
+2018-04-26 00:20:36 - [INFO]: applying canny edge algorithm to cvimage
+2018-04-26 00:20:36 - [INFO]: showing cvimage preview
+2018-04-26 00:20:36 - [INFO]: getting cvimage histogram
+2018-04-26 00:20:36 - [INFO]: cropping cvimage to follcalcHist([img], [0], None, [256], [0, 256])owing specs [top 355, bottom 390, left 290, right 405]
+2018-04-26 00:20:36 - [INFO]: applying greyscale to cvimage
+2018-04-26 00:20:36 - [INFO]: applying canny edge algorithm to cvimage
+2018-04-26 00:20:36 - [INFO]: showing cvimage preview
+2018-04-26 00:20:36 - [INFO]: getting cvimage histogram
+2018-04-26 00:20:36 - [INFO]: cropping cvimage to follcalcHist([img], [0], None, [256], [0, 256])owing specs [top 355, bottom 390, left 430, right 520]
+2018-04-26 00:20:36 - [INFO]: applying greyscale to cvimage
+2018-04-26 00:20:36 - [INFO]: applying canny edge algorithm to cvimage
+2018-04-26 00:20:36 - [INFO]: showing cvimage preview
+2018-04-26 00:20:36 - [INFO]: getting cvimage histogram
+2018-04-26 00:20:36 - [INFO]: cropping cvimage to follcalcHist([img], [0], None, [256], [0, 256])owing specs [top 355, bottom 390, left 10, right 140]
+2018-04-26 00:20:36 - [INFO]: applying greyscale to cvimage
+2018-04-26 00:20:36 - [INFO]: applying canny edge algorithm to cvimage
+2018-04-26 00:20:36 - [INFO]: showing cvimage preview
+2018-04-26 00:20:36 - [INFO]: getting cvimage histogram
+2018-04-26 00:20:36 - [INFO]: cropping cvimage to follcalcHist([img], [0], None, [256], [0, 256])owing specs [top 355, bottom 390, left 155, right 245]
+2018-04-26 00:20:36 - [INFO]: applying greyscale to cvimage
+2018-04-26 00:20:36 - [INFO]: applying canny edge algorithm to cvimage
+2018-04-26 00:20:36 - [INFO]: showing cvimage preview
+2018-04-26 00:20:36 - [INFO]: getting cvimage histogram
+2018-04-26 00:20:36 - [INFO]: cropping cvimage to follcalcHist([img], [0], None, [256], [0, 256])owing specs [top 355, bottom 390, left 290, right 405]
+2018-04-26 00:20:36 - [INFO]: applying greyscale to cvimage
+2018-04-26 00:20:36 - [INFO]: applying canny edge algorithm to cvimage
+2018-04-26 00:20:36 - [INFO]: showing cvimage preview
+2018-04-26 00:20:36 - [INFO]: getting cvimage histogram
+2018-04-26 00:20:36 - [INFO]: cropping cvimage to follcalcHist([img], [0], None, [256], [0, 256])owing specs [top 355, bottom 390, left 430, right 520]
+2018-04-26 00:20:36 - [INFO]: applying greyscale to cvimage
+2018-04-26 00:20:36 - [INFO]: applying canny edge algorithm to cvimage
+2018-04-26 00:20:36 - [INFO]: showing cvimage preview
+2018-04-26 00:20:36 - [INFO]: getting cvimage histogram
+2018-04-26 00:20:36 - [INFO]: cropping cvimage to follcalcHist([img], [0], None, [256], [0, 256])owing specs [top 355, bottom 390, left 10, right 140]
+2018-04-26 00:20:36 - [INFO]: applying greyscale to cvimage
+2018-04-26 00:20:36 - [INFO]: applying canny edge algorithm to cvimage
+2018-04-26 00:20:36 - [INFO]: showing cvimage preview
+2018-04-26 00:20:36 - [INFO]: getting cvimage histogram
+2018-04-26 00:20:36 - [INFO]: cropping cvimage to follcalcHist([img], [0], None, [256], [0, 256])owing specs [top 355, bottom 390, left 155, right 245]
+2018-04-26 00:20:36 - [INFO]: applying greyscale to cvimage
+2018-04-26 00:20:36 - [INFO]: applying canny edge algorithm to cvimage
+2018-04-26 00:20:36 - [INFO]: showing cvimage preview
+2018-04-26 00:20:36 - [INFO]: getting cvimage histogram
+2018-04-26 00:20:36 - [INFO]: cropping cvimage to follcalcHist([img], [0], None, [256], [0, 256])owing specs [top 355, bottom 390, left 290, right 405]
+2018-04-26 00:20:36 - [INFO]: applying greyscale to cvimage
+2018-04-26 00:20:36 - [INFO]: applying canny edge algorithm to cvimage
+2018-04-26 00:20:36 - [INFO]: showing cvimage preview
+2018-04-26 00:20:36 - [INFO]: getting cvimage histogram
+2018-04-26 00:20:36 - [INFO]: cropping cvimage to follcalcHist([img], [0], None, [256], [0, 256])owing specs [top 355, bottom 390, left 430, right 520]
+2018-04-26 00:20:36 - [INFO]: applying greyscale to cvimage
+2018-04-26 00:20:36 - [INFO]: applying canny edge algorithm to cvimage
+2018-04-26 00:20:36 - [INFO]: showing cvimage preview
+2018-04-26 00:20:36 - [INFO]: getting cvimage histogram
+2018-04-26 00:20:36 - [INFO]: cropping cvimage to follcalcHist([img], [0], None, [256], [0, 256])owing specs [top 355, bottom 390, left 10, right 140]
+2018-04-26 00:20:36 - [INFO]: applying greyscale to cvimage
+2018-04-26 00:20:36 - [INFO]: applying canny edge algorithm to cvimage
+2018-04-26 00:20:36 - [INFO]: showing cvimage preview
+2018-04-26 00:20:36 - [INFO]: getting cvimage histogram
+2018-04-26 00:20:36 - [INFO]: cropping cvimage to follcalcHist([img], [0], None, [256], [0, 256])owing specs [top 355, bottom 390, left 155, right 245]
+2018-04-26 00:20:36 - [INFO]: applying greyscale to cvimage
+2018-04-26 00:20:36 - [INFO]: applying canny edge algorithm to cvimage
+2018-04-26 00:20:36 - [INFO]: showing cvimage preview
+2018-04-26 00:20:36 - [INFO]: getting cvimage histogram
+2018-04-26 00:20:36 - [INFO]: cropping cvimage to follcalcHist([img], [0], None, [256], [0, 256])owing specs [top 355, bottom 390, left 290, right 405]
+2018-04-26 00:20:36 - [INFO]: applying greyscale to cvimage
+2018-04-26 00:20:36 - [INFO]: applying canny edge algorithm to cvimage
+2018-04-26 00:20:36 - [INFO]: showing cvimage preview
+2018-04-26 00:20:36 - [INFO]: getting cvimage histogram
+2018-04-26 00:20:36 - [INFO]: cropping cvimage to follcalcHist([img], [0], None, [256], [0, 256])owing specs [top 355, bottom 390, left 430, right 520]
+2018-04-26 00:20:36 - [INFO]: applying greyscale to cvimage
+2018-04-26 00:20:36 - [INFO]: applying canny edge algorithm to cvimage
+2018-04-26 00:20:36 - [INFO]: showing cvimage preview
+2018-04-26 00:20:36 - [INFO]: getting cvimage histogram
+2018-04-26 00:20:36 - [INFO]: cropping cvimage to follcalcHist([img], [0], None, [256], [0, 256])owing specs [top 355, bottom 390, left 10, right 140]
+2018-04-26 00:20:36 - [INFO]: applying greyscale to cvimage
+2018-04-26 00:20:36 - [INFO]: applying canny edge algorithm to cvimage
+2018-04-26 00:20:36 - [INFO]: showing cvimage preview
+2018-04-26 00:20:36 - [INFO]: getting cvimage histogram
+2018-04-26 00:20:36 - [INFO]: cropping cvimage to follcalcHist([img], [0], None, [256], [0, 256])owing specs [top 355, bottom 390, left 155, right 245]
+2018-04-26 00:20:36 - [INFO]: applying greyscale to cvimage
+2018-04-26 00:20:36 - [INFO]: applying canny edge algorithm to cvimage
+2018-04-26 00:20:36 - [INFO]: showing cvimage preview
+2018-04-26 00:20:36 - [INFO]: getting cvimage histogram
+2018-04-26 00:20:36 - [INFO]: cropping cvimage to follcalcHist([img], [0], None, [256], [0, 256])owing specs [top 355, bottom 390, left 290, right 405]
+2018-04-26 00:20:36 - [INFO]: applying greyscale to cvimage
+2018-04-26 00:20:36 - [INFO]: applying canny edge algorithm to cvimage
+2018-04-26 00:20:36 - [INFO]: showing cvimage preview
+2018-04-26 00:20:36 - [INFO]: getting cvimage histogram
+2018-04-26 00:20:36 - [INFO]: cropping cvimage to follcalcHist([img], [0], None, [256], [0, 256])owing specs [top 355, bottom 390, left 430, right 520]
+2018-04-26 00:20:36 - [INFO]: applying greyscale to cvimage
+2018-04-26 00:20:36 - [INFO]: applying canny edge algorithm to cvimage
+2018-04-26 00:20:36 - [INFO]: showing cvimage preview
+2018-04-26 00:20:36 - [INFO]: getting cvimage histogram
+2018-04-26 00:20:36 - [INFO]: cropping cvimage to follcalcHist([img], [0], None, [256], [0, 256])owing specs [top 355, bottom 390, left 10, right 140]
+2018-04-26 00:20:36 - [INFO]: applying greyscale to cvimage
+2018-04-26 00:20:36 - [INFO]: applying canny edge algorithm to cvimage
+2018-04-26 00:20:36 - [INFO]: showing cvimage preview
+2018-04-26 00:20:36 - [INFO]: getting cvimage histogram
+2018-04-26 00:20:36 - [INFO]: cropping cvimage to follcalcHist([img], [0], None, [256], [0, 256])owing specs [top 355, bottom 390, left 155, right 245]
+2018-04-26 00:20:36 - [INFO]: applying greyscale to cvimage
+2018-04-26 00:20:36 - [INFO]: applying canny edge algorithm to cvimage
+2018-04-26 00:20:36 - [INFO]: showing cvimage preview
+2018-04-26 00:20:36 - [INFO]: getting cvimage histogram
+2018-04-26 00:20:36 - [INFO]: cropping cvimage to follcalcHist([img], [0], None, [256], [0, 256])owing specs [top 355, bottom 390, left 290, right 405]
+2018-04-26 00:20:36 - [INFO]: applying greyscale to cvimage
+2018-04-26 00:20:36 - [INFO]: applying canny edge algorithm to cvimage
+2018-04-26 00:20:36 - [INFO]: showing cvimage preview
+2018-04-26 00:20:36 - [INFO]: getting cvimage histogram
+2018-04-26 00:20:37 - [INFO]: cropping cvimage to follcalcHist([img], [0], None, [256], [0, 256])owing specs [top 355, bottom 390, left 430, right 520]
+2018-04-26 00:20:37 - [INFO]: applying greyscale to cvimage
+2018-04-26 00:20:37 - [INFO]: applying canny edge algorithm to cvimage
+2018-04-26 00:20:37 - [INFO]: showing cvimage preview
+2018-04-26 00:20:37 - [INFO]: getting cvimage histogram
+2018-04-26 00:20:37 - [INFO]: cropping cvimage to follcalcHist([img], [0], None, [256], [0, 256])owing specs [top 355, bottom 390, left 10, right 140]
+2018-04-26 00:20:37 - [INFO]: applying greyscale to cvimage
+2018-04-26 00:20:37 - [INFO]: applying canny edge algorithm to cvimage
+2018-04-26 00:20:37 - [INFO]: showing cvimage preview
+2018-04-26 00:20:37 - [INFO]: getting cvimage histogram
+2018-04-26 00:20:37 - [INFO]: cropping cvimage to follcalcHist([img], [0], None, [256], [0, 256])owing specs [top 355, bottom 390, left 155, right 245]
+2018-04-26 00:20:37 - [INFO]: applying greyscale to cvimage
+2018-04-26 00:20:37 - [INFO]: applying canny edge algorithm to cvimage
+2018-04-26 00:20:37 - [INFO]: showing cvimage preview
+2018-04-26 00:20:37 - [INFO]: getting cvimage histogram
+2018-04-26 00:20:37 - [INFO]: cropping cvimage to follcalcHist([img], [0], None, [256], [0, 256])owing specs [top 355, bottom 390, left 290, right 405]
+2018-04-26 00:20:37 - [INFO]: applying greyscale to cvimage
+2018-04-26 00:20:37 - [INFO]: applying canny edge algorithm to cvimage
+2018-04-26 00:20:37 - [INFO]: showing cvimage preview
+2018-04-26 00:20:37 - [INFO]: getting cvimage histogram
+2018-04-26 00:20:37 - [INFO]: cropping cvimage to follcalcHist([img], [0], None, [256], [0, 256])owing specs [top 355, bottom 390, left 430, right 520]
+2018-04-26 00:20:37 - [INFO]: applying greyscale to cvimage
+2018-04-26 00:20:37 - [INFO]: applying canny edge algorithm to cvimage
+2018-04-26 00:20:37 - [INFO]: showing cvimage preview
+2018-04-26 00:20:37 - [INFO]: getting cvimage histogram
+2018-04-26 00:20:37 - [INFO]: cropping cvimage to follcalcHist([img], [0], None, [256], [0, 256])owing specs [top 355, bottom 390, left 10, right 140]
+2018-04-26 00:20:37 - [INFO]: applying greyscale to cvimage
+2018-04-26 00:20:37 - [INFO]: applying canny edge algorithm to cvimage
+2018-04-26 00:20:37 - [INFO]: showing cvimage preview
+2018-04-26 00:20:37 - [INFO]: getting cvimage histogram
+2018-04-26 00:20:37 - [INFO]: cropping cvimage to follcalcHist([img], [0], None, [256], [0, 256])owing specs [top 355, bottom 390, left 155, right 245]
+2018-04-26 00:20:37 - [INFO]: applying greyscale to cvimage
+2018-04-26 00:20:37 - [INFO]: applying canny edge algorithm to cvimage
+2018-04-26 00:20:37 - [INFO]: showing cvimage preview
+2018-04-26 00:20:37 - [INFO]: getting cvimage histogram
+2018-04-26 00:20:37 - [INFO]: cropping cvimage to follcalcHist([img], [0], None, [256], [0, 256])owing specs [top 355, bottom 390, left 290, right 405]
+2018-04-26 00:20:37 - [INFO]: applying greyscale to cvimage
+2018-04-26 00:20:37 - [INFO]: applying canny edge algorithm to cvimage
+2018-04-26 00:20:37 - [INFO]: showing cvimage preview
+2018-04-26 00:20:37 - [INFO]: getting cvimage histogram
+2018-04-26 00:20:37 - [INFO]: cropping cvimage to follcalcHist([img], [0], None, [256], [0, 256])owing specs [top 355, bottom 390, left 430, right 520]
+2018-04-26 00:20:37 - [INFO]: applying greyscale to cvimage
+2018-04-26 00:20:37 - [INFO]: applying canny edge algorithm to cvimage
+2018-04-26 00:20:37 - [INFO]: showing cvimage preview
+2018-04-26 00:20:37 - [INFO]: getting cvimage histogram
+2018-04-26 00:20:37 - [INFO]: cropping cvimage to follcalcHist([img], [0], None, [256], [0, 256])owing specs [top 355, bottom 390, left 10, right 140]
+2018-04-26 00:20:37 - [INFO]: applying greyscale to cvimage
+2018-04-26 00:20:37 - [INFO]: applying canny edge algorithm to cvimage
+2018-04-26 00:20:37 - [INFO]: showing cvimage preview
+2018-04-26 00:20:37 - [INFO]: getting cvimage histogram
+2018-04-26 00:20:37 - [INFO]: cropping cvimage to follcalcHist([img], [0], None, [256], [0, 256])owing specs [top 355, bottom 390, left 155, right 245]
+2018-04-26 00:20:37 - [INFO]: applying greyscale to cvimage
+2018-04-26 00:20:37 - [INFO]: applying canny edge algorithm to cvimage
+2018-04-26 00:20:37 - [INFO]: showing cvimage preview
+2018-04-26 00:20:37 - [INFO]: getting cvimage histogram
+2018-04-26 00:20:37 - [INFO]: cropping cvimage to follcalcHist([img], [0], None, [256], [0, 256])owing specs [top 355, bottom 390, left 290, right 405]
+2018-04-26 00:20:37 - [INFO]: applying greyscale to cvimage
+2018-04-26 00:20:37 - [INFO]: applying canny edge algorithm to cvimage
+2018-04-26 00:20:37 - [INFO]: showing cvimage preview
+2018-04-26 00:20:37 - [INFO]: getting cvimage histogram
+2018-04-26 00:20:37 - [INFO]: cropping cvimage to follcalcHist([img], [0], None, [256], [0, 256])owing specs [top 355, bottom 390, left 430, right 520]
+2018-04-26 00:20:37 - [INFO]: applying greyscale to cvimage
+2018-04-26 00:20:37 - [INFO]: applying canny edge algorithm to cvimage
+2018-04-26 00:20:37 - [INFO]: showing cvimage preview
+2018-04-26 00:20:37 - [INFO]: getting cvimage histogram
+2018-04-26 00:20:37 - [INFO]: cropping cvimage to follcalcHist([img], [0], None, [256], [0, 256])owing specs [top 355, bottom 390, left 10, right 140]
+2018-04-26 00:20:37 - [INFO]: applying greyscale to cvimage
+2018-04-26 00:20:37 - [INFO]: applying canny edge algorithm to cvimage
+2018-04-26 00:20:37 - [INFO]: showing cvimage preview
+2018-04-26 00:20:37 - [INFO]: getting cvimage histogram
+2018-04-26 00:20:37 - [INFO]: cropping cvimage to follcalcHist([img], [0], None, [256], [0, 256])owing specs [top 355, bottom 390, left 155, right 245]
+2018-04-26 00:20:37 - [INFO]: applying greyscale to cvimage
+2018-04-26 00:20:37 - [INFO]: applying canny edge algorithm to cvimage
+2018-04-26 00:20:37 - [INFO]: showing cvimage preview
+2018-04-26 00:20:37 - [INFO]: getting cvimage histogram
+2018-04-26 00:20:37 - [INFO]: cropping cvimage to follcalcHist([img], [0], None, [256], [0, 256])owing specs [top 355, bottom 390, left 290, right 405]
+2018-04-26 00:20:37 - [INFO]: applying greyscale to cvimage
+2018-04-26 00:20:37 - [INFO]: applying canny edge algorithm to cvimage
+2018-04-26 00:20:37 - [INFO]: showing cvimage preview
+2018-04-26 00:20:37 - [INFO]: getting cvimage histogram
+2018-04-26 00:20:37 - [INFO]: cropping cvimage to follcalcHist([img], [0], None, [256], [0, 256])owing specs [top 355, bottom 390, left 430, right 520]
+2018-04-26 00:20:37 - [INFO]: applying greyscale to cvimage
+2018-04-26 00:20:37 - [INFO]: applying canny edge algorithm to cvimage
+2018-04-26 00:20:37 - [INFO]: showing cvimage preview
+2018-04-26 00:20:37 - [INFO]: getting cvimage histogram
+2018-04-26 00:20:37 - [INFO]: cropping cvimage to follcalcHist([img], [0], None, [256], [0, 256])owing specs [top 355, bottom 390, left 10, right 140]
+2018-04-26 00:20:37 - [INFO]: applying greyscale to cvimage
+2018-04-26 00:20:37 - [INFO]: applying canny edge algorithm to cvimage
+2018-04-26 00:20:37 - [INFO]: showing cvimage preview
+2018-04-26 00:20:37 - [INFO]: getting cvimage histogram
+2018-04-26 00:20:37 - [INFO]: cropping cvimage to follcalcHist([img], [0], None, [256], [0, 256])owing specs [top 355, bottom 390, left 155, right 245]
+2018-04-26 00:20:37 - [INFO]: applying greyscale to cvimage
+2018-04-26 00:20:37 - [INFO]: applying canny edge algorithm to cvimage
+2018-04-26 00:20:37 - [INFO]: showing cvimage preview
+2018-04-26 00:20:37 - [INFO]: getting cvimage histogram
+2018-04-26 00:20:37 - [INFO]: cropping cvimage to follcalcHist([img], [0], None, [256], [0, 256])owing specs [top 355, bottom 390, left 290, right 405]
+2018-04-26 00:20:37 - [INFO]: applying greyscale to cvimage
+2018-04-26 00:20:37 - [INFO]: applying canny edge algorithm to cvimage
+2018-04-26 00:20:37 - [INFO]: showing cvimage preview
+2018-04-26 00:20:37 - [INFO]: getting cvimage histogram
+2018-04-26 00:20:37 - [INFO]: cropping cvimage to follcalcHist([img], [0], None, [256], [0, 256])owing specs [top 355, bottom 390, left 430, right 520]
+2018-04-26 00:20:37 - [INFO]: applying greyscale to cvimage
+2018-04-26 00:20:37 - [INFO]: applying canny edge algorithm to cvimage
+2018-04-26 00:20:37 - [INFO]: showing cvimage preview
+2018-04-26 00:20:37 - [INFO]: getting cvimage histogram
+2018-04-26 00:20:37 - [INFO]: cropping cvimage to follcalcHist([img], [0], None, [256], [0, 256])owing specs [top 355, bottom 390, left 10, right 140]
+2018-04-26 00:20:37 - [INFO]: applying greyscale to cvimage
+2018-04-26 00:20:37 - [INFO]: applying canny edge algorithm to cvimage
+2018-04-26 00:20:37 - [INFO]: showing cvimage preview
+2018-04-26 00:20:37 - [INFO]: getting cvimage histogram
+2018-04-26 00:20:37 - [INFO]: cropping cvimage to follcalcHist([img], [0], None, [256], [0, 256])owing specs [top 355, bottom 390, left 155, right 245]
+2018-04-26 00:20:37 - [INFO]: applying greyscale to cvimage
+2018-04-26 00:20:37 - [INFO]: applying canny edge algorithm to cvimage
+2018-04-26 00:20:37 - [INFO]: showing cvimage preview
+2018-04-26 00:20:37 - [INFO]: getting cvimage histogram
+2018-04-26 00:20:37 - [INFO]: cropping cvimage to follcalcHist([img], [0], None, [256], [0, 256])owing specs [top 355, bottom 390, left 290, right 405]
+2018-04-26 00:20:37 - [INFO]: applying greyscale to cvimage
+2018-04-26 00:20:37 - [INFO]: applying canny edge algorithm to cvimage
+2018-04-26 00:20:37 - [INFO]: showing cvimage preview
+2018-04-26 00:20:37 - [INFO]: getting cvimage histogram
+2018-04-26 00:20:37 - [INFO]: cropping cvimage to follcalcHist([img], [0], None, [256], [0, 256])owing specs [top 355, bottom 390, left 430, right 520]
+2018-04-26 00:20:37 - [INFO]: applying greyscale to cvimage
+2018-04-26 00:20:37 - [INFO]: applying canny edge algorithm to cvimage
+2018-04-26 00:20:37 - [INFO]: showing cvimage preview
+2018-04-26 00:20:37 - [INFO]: getting cvimage histogram
+2018-04-26 00:20:37 - [INFO]: cropping cvimage to follcalcHist([img], [0], None, [256], [0, 256])owing specs [top 355, bottom 390, left 10, right 140]
+2018-04-26 00:20:37 - [INFO]: applying greyscale to cvimage
+2018-04-26 00:20:37 - [INFO]: applying canny edge algorithm to cvimage
+2018-04-26 00:20:37 - [INFO]: showing cvimage preview
+2018-04-26 00:20:38 - [INFO]: getting cvimage histogram
+2018-04-26 00:20:38 - [INFO]: cropping cvimage to follcalcHist([img], [0], None, [256], [0, 256])owing specs [top 355, bottom 390, left 155, right 245]
+2018-04-26 00:20:38 - [INFO]: applying greyscale to cvimage
+2018-04-26 00:20:38 - [INFO]: applying canny edge algorithm to cvimage
+2018-04-26 00:20:38 - [INFO]: showing cvimage preview
+2018-04-26 00:20:38 - [INFO]: getting cvimage histogram
+2018-04-26 00:20:38 - [INFO]: cropping cvimage to follcalcHist([img], [0], None, [256], [0, 256])owing specs [top 355, bottom 390, left 290, right 405]
+2018-04-26 00:20:38 - [INFO]: applying greyscale to cvimage
+2018-04-26 00:20:38 - [INFO]: applying canny edge algorithm to cvimage
+2018-04-26 00:20:38 - [INFO]: showing cvimage preview
+2018-04-26 00:20:38 - [INFO]: getting cvimage histogram
+2018-04-26 00:20:38 - [INFO]: cropping cvimage to follcalcHist([img], [0], None, [256], [0, 256])owing specs [top 355, bottom 390, left 430, right 520]
+2018-04-26 00:20:38 - [INFO]: applying greyscale to cvimage
+2018-04-26 00:20:38 - [INFO]: applying canny edge algorithm to cvimage
+2018-04-26 00:20:38 - [INFO]: showing cvimage preview
+2018-04-26 00:20:38 - [INFO]: getting cvimage histogram
+2018-04-26 00:20:38 - [INFO]: cropping cvimage to follcalcHist([img], [0], None, [256], [0, 256])owing specs [top 355, bottom 390, left 10, right 140]
+2018-04-26 00:20:38 - [INFO]: applying greyscale to cvimage
+2018-04-26 00:20:38 - [INFO]: applying canny edge algorithm to cvimage
+2018-04-26 00:20:38 - [INFO]: showing cvimage preview
+2018-04-26 00:20:38 - [INFO]: getting cvimage histogram
+2018-04-26 00:20:38 - [INFO]: cropping cvimage to follcalcHist([img], [0], None, [256], [0, 256])owing specs [top 355, bottom 390, left 155, right 245]
+2018-04-26 00:20:38 - [INFO]: applying greyscale to cvimage
+2018-04-26 00:20:38 - [INFO]: applying canny edge algorithm to cvimage
+2018-04-26 00:20:38 - [INFO]: showing cvimage preview
+2018-04-26 00:20:38 - [INFO]: getting cvimage histogram
+2018-04-26 00:20:38 - [INFO]: cropping cvimage to follcalcHist([img], [0], None, [256], [0, 256])owing specs [top 355, bottom 390, left 290, right 405]
+2018-04-26 00:20:38 - [INFO]: applying greyscale to cvimage
+2018-04-26 00:20:38 - [INFO]: applying canny edge algorithm to cvimage
+2018-04-26 00:20:38 - [INFO]: showing cvimage preview
+2018-04-26 00:20:38 - [INFO]: getting cvimage histogram
+2018-04-26 00:20:38 - [INFO]: cropping cvimage to follcalcHist([img], [0], None, [256], [0, 256])owing specs [top 355, bottom 390, left 430, right 520]
+2018-04-26 00:20:38 - [INFO]: applying greyscale to cvimage
+2018-04-26 00:20:38 - [INFO]: applying canny edge algorithm to cvimage
+2018-04-26 00:20:38 - [INFO]: showing cvimage preview
+2018-04-26 00:20:38 - [INFO]: getting cvimage histogram
+2018-04-26 00:20:38 - [INFO]: cropping cvimage to follcalcHist([img], [0], None, [256], [0, 256])owing specs [top 355, bottom 390, left 10, right 140]
+2018-04-26 00:20:38 - [INFO]: applying greyscale to cvimage
+2018-04-26 00:20:38 - [INFO]: applying canny edge algorithm to cvimage
+2018-04-26 00:20:38 - [INFO]: showing cvimage preview
+2018-04-26 00:20:38 - [INFO]: getting cvimage histogram
+2018-04-26 00:20:38 - [INFO]: cropping cvimage to follcalcHist([img], [0], None, [256], [0, 256])owing specs [top 355, bottom 390, left 155, right 245]
+2018-04-26 00:20:38 - [INFO]: applying greyscale to cvimage
+2018-04-26 00:20:38 - [INFO]: applying canny edge algorithm to cvimage
+2018-04-26 00:20:38 - [INFO]: showing cvimage preview
+2018-04-26 00:20:38 - [INFO]: getting cvimage histogram
+2018-04-26 00:20:38 - [INFO]: cropping cvimage to follcalcHist([img], [0], None, [256], [0, 256])owing specs [top 355, bottom 390, left 290, right 405]
+2018-04-26 00:20:38 - [INFO]: applying greyscale to cvimage
+2018-04-26 00:20:38 - [INFO]: applying canny edge algorithm to cvimage
+2018-04-26 00:20:38 - [INFO]: showing cvimage preview
+2018-04-26 00:20:38 - [INFO]: getting cvimage histogram
+2018-04-26 00:20:38 - [INFO]: cropping cvimage to follcalcHist([img], [0], None, [256], [0, 256])owing specs [top 355, bottom 390, left 430, right 520]
+2018-04-26 00:20:38 - [INFO]: applying greyscale to cvimage
+2018-04-26 00:20:38 - [INFO]: applying canny edge algorithm to cvimage
+2018-04-26 00:20:38 - [INFO]: showing cvimage preview
+2018-04-26 00:20:38 - [INFO]: getting cvimage histogram
+2018-04-26 00:20:38 - [INFO]: cropping cvimage to follcalcHist([img], [0], None, [256], [0, 256])owing specs [top 355, bottom 390, left 10, right 140]
+2018-04-26 00:20:38 - [INFO]: applying greyscale to cvimage
+2018-04-26 00:20:38 - [INFO]: applying canny edge algorithm to cvimage
+2018-04-26 00:20:38 - [INFO]: showing cvimage preview
+2018-04-26 00:20:38 - [INFO]: getting cvimage histogram
+2018-04-26 00:20:38 - [INFO]: cropping cvimage to follcalcHist([img], [0], None, [256], [0, 256])owing specs [top 355, bottom 390, left 155, right 245]
+2018-04-26 00:20:38 - [INFO]: applying greyscale to cvimage
+2018-04-26 00:20:38 - [INFO]: applying canny edge algorithm to cvimage
+2018-04-26 00:20:38 - [INFO]: showing cvimage preview
+2018-04-26 00:20:38 - [INFO]: getting cvimage histogram
+2018-04-26 00:20:38 - [INFO]: cropping cvimage to follcalcHist([img], [0], None, [256], [0, 256])owing specs [top 355, bottom 390, left 290, right 405]
+2018-04-26 00:20:38 - [INFO]: applying greyscale to cvimage
+2018-04-26 00:20:38 - [INFO]: applying canny edge algorithm to cvimage
+2018-04-26 00:20:38 - [INFO]: showing cvimage preview
+2018-04-26 00:20:38 - [INFO]: getting cvimage histogram
+2018-04-26 00:20:38 - [INFO]: cropping cvimage to follcalcHist([img], [0], None, [256], [0, 256])owing specs [top 355, bottom 390, left 430, right 520]
+2018-04-26 00:20:38 - [INFO]: applying greyscale to cvimage
+2018-04-26 00:20:38 - [INFO]: applying canny edge algorithm to cvimage
+2018-04-26 00:20:38 - [INFO]: showing cvimage preview
+2018-04-26 00:20:38 - [INFO]: getting cvimage histogram
+2018-04-26 00:20:38 - [INFO]: cropping cvimage to follcalcHist([img], [0], None, [256], [0, 256])owing specs [top 355, bottom 390, left 10, right 140]
+2018-04-26 00:20:38 - [INFO]: applying greyscale to cvimage
+2018-04-26 00:20:38 - [INFO]: applying canny edge algorithm to cvimage
+2018-04-26 00:20:38 - [INFO]: showing cvimage preview
+2018-04-26 00:20:38 - [INFO]: getting cvimage histogram
+2018-04-26 00:20:38 - [INFO]: cropping cvimage to follcalcHist([img], [0], None, [256], [0, 256])owing specs [top 355, bottom 390, left 155, right 245]
+2018-04-26 00:20:38 - [INFO]: applying greyscale to cvimage
+2018-04-26 00:20:38 - [INFO]: applying canny edge algorithm to cvimage
+2018-04-26 00:20:38 - [INFO]: showing cvimage preview
+2018-04-26 00:20:38 - [INFO]: getting cvimage histogram
+2018-04-26 00:20:38 - [INFO]: cropping cvimage to follcalcHist([img], [0], None, [256], [0, 256])owing specs [top 355, bottom 390, left 290, right 405]
+2018-04-26 00:20:38 - [INFO]: applying greyscale to cvimage
+2018-04-26 00:20:38 - [INFO]: applying canny edge algorithm to cvimage
+2018-04-26 00:20:38 - [INFO]: showing cvimage preview
+2018-04-26 00:20:38 - [INFO]: getting cvimage histogram
+2018-04-26 00:20:38 - [INFO]: cropping cvimage to follcalcHist([img], [0], None, [256], [0, 256])owing specs [top 355, bottom 390, left 430, right 520]
+2018-04-26 00:20:38 - [INFO]: applying greyscale to cvimage
+2018-04-26 00:20:38 - [INFO]: applying canny edge algorithm to cvimage
+2018-04-26 00:20:38 - [INFO]: showing cvimage preview
+2018-04-26 00:20:38 - [INFO]: getting cvimage histogram
+2018-04-26 00:20:38 - [INFO]: cropping cvimage to follcalcHist([img], [0], None, [256], [0, 256])owing specs [top 355, bottom 390, left 10, right 140]
+2018-04-26 00:20:38 - [INFO]: applying greyscale to cvimage
+2018-04-26 00:20:38 - [INFO]: applying canny edge algorithm to cvimage
+2018-04-26 00:20:38 - [INFO]: showing cvimage preview
+2018-04-26 00:20:38 - [INFO]: getting cvimage histogram
+2018-04-26 00:20:38 - [INFO]: cropping cvimage to follcalcHist([img], [0], None, [256], [0, 256])owing specs [top 355, bottom 390, left 155, right 245]
+2018-04-26 00:20:38 - [INFO]: applying greyscale to cvimage
+2018-04-26 00:20:38 - [INFO]: applying canny edge algorithm to cvimage
+2018-04-26 00:20:38 - [INFO]: showing cvimage preview
+2018-04-26 00:20:38 - [INFO]: getting cvimage histogram
+2018-04-26 00:20:38 - [INFO]: cropping cvimage to follcalcHist([img], [0], None, [256], [0, 256])owing specs [top 355, bottom 390, left 290, right 405]
+2018-04-26 00:20:38 - [INFO]: applying greyscale to cvimage
+2018-04-26 00:20:38 - [INFO]: applying canny edge algorithm to cvimage
+2018-04-26 00:20:38 - [INFO]: showing cvimage preview
+2018-04-26 00:20:38 - [INFO]: getting cvimage histogram
+2018-04-26 00:20:38 - [INFO]: cropping cvimage to follcalcHist([img], [0], None, [256], [0, 256])owing specs [top 355, bottom 390, left 430, right 520]
+2018-04-26 00:20:38 - [INFO]: applying greyscale to cvimage
+2018-04-26 00:20:38 - [INFO]: applying canny edge algorithm to cvimage
+2018-04-26 00:20:38 - [INFO]: showing cvimage preview
+2018-04-26 00:20:38 - [INFO]: getting cvimage histogram
+2018-04-26 00:20:38 - [INFO]: cropping cvimage to follcalcHist([img], [0], None, [256], [0, 256])owing specs [top 355, bottom 390, left 10, right 140]
+2018-04-26 00:20:38 - [INFO]: applying greyscale to cvimage
+2018-04-26 00:20:38 - [INFO]: applying canny edge algorithm to cvimage
+2018-04-26 00:20:38 - [INFO]: showing cvimage preview
+2018-04-26 00:20:38 - [INFO]: getting cvimage histogram
+2018-04-26 00:20:38 - [INFO]: cropping cvimage to follcalcHist([img], [0], None, [256], [0, 256])owing specs [top 355, bottom 390, left 155, right 245]
+2018-04-26 00:20:38 - [INFO]: applying greyscale to cvimage
+2018-04-26 00:20:38 - [INFO]: applying canny edge algorithm to cvimage
+2018-04-26 00:20:38 - [INFO]: showing cvimage preview
+2018-04-26 00:20:38 - [INFO]: getting cvimage histogram
+2018-04-26 00:20:39 - [INFO]: cropping cvimage to follcalcHist([img], [0], None, [256], [0, 256])owing specs [top 355, bottom 390, left 290, right 405]
+2018-04-26 00:20:39 - [INFO]: applying greyscale to cvimage
+2018-04-26 00:20:39 - [INFO]: applying canny edge algorithm to cvimage
+2018-04-26 00:20:39 - [INFO]: showing cvimage preview
+2018-04-26 00:20:39 - [INFO]: getting cvimage histogram
+2018-04-26 00:20:39 - [INFO]: cropping cvimage to follcalcHist([img], [0], None, [256], [0, 256])owing specs [top 355, bottom 390, left 430, right 520]
+2018-04-26 00:20:39 - [INFO]: applying greyscale to cvimage
+2018-04-26 00:20:39 - [INFO]: applying canny edge algorithm to cvimage
+2018-04-26 00:20:39 - [INFO]: showing cvimage preview
+2018-04-26 00:20:39 - [INFO]: getting cvimage histogram
+2018-04-26 00:20:39 - [INFO]: cropping cvimage to follcalcHist([img], [0], None, [256], [0, 256])owing specs [top 355, bottom 390, left 10, right 140]
+2018-04-26 00:20:39 - [INFO]: applying greyscale to cvimage
+2018-04-26 00:20:39 - [INFO]: applying canny edge algorithm to cvimage
+2018-04-26 00:20:39 - [INFO]: showing cvimage preview
+2018-04-26 00:20:39 - [INFO]: getting cvimage histogram
+2018-04-26 00:20:39 - [INFO]: cropping cvimage to follcalcHist([img], [0], None, [256], [0, 256])owing specs [top 355, bottom 390, left 155, right 245]
+2018-04-26 00:20:39 - [INFO]: applying greyscale to cvimage
+2018-04-26 00:20:39 - [INFO]: applying canny edge algorithm to cvimage
+2018-04-26 00:20:39 - [INFO]: showing cvimage preview
+2018-04-26 00:20:39 - [INFO]: getting cvimage histogram
+2018-04-26 00:20:39 - [INFO]: cropping cvimage to follcalcHist([img], [0], None, [256], [0, 256])owing specs [top 355, bottom 390, left 290, right 405]
+2018-04-26 00:20:39 - [INFO]: applying greyscale to cvimage
+2018-04-26 00:20:39 - [INFO]: applying canny edge algorithm to cvimage
+2018-04-26 00:20:39 - [INFO]: showing cvimage preview
+2018-04-26 00:20:39 - [INFO]: getting cvimage histogram
+2018-04-26 00:20:39 - [INFO]: cropping cvimage to follcalcHist([img], [0], None, [256], [0, 256])owing specs [top 355, bottom 390, left 430, right 520]
+2018-04-26 00:20:39 - [INFO]: applying greyscale to cvimage
+2018-04-26 00:20:39 - [INFO]: applying canny edge algorithm to cvimage
+2018-04-26 00:20:39 - [INFO]: showing cvimage preview
+2018-04-26 00:20:39 - [INFO]: getting cvimage histogram
+2018-04-26 00:20:39 - [INFO]: cropping cvimage to follcalcHist([img], [0], None, [256], [0, 256])owing specs [top 355, bottom 390, left 10, right 140]
+2018-04-26 00:20:39 - [INFO]: applying greyscale to cvimage
+2018-04-26 00:20:39 - [INFO]: applying canny edge algorithm to cvimage
+2018-04-26 00:20:39 - [INFO]: showing cvimage preview
+2018-04-26 00:20:39 - [INFO]: getting cvimage histogram
+2018-04-26 00:20:39 - [INFO]: cropping cvimage to follcalcHist([img], [0], None, [256], [0, 256])owing specs [top 355, bottom 390, left 155, right 245]
+2018-04-26 00:20:39 - [INFO]: applying greyscale to cvimage
+2018-04-26 00:20:39 - [INFO]: applying canny edge algorithm to cvimage
+2018-04-26 00:20:39 - [INFO]: showing cvimage preview
+2018-04-26 00:20:39 - [INFO]: getting cvimage histogram
+2018-04-26 00:20:39 - [INFO]: cropping cvimage to follcalcHist([img], [0], None, [256], [0, 256])owing specs [top 355, bottom 390, left 290, right 405]
+2018-04-26 00:20:39 - [INFO]: applying greyscale to cvimage
+2018-04-26 00:20:39 - [INFO]: applying canny edge algorithm to cvimage
+2018-04-26 00:20:39 - [INFO]: showing cvimage preview
+2018-04-26 00:20:39 - [INFO]: getting cvimage histogram
+2018-04-26 00:20:39 - [INFO]: cropping cvimage to follcalcHist([img], [0], None, [256], [0, 256])owing specs [top 355, bottom 390, left 430, right 520]
+2018-04-26 00:20:39 - [INFO]: applying greyscale to cvimage
+2018-04-26 00:20:39 - [INFO]: applying canny edge algorithm to cvimage
+2018-04-26 00:20:39 - [INFO]: showing cvimage preview
+2018-04-26 00:20:39 - [INFO]: getting cvimage histogram
+2018-04-26 00:20:39 - [INFO]: cropping cvimage to follcalcHist([img], [0], None, [256], [0, 256])owing specs [top 355, bottom 390, left 10, right 140]
+2018-04-26 00:20:39 - [INFO]: applying greyscale to cvimage
+2018-04-26 00:20:39 - [INFO]: applying canny edge algorithm to cvimage
+2018-04-26 00:20:39 - [INFO]: showing cvimage preview
+2018-04-26 00:20:39 - [INFO]: getting cvimage histogram
+2018-04-26 00:20:39 - [INFO]: cropping cvimage to follcalcHist([img], [0], None, [256], [0, 256])owing specs [top 355, bottom 390, left 155, right 245]
+2018-04-26 00:20:39 - [INFO]: applying greyscale to cvimage
+2018-04-26 00:20:39 - [INFO]: applying canny edge algorithm to cvimage
+2018-04-26 00:20:39 - [INFO]: showing cvimage preview
+2018-04-26 00:20:39 - [INFO]: getting cvimage histogram
+2018-04-26 00:20:39 - [INFO]: cropping cvimage to follcalcHist([img], [0], None, [256], [0, 256])owing specs [top 355, bottom 390, left 290, right 405]
+2018-04-26 00:20:39 - [INFO]: applying greyscale to cvimage
+2018-04-26 00:20:39 - [INFO]: applying canny edge algorithm to cvimage
+2018-04-26 00:20:39 - [INFO]: showing cvimage preview
+2018-04-26 00:20:39 - [INFO]: getting cvimage histogram
+2018-04-26 00:20:39 - [INFO]: cropping cvimage to follcalcHist([img], [0], None, [256], [0, 256])owing specs [top 355, bottom 390, left 430, right 520]
+2018-04-26 00:20:39 - [INFO]: applying greyscale to cvimage
+2018-04-26 00:20:39 - [INFO]: applying canny edge algorithm to cvimage
+2018-04-26 00:20:39 - [INFO]: showing cvimage preview
+2018-04-26 00:20:39 - [INFO]: getting cvimage histogram
+2018-04-26 00:20:39 - [INFO]: cropping cvimage to follcalcHist([img], [0], None, [256], [0, 256])owing specs [top 355, bottom 390, left 10, right 140]
+2018-04-26 00:20:39 - [INFO]: applying greyscale to cvimage
+2018-04-26 00:20:39 - [INFO]: applying canny edge algorithm to cvimage
+2018-04-26 00:20:39 - [INFO]: showing cvimage preview
+2018-04-26 00:20:39 - [INFO]: getting cvimage histogram
+2018-04-26 00:20:39 - [INFO]: cropping cvimage to follcalcHist([img], [0], None, [256], [0, 256])owing specs [top 355, bottom 390, left 155, right 245]
+2018-04-26 00:20:39 - [INFO]: applying greyscale to cvimage
+2018-04-26 00:20:39 - [INFO]: applying canny edge algorithm to cvimage
+2018-04-26 00:20:39 - [INFO]: showing cvimage preview
+2018-04-26 00:20:39 - [INFO]: getting cvimage histogram
+2018-04-26 00:20:39 - [INFO]: cropping cvimage to follcalcHist([img], [0], None, [256], [0, 256])owing specs [top 355, bottom 390, left 290, right 405]
+2018-04-26 00:20:39 - [INFO]: applying greyscale to cvimage
+2018-04-26 00:20:39 - [INFO]: applying canny edge algorithm to cvimage
+2018-04-26 00:20:39 - [INFO]: showing cvimage preview
+2018-04-26 00:20:39 - [INFO]: getting cvimage histogram
+2018-04-26 00:20:39 - [INFO]: cropping cvimage to follcalcHist([img], [0], None, [256], [0, 256])owing specs [top 355, bottom 390, left 430, right 520]
+2018-04-26 00:20:39 - [INFO]: applying greyscale to cvimage
+2018-04-26 00:20:39 - [INFO]: applying canny edge algorithm to cvimage
+2018-04-26 00:20:39 - [INFO]: showing cvimage preview
+2018-04-26 00:20:39 - [INFO]: getting cvimage histogram
+2018-04-26 00:20:39 - [INFO]: cropping cvimage to follcalcHist([img], [0], None, [256], [0, 256])owing specs [top 355, bottom 390, left 10, right 140]
+2018-04-26 00:20:39 - [INFO]: applying greyscale to cvimage
+2018-04-26 00:20:39 - [INFO]: applying canny edge algorithm to cvimage
+2018-04-26 00:20:39 - [INFO]: showing cvimage preview
+2018-04-26 00:20:39 - [INFO]: getting cvimage histogram
+2018-04-26 00:20:39 - [INFO]: cropping cvimage to follcalcHist([img], [0], None, [256], [0, 256])owing specs [top 355, bottom 390, left 155, right 245]
+2018-04-26 00:20:39 - [INFO]: applying greyscale to cvimage
+2018-04-26 00:20:39 - [INFO]: applying canny edge algorithm to cvimage
+2018-04-26 00:20:39 - [INFO]: showing cvimage preview
+2018-04-26 00:20:39 - [INFO]: getting cvimage histogram
+2018-04-26 00:20:39 - [INFO]: cropping cvimage to follcalcHist([img], [0], None, [256], [0, 256])owing specs [top 355, bottom 390, left 290, right 405]
+2018-04-26 00:20:39 - [INFO]: applying greyscale to cvimage
+2018-04-26 00:20:39 - [INFO]: applying canny edge algorithm to cvimage
+2018-04-26 00:20:39 - [INFO]: showing cvimage preview
+2018-04-26 00:20:39 - [INFO]: getting cvimage histogram
+2018-04-26 00:20:39 - [INFO]: cropping cvimage to follcalcHist([img], [0], None, [256], [0, 256])owing specs [top 355, bottom 390, left 430, right 520]
+2018-04-26 00:20:39 - [INFO]: applying greyscale to cvimage
+2018-04-26 00:20:39 - [INFO]: applying canny edge algorithm to cvimage
+2018-04-26 00:20:39 - [INFO]: showing cvimage preview
+2018-04-26 00:20:39 - [INFO]: getting cvimage histogram
+2018-04-26 00:20:39 - [INFO]: cropping cvimage to follcalcHist([img], [0], None, [256], [0, 256])owing specs [top 355, bottom 390, left 10, right 140]
+2018-04-26 00:20:39 - [INFO]: applying greyscale to cvimage
+2018-04-26 00:20:39 - [INFO]: applying canny edge algorithm to cvimage
+2018-04-26 00:20:39 - [INFO]: showing cvimage preview
+2018-04-26 00:20:39 - [INFO]: getting cvimage histogram
+2018-04-26 00:20:39 - [INFO]: cropping cvimage to follcalcHist([img], [0], None, [256], [0, 256])owing specs [top 355, bottom 390, left 155, right 245]
+2018-04-26 00:20:39 - [INFO]: applying greyscale to cvimage
+2018-04-26 00:20:39 - [INFO]: applying canny edge algorithm to cvimage
+2018-04-26 00:20:39 - [INFO]: showing cvimage preview
+2018-04-26 00:20:39 - [INFO]: getting cvimage histogram
+2018-04-26 00:20:39 - [INFO]: cropping cvimage to follcalcHist([img], [0], None, [256], [0, 256])owing specs [top 355, bottom 390, left 290, right 405]
+2018-04-26 00:20:39 - [INFO]: applying greyscale to cvimage
+2018-04-26 00:20:39 - [INFO]: applying canny edge algorithm to cvimage
+2018-04-26 00:20:39 - [INFO]: showing cvimage preview
+2018-04-26 00:20:39 - [INFO]: getting cvimage histogram
+2018-04-26 00:20:39 - [INFO]: cropping cvimage to follcalcHist([img], [0], None, [256], [0, 256])owing specs [top 355, bottom 390, left 430, right 520]
+2018-04-26 00:20:39 - [INFO]: applying greyscale to cvimage
+2018-04-26 00:20:39 - [INFO]: applying canny edge algorithm to cvimage
+2018-04-26 00:20:39 - [INFO]: showing cvimage preview
