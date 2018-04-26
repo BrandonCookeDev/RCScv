@@ -95,7 +95,8 @@ export default class StreamControl extends React.Component{
                             <tr>
                                 <td><label>Character: </label></td>
                                 <td>
-                                    <select name='p1_char' id='p1_char' value={this.state.p1_char}>
+                                    <select name='p1_char' id='p1_char' 
+                                        value={this.state.p1_char} onChange={this.handleChange}>
                                         {
                                             characters.map(character => {
                                                 return <option>{character}</option>
@@ -126,7 +127,8 @@ export default class StreamControl extends React.Component{
                             <tr>
                                 <td><label>Character: </label></td>
                                 <td>
-                                    <select name='p2_char' id='p2_char' value={this.state.p2_char}>
+                                    <select name='p2_char' id='p2_char' 
+                                        value={this.state.p2_char} onChange={this.handleChange}>
                                         {
                                             characters.map(character => {
                                                 return <option>{character}</option>

@@ -24005,8 +24005,6 @@
 	    }, {
 	        key: 'render',
 	        value: function render() {
-	            var _this2 = this;
-
 	            return _react2['default'].createElement(
 	                'div',
 	                null,
@@ -24075,11 +24073,12 @@
 	                                    null,
 	                                    _react2['default'].createElement(
 	                                        'select',
-	                                        { name: 'p1_char', id: 'p1_char' },
+	                                        { name: 'p1_char', id: 'p1_char',
+	                                            value: this.state.p1_char, onChange: this.handleChange },
 	                                        characters.map(function (character) {
 	                                            return _react2['default'].createElement(
 	                                                'option',
-	                                                { value: _this2.state.p1_char },
+	                                                null,
 	                                                character
 	                                            );
 	                                        })
@@ -24150,11 +24149,12 @@
 	                                    null,
 	                                    _react2['default'].createElement(
 	                                        'select',
-	                                        { name: 'p2_char', id: 'p2_char' },
+	                                        { name: 'p2_char', id: 'p2_char',
+	                                            value: this.state.p2_char, onChange: this.handleChange },
 	                                        characters.map(function (character) {
 	                                            return _react2['default'].createElement(
 	                                                'option',
-	                                                { value: _this2.state.p2_char },
+	                                                null,
 	                                                character
 	                                            );
 	                                        })

@@ -16,6 +16,8 @@ class StreamControl{
         this.writeToJSON = this.writeToJSON.bind(this);
         this.read = this.read.bind(this);
         this.write = this.write.bind(this);
+
+        log.info('JSON located at: %s', this.path);
     }
 
     testPath(){
@@ -35,7 +37,7 @@ class StreamControl{
             log.verbose('reading from JSON');
             if(this.testPath()){
                 let json = JSON.parse(fs.readFileSync(this.path).toString('utf8'));
-                log.debug(json);
+                log.debug('Read JSON:', json);
                 return json;
             }
         } catch(e){
@@ -46,11 +48,13 @@ class StreamControl{
 
     writeToJSON(newJSON){
         try{
-            log.verbose('writing to JSON');
+            log.verbose('New JSON input:', newJSON);
             if(this.testPath()){
                 let json = this.readFromJSON();
                 _.assign(json, newJSON);
+                log.debug('Meged JSON:', json)
                 fs.writeFileSync(this.path, JSON.stringify(json));
+                log.debug('successfully wrote to JSON')
             }
         } catch(e){
             log.error(e);
