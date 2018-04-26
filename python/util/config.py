@@ -8,6 +8,12 @@ class Config(object):
         self.config = ConfigParser()
         self.config.read(file_path)
 
+    def get_letterbox_crop(self):
+        return {
+            'left': int(self.config.get('letterbox', 'left')),
+            'right': int(self.config.get('letterbox', 'right'))
+        }
+
     def get_canny_low_threshold_stocks(self):
         return int(self.config.get('stockscanny', 'lowthreshold'))
 

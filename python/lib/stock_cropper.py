@@ -1,4 +1,5 @@
 import os, sys
+import cv2
 import logging
 from lib.RCScv import RCScv as RCScv
 from util.config import Config as Config
@@ -45,3 +46,14 @@ def process_frame(frame):
     p4.show()
     p4_hist = p1.get_histogram()
     print(p4_hist)
+
+def draw_rectangles(frame):
+    p1coords = config.get_p1_stocks()
+    p2coords = config.get_p2_stocks()
+    p3coords = config.get_p3_stocks()
+    p4coords = config.get_p4_stocks()
+
+    cv2.rectangle(frame, (p1coords['left'], p1coords['right']), (p1coords['top'], p1coords['bottom']), (255, 0, 0), 2)
+    cv2.rectangle(frame, (p2coords['left'], p2coords['right']), (p2coords['top'], p2coords['bottom']), (0, 255, 0), 2)
+    cv2.rectangle(frame, (p3coords['left'], p3coords['right']), (p3coords['top'], p3coords['bottom']), (0, 0, 255), 2)
+    cv2.rectangle(frame, (p4coords['left'], p4coords['right']), (p4coords['top'], p4coords['bottom']), (255, 0, 255), 2)
