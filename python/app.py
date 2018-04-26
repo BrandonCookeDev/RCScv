@@ -18,5 +18,5 @@ MELEE3 = os.path.join(RESOURCES_DIR, 'Melee3.jpg')
 MELEE4 = os.path.join(RESOURCES_DIR, 'Melee4.jpg')
 
 if __name__ == '__main__':
-    c = stock_cropper.process_frame(MELEE4)
+    c = stock_cropper.process_frame(MELEE3)
     
