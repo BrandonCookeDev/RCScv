@@ -49,10 +49,11 @@ class RCScv(object):
     
     def get_histogram(self):
         logger.info('getting cvimage histogram')
-        hist = calcHist([self.cvimage], [0], None, [256], [0, 256])
+        hist = cv.calcHist([self.cvimage], [0], None, [256], [0, 256])
         return hist
 
     def show(self):
         logger.info('showing cvimage preview')
         cv.imshow('cvimage', self.cvimage)
+        cv.waitKey()
 
