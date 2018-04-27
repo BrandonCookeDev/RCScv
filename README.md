@@ -20,7 +20,7 @@ After the above requirements are installed, we need to setup the project.
         * `pip install -r requirements.txt`
 * Next we need to setup the React server
     * Run the following in the `react-server/` directory:
-        * `npm install`
+        * `npm run install-all`
         * This should install all dependencies in the main react-server folder, and the webapp folder
 
 ## Running

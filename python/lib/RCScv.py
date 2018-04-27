@@ -26,11 +26,23 @@ class RCScv(object):
     def get_cvimage(self):
         return self.cvimage 
 
-    def save(self):
-        logger.info('writting image to path %s' % self.output_name)
-        cv2.imwrite(self.output_path, self.cvimage)
+    def save(self, output_name=None):
+        if output_name is None:
+            output_name = self.output_name
+
+        logger.info('writting image to path %s' % output_name)
+        cv.imwrite(output_name, self.cvimage)
 
     def crop(self, top, bottom, left, right):
+        if top is None:
+            top = 0
+        if bottom is None:
+            bottom = self.cvimage.shape[0]
+        if left is None:
+            left = 0
+        if right is None:
+            right = self.cvimage.shape[1]
+
         logger.info('cropping cvimage to follcalcHist([img], [0], None, [256], [0, 256])owing specs [top %s, bottom %s, left %s, right %s]'
                     % (top, bottom, left, right))
 
