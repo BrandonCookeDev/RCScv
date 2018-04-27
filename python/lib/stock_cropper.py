@@ -25,7 +25,7 @@ def process_frame(frame):
     p2.greyscale()
     p2.edge(default_low, default_high)
     p2.show()
-    p2_hist = p1.get_histogram()
+    p2_hist = p2.get_histogram()
     print(p2_hist)
 
     p3coords = config.get_p3_stocks()
@@ -34,7 +34,7 @@ def process_frame(frame):
     p3.greyscale()
     p3.edge(default_low, default_high)
     p3.show()
-    p3_hist = p1.get_histogram()
+    p3_hist = p3.get_histogram()
     print(p3_hist)
 
     p4coords = config.get_p4_stocks()
@@ -43,5 +43,5 @@ def process_frame(frame):
     p4.greyscale()
     p4.edge(default_low, default_high)
     p4.show()
-    p4_hist = p1.get_histogram()
+    p4_hist = p4.get_histogram()
     print(p4_hist)
