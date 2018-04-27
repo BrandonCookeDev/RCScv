@@ -8,6 +8,9 @@ class Config(object):
         self.config = ConfigParser()
         self.config.read(file_path)
 
+    def get_debug_mode(self):
+        return bool(self.config.get('debug_mode', 'on'))
+
     def get_letterbox_crop(self):
         return {
             'left': int(self.config.get('letterbox', 'left')),

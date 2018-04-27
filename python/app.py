@@ -4,11 +4,13 @@ import numpy
 import logging
 from util import log
 from util.config import Config as Config
-from lib import RCScv as rcscv
+from lib.RCScv import RCScv as RCScv
 from lib import stock_cropper
 from lib import letterbox_cropper
+from algorithms import follow_stocks
 
 config = Config()
+debug_mode = config.get_debug_mode()
 
 logger = logging.getLogger('RCScv')
 logger.info('RCScv: Beginning Main')
@@ -36,6 +38,9 @@ if __name__ == '__main__':
     # just showing video to screen
     while(cap.isOpened()):
         ret, frame = cap.read()
+        if frame is None: 
+            logger.info('Done!')
+            break
 
         height = frame.shape[0]
         width = frame.shape[1]
@@ -45,13 +50,14 @@ if __name__ == '__main__':
         #cv2.imshow('frame', frame)
         print(type(frame))
 
-        c = stock_cropper.process_frame(frame)
+        f = stock_cropper.process_frame(frame)
         stock_cropper.draw_rectangles(frame)
-        cv2.imshow('frame', frame)
+        if debug_mode is True: cv2.imshow('frame', frame)
 
-        #cv2.waitKey()
-        #if cv2.waitKey(1) & 0xFF == ord('q'):
-        #    break
+        follow_stocks.process_histogram(f['p1_hist'], 1)
+        follow_stocks.process_histogram(f['p2_hist'], 2)
+        follow_stocks.process_histogram(f['p3_hist'], 3)
+        follow_stocks.process_histogram(f['p4_hist'], 4)
 
     cap.release()
     cv2.destroyAllWindows()
