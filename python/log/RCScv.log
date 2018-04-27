@@ -16429,3 +16429,110 @@
 2018-04-26 22:21:27 - [INFO]: applying greyscale to cvimage
 2018-04-26 22:21:27 - [INFO]: applying canny edge algorithm to cvimage
 2018-04-26 22:21:27 - [INFO]: showing cvimage preview
+2018-04-26 22:29:28 - [INFO]: Logging setup for d:\workspace\RCScv\python\util\..\log\RCScv.log
+2018-04-26 22:29:28 - [INFO]: RCScv: Beginning Main
+2018-04-26 22:29:44 - [INFO]: Logging setup for d:\workspace\RCScv\python\util\..\log\RCScv.log
+2018-04-26 22:29:45 - [INFO]: RCScv: Beginning Main
+2018-04-26 22:30:02 - [INFO]: Logging setup for d:\workspace\RCScv\python\util\..\log\RCScv.log
+2018-04-26 22:30:03 - [INFO]: RCScv: Beginning Main
+2018-04-26 22:30:03 - [INFO]: loading image from path d:\workspace\RCScv\python\..\resources\LetterboxedMelee.png
+2018-04-26 22:30:30 - [INFO]: Logging setup for d:\workspace\RCScv\python\util\..\log\RCScv.log
+2018-04-26 22:30:30 - [INFO]: RCScv: Beginning Main
+2018-04-26 22:30:30 - [INFO]: loading image from path d:\workspace\RCScv\python\..\resources\LetterboxedMelee.png
+2018-04-26 22:32:06 - [INFO]: Logging setup for d:\workspace\RCScv\python\util\..\log\RCScv.log
+2018-04-26 22:32:07 - [INFO]: RCScv: Beginning Main
+2018-04-26 22:32:07 - [INFO]: loading image from path d:\workspace\RCScv\python\..\resources\LetterboxedMelee.png
+2018-04-26 22:32:46 - [INFO]: Logging setup for d:\workspace\RCScv\python\util\..\log\RCScv.log
+2018-04-26 22:32:47 - [INFO]: RCScv: Beginning Main
+2018-04-26 22:32:47 - [INFO]: loading image from path d:\workspace\RCScv\python\..\resources\LetterboxedMelee.png
+2018-04-26 22:33:44 - [INFO]: Logging setup for d:\workspace\RCScv\python\util\..\log\RCScv.log
+2018-04-26 22:33:44 - [INFO]: RCScv: Beginning Main
+2018-04-26 22:33:44 - [INFO]: loading image from path d:\workspace\RCScv\python\..\resources\LetterboxedMelee.png
+2018-04-26 22:35:02 - [INFO]: Logging setup for d:\workspace\RCScv\python\util\..\log\RCScv.log
+2018-04-26 22:35:02 - [INFO]: RCScv: Beginning Main
+2018-04-26 22:35:02 - [INFO]: loading image from path d:\workspace\RCScv\python\..\resources\LetterboxedMelee.png
+2018-04-26 22:36:16 - [INFO]: Logging setup for d:\workspace\RCScv\python\util\..\log\RCScv.log
+2018-04-26 22:36:17 - [INFO]: RCScv: Beginning Main
+2018-04-26 22:36:17 - [INFO]: loading image from path d:\workspace\RCScv\python\..\resources\LetterboxedMelee.png
+2018-04-26 22:38:04 - [INFO]: Logging setup for d:\workspace\RCScv\python\util\..\log\RCScv.log
+2018-04-26 22:38:04 - [INFO]: RCScv: Beginning Main
+2018-04-26 22:38:04 - [INFO]: loading image from path d:\workspace\RCScv\python\..\resources\LetterboxedMelee.png
+2018-04-26 22:39:03 - [INFO]: Logging setup for d:\workspace\RCScv\python\util\..\log\RCScv.log
+2018-04-26 22:39:04 - [INFO]: RCScv: Beginning Main
+2018-04-26 22:39:04 - [INFO]: loading image from path d:\workspace\RCScv\python\..\resources\LetterboxedMelee.png
+2018-04-26 22:39:10 - [INFO]: loading image from path d:\workspace\RCScv\python\..\resources\LetterboxedMelee.png
+2018-04-26 22:39:14 - [INFO]: cropping cvimage to follcalcHist([img], [0], None, [256], [0, 256])owing specs [top 0, bottom 720, left 201, right 1080]
+2018-04-26 22:39:56 - [INFO]: Logging setup for d:\workspace\RCScv\python\util\..\log\RCScv.log
+2018-04-26 22:39:57 - [INFO]: RCScv: Beginning Main
+2018-04-26 22:39:57 - [INFO]: loading image from path d:\workspace\RCScv\python\..\resources\LetterboxedMelee.png
+2018-04-26 22:40:00 - [INFO]: loading image from path d:\workspace\RCScv\python\..\resources\LetterboxedMelee.png
+2018-04-26 22:40:00 - [INFO]: cropping cvimage to follcalcHist([img], [0], None, [256], [0, 256])owing specs [top 0, bottom 720, left 201, right 1080]
+2018-04-26 22:40:35 - [INFO]: Logging setup for d:\workspace\RCScv\python\util\..\log\RCScv.log
+2018-04-26 22:40:35 - [INFO]: RCScv: Beginning Main
+2018-04-26 22:40:35 - [INFO]: loading image from path d:\workspace\RCScv\python\..\resources\LetterboxedMelee.png
+2018-04-26 22:42:37 - [INFO]: loading image from path d:\workspace\RCScv\python\..\resources\LetterboxedMelee.png
+2018-04-26 22:42:37 - [INFO]: cropping cvimage to follcalcHist([img], [0], None, [256], [0, 256])owing specs [top 0, bottom 720, left 201, right 1080]
+2018-04-26 22:42:40 - [INFO]: writting image to path gamecap.png
+2018-04-26 22:43:02 - [INFO]: Logging setup for d:\workspace\RCScv\python\util\..\log\RCScv.log
+2018-04-26 22:43:02 - [INFO]: RCScv: Beginning Main
+2018-04-26 22:43:02 - [INFO]: loading image from path d:\workspace\RCScv\python\..\resources\LetterboxedMelee.png
+2018-04-26 22:43:04 - [INFO]: loading image from path d:\workspace\RCScv\python\..\resources\LetterboxedMelee.png
+2018-04-26 22:43:04 - [INFO]: cropping cvimage to follcalcHist([img], [0], None, [256], [0, 256])owing specs [top 0, bottom 720, left 201, right 1080]
+2018-04-26 22:43:05 - [INFO]: writting image to path gamecap.png
+2018-04-26 23:06:54 - [INFO]: Logging setup for D:\workspace\RCScv\python\util\..\log\RCScv.log
+2018-04-26 23:06:54 - [INFO]: RCScv: Beginning Main
+2018-04-26 23:06:54 - [INFO]: loading image from path ..\resources\LetterboxedMelee.png
+2018-04-26 23:06:54 - [INFO]: loading image from path ..\resources\LetterboxedMelee.png
+2018-04-26 23:06:54 - [INFO]: cropping cvimage to follcalcHist([img], [0], None, [256], [0, 256])owing specs [top 0, bottom 720, left 201, right 1080]
+2018-04-26 23:06:54 - [INFO]: writting image to path gamecap.png
+2018-04-26 23:06:54 - [INFO]: loading image from path ..\resources\UnletterboxedMelee.png
+2018-04-26 23:06:54 - [INFO]: cropping cvimage to follcalcHist([img], [0], None, [256], [0, 256])owing specs [top 355, bottom 390, left 10, right 140]
+2018-04-26 23:07:16 - [INFO]: Logging setup for d:\workspace\RCScv\python\util\..\log\RCScv.log
+2018-04-26 23:07:17 - [INFO]: RCScv: Beginning Main
+2018-04-26 23:07:17 - [INFO]: loading image from path d:\workspace\RCScv\python\..\resources\LetterboxedMelee.png
+2018-04-26 23:07:21 - [INFO]: loading image from path d:\workspace\RCScv\python\..\resources\LetterboxedMelee.png
+2018-04-26 23:07:35 - [INFO]: cropping cvimage to follcalcHist([img], [0], None, [256], [0, 256])owing specs [top 0, bottom 720, left 201, right 1080]
+2018-04-26 23:07:51 - [INFO]: writting image to path gamecap.png
+2018-04-26 23:07:51 - [INFO]: loading image from path d:\workspace\RCScv\python\..\resources\UnletterboxedMelee.png
+2018-04-26 23:07:53 - [INFO]: cropping cvimage to follcalcHist([img], [0], None, [256], [0, 256])owing specs [top 355, bottom 390, left 10, right 140]
+2018-04-26 23:08:29 - [INFO]: Logging setup for d:\workspace\RCScv\python\util\..\log\RCScv.log
+2018-04-26 23:08:30 - [INFO]: RCScv: Beginning Main
+2018-04-26 23:08:30 - [INFO]: loading image from path d:\workspace\RCScv\python\..\resources\LetterboxedMelee.png
+2018-04-26 23:08:37 - [INFO]: loading image from path d:\workspace\RCScv\python\..\resources\LetterboxedMelee.png
+2018-04-26 23:08:37 - [INFO]: cropping cvimage to follcalcHist([img], [0], None, [256], [0, 256])owing specs [top 0, bottom 720, left 201, right 1080]
+2018-04-26 23:08:40 - [INFO]: writting image to path gamecap.png
+2018-04-26 23:10:18 - [INFO]: Logging setup for d:\workspace\RCScv\python\util\..\log\RCScv.log
+2018-04-26 23:10:37 - [INFO]: Logging setup for d:\workspace\RCScv\python\util\..\log\RCScv.log
+2018-04-26 23:11:42 - [INFO]: Logging setup for d:\workspace\RCScv\python\util\..\log\RCScv.log
+2018-04-26 23:11:42 - [INFO]: RCScv: Beginning Main
+2018-04-26 23:11:45 - [INFO]: loading image from path d:\workspace\RCScv\python\..\resources\LetterboxedMelee.png
+2018-04-26 23:11:56 - [INFO]: Logging setup for d:\workspace\RCScv\python\util\..\log\RCScv.log
+2018-04-26 23:11:57 - [INFO]: RCScv: Beginning Main
+2018-04-26 23:11:58 - [INFO]: loading image from path d:\workspace\RCScv\python\..\resources\LetterboxedMelee.png
+2018-04-26 23:11:59 - [INFO]: loading image from path d:\workspace\RCScv\python\..\resources\LetterboxedMelee.png
+2018-04-26 23:11:59 - [INFO]: cropping cvimage to follcalcHist([img], [0], None, [256], [0, 256])owing specs [top 0, bottom 720, left 201, right 1080]
+2018-04-26 23:12:02 - [INFO]: writting image to path d:\workspace\RCScv\python\..\resources\UnletterboxedMelee.png
+2018-04-26 23:12:08 - [INFO]: loading image from path d:\workspace\RCScv\python\..\resources\UnletterboxedMelee.png
+2018-04-26 23:12:08 - [INFO]: cropping cvimage to follcalcHist([img], [0], None, [256], [0, 256])owing specs [top 355, bottom 390, left 10, right 140]
+2018-04-26 23:12:08 - [INFO]: applying greyscale to cvimage
+2018-04-26 23:12:08 - [INFO]: applying canny edge algorithm to cvimage
+2018-04-26 23:12:08 - [INFO]: showing cvimage preview
+2018-04-26 23:12:11 - [INFO]: getting cvimage histogram
+2018-04-26 23:12:11 - [INFO]: loading image from path d:\workspace\RCScv\python\..\resources\UnletterboxedMelee.png
+2018-04-26 23:12:11 - [INFO]: cropping cvimage to follcalcHist([img], [0], None, [256], [0, 256])owing specs [top 355, bottom 390, left 155, right 245]
+2018-04-26 23:12:11 - [INFO]: applying greyscale to cvimage
+2018-04-26 23:12:11 - [INFO]: applying canny edge algorithm to cvimage
+2018-04-26 23:12:11 - [INFO]: showing cvimage preview
+2018-04-26 23:12:13 - [INFO]: getting cvimage histogram
+2018-04-26 23:12:13 - [INFO]: loading image from path d:\workspace\RCScv\python\..\resources\UnletterboxedMelee.png
+2018-04-26 23:12:13 - [INFO]: cropping cvimage to follcalcHist([img], [0], None, [256], [0, 256])owing specs [top 355, bottom 390, left 290, right 405]
+2018-04-26 23:12:13 - [INFO]: applying greyscale to cvimage
+2018-04-26 23:12:13 - [INFO]: applying canny edge algorithm to cvimage
+2018-04-26 23:12:13 - [INFO]: showing cvimage preview
+2018-04-26 23:12:13 - [INFO]: getting cvimage histogram
+2018-04-26 23:12:13 - [INFO]: loading image from path d:\workspace\RCScv\python\..\resources\UnletterboxedMelee.png
+2018-04-26 23:12:13 - [INFO]: cropping cvimage to follcalcHist([img], [0], None, [256], [0, 256])owing specs [top 355, bottom 390, left 430, right 520]
+2018-04-26 23:12:13 - [INFO]: applying greyscale to cvimage
+2018-04-26 23:12:13 - [INFO]: applying canny edge algorithm to cvimage
+2018-04-26 23:12:13 - [INFO]: showing cvimage preview
+2018-04-26 23:12:13 - [INFO]: getting cvimage histogram
