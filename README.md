@@ -2,7 +2,7 @@
 A python, ReactJS based solution to implement OpenCV in order to automate Melee streaming
 
 ## Authors
-* Brandon (cookiE) Cookie ~ *RecursionGG*
+* Brandon (cookiE) Cooke ~ *RecursionGG*
 * Jarrod (@JarrodBlantonFitness) Blanton
 
 ## Requirements
