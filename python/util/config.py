@@ -51,3 +51,38 @@ class Config(object):
             'left': int(self.config.get('p4stocks', 'left')),
             'right': int(self.config.get('p4stocks', 'right'))
         }
+
+    """
+    BEGIN 480p
+    """
+    def get_p1_stocks_480(self):
+        return {
+            'top': int(self.config.get('p1stocks480', 'top')),
+            'bottom': int(self.config.get('p1stocks480', 'bottom')),
+            'left': int(self.config.get('p1stocks480', 'left')),
+            'right': int(self.config.get('p1stocks480', 'right'))
+        }
+
+    def get_p2_stocks_480(self):
+        return {
+            'top': int(self.config.get('p2stocks480', 'top')),
+            'bottom': int(self.config.get('p2stocks480', 'bottom')),
+            'left': int(self.config.get('p2stocks480', 'left')),
+            'right': int(self.config.get('p2stocks480', 'right'))
+        }
+
+    def get_p3_stocks_480(self):
+        return {
+            'top': int(self.config.get('p3stocks480', 'top')),
+            'bottom': int(self.config.get('p3stocks480', 'bottom')),
+            'left': int(self.config.get('p3stocks480', 'left')),
+            'right': int(self.config.get('p3stocks480', 'right'))
+        }
+    
+    def get_p4_stocks_480(self):
+        return {
+            'top': int(self.config.get('p4stocks480', 'top')),
+            'bottom': int(self.config.get('p4stocks480', 'bottom')),
+            'left': int(self.config.get('p4stocks480', 'left')),
+            'right': int(self.config.get('p4stocks480', 'right'))
+        }

@@ -36,18 +36,18 @@ if __name__ == '__main__':
     # just showing video to screen
     while(cap.isOpened()):
         ret, frame = cap.read()
-        stock_cropper.draw_rectangles(frame)
-        cv2.imshow('frame', frame)
 
         height = frame.shape[0]
         width = frame.shape[1]
 
         if width > MELEE_WIDTH:
             frame = letterbox_cropper.crop_letterbox(frame)
-        cv2.imshow('frame', frame)
+        #cv2.imshow('frame', frame)
         print(type(frame))
 
         c = stock_cropper.process_frame(frame)
+        stock_cropper.draw_rectangles(frame)
+        cv2.imshow('frame', frame)
 
         #cv2.waitKey()
         #if cv2.waitKey(1) & 0xFF == ord('q'):
