@@ -4,6 +4,7 @@ from util import log
 from util.config import Config as Config
 from lib import RCScv as rcscv
 from lib import stock_cropper
+from lib import percent_cropper
 
 config = Config()
 
@@ -18,5 +19,7 @@ MELEE3 = os.path.join(RESOURCES_DIR, 'Melee3.jpg')
 MELEE4 = os.path.join(RESOURCES_DIR, 'Melee4.jpg')
 
 if __name__ == '__main__':
-    c = stock_cropper.process_frame(MELEE3)
+    #c = stock_cropper.process_frame(MELEE3)
+    p = percent_cropper.process_frame(MELEE1)
+
     
