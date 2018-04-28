@@ -8,29 +8,11 @@ class Config(object):
         self.config = ConfigParser()
         self.config.read(file_path)
 
-    def get_debug_mode(self):
-        return bool(self.config.get('debug_mode', 'on') == 'True')
-
-    def get_letterbox_crop(self):
-        return {
-            'left': int(self.config.get('letterbox', 'left')),
-            'right': int(self.config.get('letterbox', 'right'))
-        }
-
     def get_canny_low_threshold_stocks(self):
         return int(self.config.get('stockscanny', 'lowthreshold'))
 
     def get_canny_high_threshold_stocks(self):
         return int(self.config.get('stockscanny', 'highthreshold'))
-
-    def get_follow_stocks_non_player_threshold(self):
-        return int(self.config.get('follow_stocks', 'non_player_threshold'))
-
-    def get_follow_stocks_player_threshold(self):
-        return int(self.config.get('follow_stocks', 'player_threshold'))
-
-    def get_follow_stocks_buffer_size(self):
-        return int(self.config.get('follow_stocks', 'buffer_size'))
 
     def get_p1_stocks(self):
         return {
@@ -62,39 +44,4 @@ class Config(object):
             'bottom': int(self.config.get('p4stocks', 'bottom')),
             'left': int(self.config.get('p4stocks', 'left')),
             'right': int(self.config.get('p4stocks', 'right'))
-        }
-
-    """
-    BEGIN 480p
-    """
-    def get_p1_stocks_480(self):
-        return {
-            'top': int(self.config.get('p1stocks480', 'top')),
-            'bottom': int(self.config.get('p1stocks480', 'bottom')),
-            'left': int(self.config.get('p1stocks480', 'left')),
-            'right': int(self.config.get('p1stocks480', 'right'))
-        }
-
-    def get_p2_stocks_480(self):
-        return {
-            'top': int(self.config.get('p2stocks480', 'top')),
-            'bottom': int(self.config.get('p2stocks480', 'bottom')),
-            'left': int(self.config.get('p2stocks480', 'left')),
-            'right': int(self.config.get('p2stocks480', 'right'))
-        }
-
-    def get_p3_stocks_480(self):
-        return {
-            'top': int(self.config.get('p3stocks480', 'top')),
-            'bottom': int(self.config.get('p3stocks480', 'bottom')),
-            'left': int(self.config.get('p3stocks480', 'left')),
-            'right': int(self.config.get('p3stocks480', 'right'))
-        }
-    
-    def get_p4_stocks_480(self):
-        return {
-            'top': int(self.config.get('p4stocks480', 'top')),
-            'bottom': int(self.config.get('p4stocks480', 'bottom')),
-            'left': int(self.config.get('p4stocks480', 'left')),
-            'right': int(self.config.get('p4stocks480', 'right'))
         }
