@@ -4,7 +4,7 @@
   "description": "",
   "main": "express-server.js",
   "scripts": {
-    "install": "npm install && cd webapp && npm install",
+    "install-all": "npm install && cd webapp && npm install",
     "start": "npm run watch | npm run launch",
     "launch": "node express-server.js",
     "build": "cd webapp && npm run build",

@@ -1,7 +1,7 @@
 import React from 'react';
-import axios from 'axios'
-
-import ReactDOM from 'react'
+import ReactDOM from 'react-dom';
+import axios from 'axios';
+import { Button, Grid, Row, Col } from 'react-bootstrap';
 
 const JSON_PATH = '../../../../resources/test.json'; // todo change
 const API_URL = 'http://localhost:8080';
@@ -16,7 +16,7 @@ const characters = [
 
 export default class StreamControl extends React.Component{
 
-    constructor(props){
+    constructor(props){ 
         super(props);
 
         this.state = {
@@ -76,70 +76,73 @@ export default class StreamControl extends React.Component{
         return(
             <div>
                 <form onSubmit={this.handleSubmit}>
-                    <div class='stream-control-col'>
-                        <table>
-                            <tr>
-                                <td><label>Player1:</label> </td>
-                                <td>
-                                    <input type="text" name="p1_name" placeholder="tag" 
-                                        onChange={this.handleChange} value={this.state.p1_name}/>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td><label>Score: </label></td>
-                                <td>
-                                    <input type="number" name="p1_games" 
-                                        onChange={this.handleChange} value={this.state.p1_games} />
-                                </td>
-                            </tr>
-                            <tr>
-                                <td><label>Character: </label></td>
-                                <td>
-                                    <select name='p1_char' id='p1_char' 
-                                        value={this.state.p1_char} onChange={this.handleChange}>
-                                        {
-                                            characters.map(character => {
-                                                return <option>{character}</option>
-                                            })
-                                        }
-                                    </select>
-                                </td>
-                            </tr>
-                        </table>
-                    </div>
-                    <hr />
-                    <div class='stream-control-col'>
-                        <table>
-                            <tr>
-                                <td><label>Player2:</label></td>
-                                <td>
-                                    <input type="text" name="p2_name" placeholder="tag" 
-                                        onChange={this.handleChange} value={this.state.p2_name} />
-                                </td>
-                            </tr>
-                            <tr>
-                                <td><label>Score: </label></td>
-                                <td>
-                                    <input type="number" name="p2_games" 
-                                        onChange={this.handleChange}  value={this.state.p2_games} />
-                                </td>
-                            </tr>
-                            <tr>
-                                <td><label>Character: </label></td>
-                                <td>
-                                    <select name='p2_char' id='p2_char' 
-                                        value={this.state.p2_char} onChange={this.handleChange}>
-                                        {
-                                            characters.map(character => {
-                                                return <option>{character}</option>
-                                            })
-                                        }
-                                    </select>
-                                </td>
-                            </tr>
-                        </table>
-                    </div>
-                    <input type='submit' value='submit' />
+                    <Grid>
+                        <Row className="showGrid">
+                            <Col md={6} sm={12}>
+                                <table>
+                                    <tr>
+                                        <td><label>Player1:</label> </td>
+                                        <td>
+                                            <input type="text" name="p1_name" placeholder="tag" 
+                                                onChange={this.handleChange} value={this.state.p1_name}/>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><label>Score: </label></td>
+                                        <td>
+                                            <input type="number" name="p1_games" 
+                                                onChange={this.handleChange} value={this.state.p1_games} />
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><label>Character: </label></td>
+                                        <td> 
+                                            <select name='p1_char' id='p1_char' 
+                                                value={this.state.p1_char} onChange={this.handleChange}>
+                                                {
+                                                    characters.map(character => {
+                                                        return <option>{character}</option>
+                                                    })
+                                                }
+                                            </select>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </Col>
+                            <Col md={6} sm={12}>
+                                <table>
+                                    <tr>
+                                        <td><label>Player2:</label></td>
+                                        <td>
+                                            <input type="text" name="p2_name" placeholder="tag" 
+                                                onChange={this.handleChange} value={this.state.p2_name} />
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><label>Score: </label></td>
+                                        <td>
+                                            <input type="number" name="p2_games" 
+                                                onChange={this.handleChange}  value={this.state.p2_games} />
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><label>Character: </label></td>
+                                        <td>
+                                            <select name='p2_char' id='p2_char' 
+                                                value={this.state.p2_char} onChange={this.handleChange}>
+                                                {
+                                                    characters.map(character => {
+                                                        return <option>{character}</option>
+                                                    })
+                                                }
+                                            </select>
+                                        </td>
+                                    </tr>
+                                </table> 
+                            </Col>
+                            <input type='submit' value='submit' />
+                        </Row>
+                    </Grid>
                 </form>
             </div>
         )
