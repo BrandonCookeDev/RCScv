@@ -1,4 +1,3 @@
-
 class Player(object):
     def __init__(self, tag, character, stocks):
         self.tag = tag

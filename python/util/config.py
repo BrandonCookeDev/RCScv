@@ -23,8 +23,14 @@ class Config(object):
     def get_canny_high_threshold_stocks(self):
         return int(self.config.get('stockscanny', 'highthreshold'))
 
-    def get_stock_pixel_threshold(self):
-        return int(self.config.get('stock_pixel_threshold', 'threshold'))
+    def get_follow_stocks_non_player_threshold(self):
+        return int(self.config.get('follow_stocks', 'non_player_threshold'))
+
+    def get_follow_stocks_player_threshold(self):
+        return int(self.config.get('follow_stocks', 'player_threshold'))
+
+    def get_follow_stocks_buffer_size(self):
+        return int(self.config.get('follow_stocks', 'buffer_size'))
 
     def get_p1_stocks(self):
         return {
