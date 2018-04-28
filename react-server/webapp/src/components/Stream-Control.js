@@ -148,5 +148,3 @@ export default class StreamControl extends React.Component{
         )
     }
 }
-
-ReactDOM.render(<StreamControl />, document.getElementById('stream-control'));
