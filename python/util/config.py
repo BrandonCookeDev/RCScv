@@ -45,3 +45,34 @@ class Config(object):
             'left': int(self.config.get('p4stocks', 'left')),
             'right': int(self.config.get('p4stocks', 'right'))
         }
+
+    def get_p1_percent(self):
+        return {
+            'top':int (self.config.get('p1percents', 'top')),
+            'bottom':int (self.config.get('p1percents', 'bottom')),
+            'left': int (self.config.get('p1percents', 'left')),
+            'right':int (self.config.get('p1percents', 'right'))
+        }
+
+    def get_p2_percent(self):
+        return {
+            'top':int (self.config.get('p2percents', 'top')),
+            'bottom':int (self.config.get('p2percents', 'bottom')),
+            'left': int (self.config.get('p2percents', 'left')),
+            'right':int (self.config.get('p2percents', 'right'))
+        }
+    def get_p3_percent(self):
+        return {
+            'top':int (self.config.get('p3percents', 'top')),
+            'bottom':int (self.config.get('p3percents', 'bottom')),
+            'left': int (self.config.get('p3percents', 'left')),
+            'right':int (self.config.get('p3percents', 'right'))
+        }
+
+    def get_p4_percent(self):
+        return {
+            'top':int (self.config.get('p4percents', 'top')),
+            'bottom':int (self.config.get('p4percents', 'bottom')),
+            'left': int (self.config.get('p4percents', 'left')),
+            'right':int (self.config.get('p4percents', 'right'))
+        }

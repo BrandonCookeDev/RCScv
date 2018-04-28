@@ -57,3 +57,7 @@ class RCScv(object):
         cv.imshow('cvimage', self.cvimage)
         cv.waitKey()
 
+    def draw_rectangle(self, top, bottom, left, right, rgb, thickness):
+        cv.rectangle(self.cvimage, (left, top), (right, bottom), rgb, thickness)
+        
+
