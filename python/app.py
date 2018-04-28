@@ -48,16 +48,15 @@ if __name__ == '__main__':
         if width > MELEE_WIDTH:
             frame = letterbox_cropper.crop_letterbox(frame)
         #cv2.imshow('frame', frame)
-        print(type(frame))
 
         f = stock_cropper.process_frame(frame)
         stock_cropper.draw_rectangles(frame)
-        if debug_mode is True: cv2.imshow('frame', frame)
+        #if debug_mode is True: cv2.imshow('frame', frame)
 
-        follow_stocks.process_histogram(f['p1_hist'], 1)
-        follow_stocks.process_histogram(f['p2_hist'], 2)
-        follow_stocks.process_histogram(f['p3_hist'], 3)
-        follow_stocks.process_histogram(f['p4_hist'], 4)
+        follow_stocks.process_stock_images(f['p1_stocks'], 1)
+        follow_stocks.process_stock_images(f['p2_stocks'], 2)
+        follow_stocks.process_stock_images(f['p3_stocks'], 3)
+        follow_stocks.process_stock_images(f['p4_stocks'], 4)
 
     cap.release()
     cv2.destroyAllWindows()

@@ -49,6 +49,11 @@ class RCScv(object):
         logger.info('cropping cvimage to follcalcHist([img], [0], None, [256], [0, 256])owing specs [top %s, bottom %s, left %s, right %s]'
                     % (top, bottom, left, right))
 
+        top = int(top)
+        bottom = int(bottom)
+        left = int(left)
+        right = int(right)
+
         assert top < bottom, 'Top crop must be smaller than the bottom crop'
         assert left < right, 'Left crop must be smaller than the right crop'
 
@@ -72,3 +77,7 @@ class RCScv(object):
         cv.imshow('cvimage', self.cvimage)
         cv.waitKey()
 
+    def draw_rectangle(self, top, bottom, left, right, rgb, thickness):
+        logger.info('drawing rectangle [%s:%s] [%s:%s]' % (left, top, right, bottom))
+        cv2.rectangle(self.cvimage, (left, top), (right, bottom), rgb, thickness)
+    

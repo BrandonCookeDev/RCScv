@@ -9,7 +9,7 @@ class Config(object):
         self.config.read(file_path)
 
     def get_debug_mode(self):
-        return bool(self.config.get('debug_mode', 'on'))
+        return bool(self.config.get('debug_mode', 'on') == 'True')
 
     def get_letterbox_crop(self):
         return {
@@ -22,6 +22,9 @@ class Config(object):
 
     def get_canny_high_threshold_stocks(self):
         return int(self.config.get('stockscanny', 'highthreshold'))
+
+    def get_stock_pixel_threshold(self):
+        return int(self.config.get('stock_pixel_threshold', 'threshold'))
 
     def get_p1_stocks(self):
         return {

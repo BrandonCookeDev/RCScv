@@ -18,7 +18,8 @@ def process_frame(frame):
     p1.greyscale()
     p1.edge(default_low, default_high)
     if debug_mode is True: p1.show() 
-    p1_hist = p1.get_histogram()
+    s1 = get_individual_stocks(p1.cvimage, p1coords)
+    #p1_hist = p1.get_histogram()
     #print(p1_hist)
 
     p2coords = config.get_p2_stocks()
@@ -27,7 +28,8 @@ def process_frame(frame):
     p2.greyscale()
     p2.edge(default_low, default_high)
     if debug_mode is True: p2.show()
-    p2_hist = p2.get_histogram()
+    s2 = get_individual_stocks(p2.cvimage, p2coords)
+    #p2_hist = p2.get_histogram()
     #print(p2_hist)
 
     p3coords = config.get_p3_stocks()
@@ -36,7 +38,8 @@ def process_frame(frame):
     p3.greyscale()
     p3.edge(default_low, default_high)
     if debug_mode is True: p3.show()
-    p3_hist = p3.get_histogram()
+    s3 = get_individual_stocks(p3.cvimage, p3coords)
+    #p3_hist = p3.get_histogram()
     #print(p3_hist)
 
     p4coords = config.get_p4_stocks()
@@ -45,14 +48,15 @@ def process_frame(frame):
     p4.greyscale()
     p4.edge(default_low, default_high)
     if debug_mode is True: p4.show()
-    p4_hist = p4.get_histogram()
+    s4 = get_individual_stocks(p4.cvimage, p4coords)
+    #p4_hist = p4.get_histogram()
     #print(p4_hist)
 
     return {
-        "p1_hist": p1_hist,
-        "p2_hist": p2_hist,
-        "p3_hist": p3_hist,
-        "p4_hist": p4_hist
+        "p1_stocks": s1,
+        "p2_stocks": s2,
+        "p3_stocks": s3,
+        "p4_stocks": s4
     }
 
 def draw_rectangles(frame):
@@ -68,3 +72,24 @@ def draw_rectangles(frame):
     cv2.rectangle(frame, (p2coords['left'], p2coords['top']), (p2coords['right'], p2coords['bottom']), (0, 255, 0), 2)
     cv2.rectangle(frame, (p3coords['left'], p3coords['top']), (p3coords['right'], p3coords['bottom']), (0, 0, 255), 2)
     cv2.rectangle(frame, (p4coords['left'], p4coords['top']), (p4coords['right'], p4coords['bottom']), (255, 0, 255), 2)
+
+def get_individual_stocks(stock_area, coords):
+    stocks = []
+
+    height = stock_area.shape[0]
+    width = stock_area.shape[1]
+
+    division = width / 4
+
+    left = 0
+    for i in range (0, 4, 1):
+        right = left + division
+        stock = RCScv(cvimage=stock_area, output_name='stocks.jpg', image_path=None)
+        stock.crop(left=left, right=right, top=None, bottom=None)
+        #stock.show()
+        stocks.append(stock)
+        left = right
+
+    #if debug_mode: [s.show() for s in stocks]
+
+    return stocks
