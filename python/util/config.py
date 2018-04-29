@@ -14,6 +14,15 @@ class Config(object):
     def get_canny_high_threshold_stocks(self):
         return int(self.config.get('stockscanny', 'highthreshold'))
 
+    def get_canny_thresholds_percent(self):
+        return { 
+            'high': int(self.config.get('percentcanny', 'highthreshold')),
+            'low': int(self.config.get('percentcanny', 'lowthreshold'))
+        }
+
+    def get_high_percent_canny(self):
+        return int(self.config.get('percentcanny', 'lowthreshold'))
+
     def get_p1_stocks(self):
         return {
             'top': int(self.config.get('p1stocks', 'top')),
