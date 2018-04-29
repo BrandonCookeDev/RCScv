@@ -25,7 +25,8 @@ export default class StreamControl extends React.Component{
             p1_char: '',
             p2_name: '',
             p2_games: 0,
-            p2_char: ''
+            p2_char: '',
+            updateStatus: ''
         };
 
         this.handleChange = this.handleChange.bind(this);
@@ -42,9 +43,10 @@ export default class StreamControl extends React.Component{
         this.setState(newState);
     }
 
-    handleSubmit(){
+    handleSubmit(e){
         let postParams = this.state;
         this.writeToFile();
+        e.preventDefault();
     }
 
     updateState(json){
@@ -67,7 +69,10 @@ export default class StreamControl extends React.Component{
             .then(status => {
                 if(!status == 200){
                     console.error('Got non 200 back from write operation: ' + status);
+                    this.state.updateStatus = 'Failed to Update JSON...';
                 }
+                else
+                    this.state.updateStatus = 'JSON Updated Successfully!';
             })
             .catch(console.error);
     }
@@ -77,6 +82,9 @@ export default class StreamControl extends React.Component{
             <div>
                 <form onSubmit={this.handleSubmit}>
                     <Grid>
+                        <Row>
+                            <h3>{this.state.updateStatus}</h3>
+                        </Row>
                         <Row className="showGrid">
                             <Col md={6} sm={12}>
                                 <table>
