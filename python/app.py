@@ -10,7 +10,7 @@ from lib import letterbox_cropper
 from algorithms import follow_stocks
 
 config = Config()
-debug_mode = config.get_debug_mode()
+debug_mode = config.get_main_debug_mode()
 
 logger = logging.getLogger('RCScv')
 logger.info('RCScv: Beginning Main')
@@ -31,9 +31,9 @@ MELEE_WIDTH = 480
 
 if __name__ == '__main__':
     #c = stock_cropper.process_frame(MELEE3)
-    #print(type(MELEE3))
+    #print(type(MELEE3))https://discord.gg/rRVNNtU
 
-    cap = cv2.VideoCapture(MELEE_FOOTAGE2)
+    cap = cv2.VideoCapture(MELEE_FOOTAGE1)
 
     # just showing video to screen
     while(cap.isOpened()):
@@ -42,16 +42,24 @@ if __name__ == '__main__':
             logger.info('Done!')
             break
 
+        if debug_mode is True:
+            cv2.imshow('frame', frame)
+            cv2.waitKey()
+
         height = frame.shape[0]
         width = frame.shape[1]
 
         if width > MELEE_WIDTH:
             frame = letterbox_cropper.crop_letterbox(frame)
-        #cv2.imshow('frame', frame)
+        if debug_mode is True:
+            cv2.imshow('frame', frame)
+            cv2.waitKey()
 
         f = stock_cropper.process_frame(frame)
         stock_cropper.draw_rectangles(frame)
-        #if debug_mode is True: cv2.imshow('frame', frame)
+        if debug_mode is True:
+            cv2.imshow('frame', frame)
+            cv2.waitKey()
 
         follow_stocks.process_stock_images(f['p1_stocks'], 1)
         follow_stocks.process_stock_images(f['p2_stocks'], 2)
