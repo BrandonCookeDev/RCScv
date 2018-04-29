@@ -1,6 +1,7 @@
 import os, sys
 import cv2 as cv
 import numpy as np
+import imutils as imutils
 
 import logging
 logger = logging.getLogger('RCScv')
@@ -87,7 +88,9 @@ class RCScv(object):
         self.cvimage = cv.threshold(self.cvimage, thresh, 255, cv.THRESH_BINARY)[1]
 
     def get_contours(self):
-        return cv.findContours(self.cvimage, cv.RETR_EXTERNAL, cv.CHAIN_APPROX_SIMPLE)
+        c = cv.findContours(self.cvimage, cv.RETR_EXTERNAL, cv.CHAIN_APPROX_SIMPLE)
+        c = c[0] if imutils.is_cv2() else c[1]
+        return c
 
     def gblur(self, sigmaX, sigmaY):
         self.cvimage = cv.GaussianBlur(self.cvimage, (sigmaX, sigmaY), 0)
