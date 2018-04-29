@@ -16,8 +16,18 @@ def process_frame(frame):
     drawBoxes(image)
     image.show()
 
+    # get canny values
     percentCanny = config.get_canny_thresholds_percent()
 
+    # Do timer stuff for the fans
+    timer = RCScv(frame, 'timer.png')
+    timercoords = config.get_timer()
+    timer.crop(timercoords['top'], timercoords['bottom'], timercoords['left'], timercoords['right'])
+    timer.greyscale
+    timer.edge(percentCanny['low'], percentCanny['high'])
+    timer.show()
+
+    # Start cropping player percent signs
     p1 = RCScv(frame, 'p1frame.png')
     p1coords = config.get_p2_percent()
     p1.crop(p1coords['top'], p1coords['bottom'], p1coords['left'], p1coords['right'])
@@ -65,6 +75,10 @@ def process_frame(frame):
 
 
 def drawBoxes(frame):
+    # test out timer check
+    timerCoord = config.get_timer()
+    frame.draw_rectangle(timerCoord['top'], timerCoord['bottom'], timerCoord['left'], timerCoord['right'], (255,255,0), 2)
+
     p1coords = config.get_p1_percent()
     frame.draw_rectangle(p1coords['top'], p1coords['bottom'], p1coords['left'], p1coords['right'], (0, 0, 255), 2)
 

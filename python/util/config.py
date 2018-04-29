@@ -20,6 +20,14 @@ class Config(object):
             'low': int(self.config.get('percentcanny', 'lowthreshold'))
         }
 
+    def get_timer(self):
+        return {
+            'top': int(self.config.get('timer', 'top')),
+            'bottom': int(self.config.get('timer', 'bottom')),
+            'left': int(self.config.get('timer', 'left')),
+            'right': int(self.config.get('timer', 'right'))
+        }
+
     def get_high_percent_canny(self):
         return int(self.config.get('percentcanny', 'lowthreshold'))
 
