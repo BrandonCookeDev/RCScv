@@ -20,6 +20,7 @@ class RCScv(object):
             try:
                 logger.info('loading image from path %s' % str(self.image_path))
                 self.cvimage = cv.imread(self.image_path)
+                self.cvoriginal = self.cvimage.copy()
             except Exception as e:
                 logger.error(str(e))
                 exit(1)
@@ -77,7 +78,20 @@ class RCScv(object):
         cv.imshow('cvimage', self.cvimage)
         cv.waitKey()
 
+    def detect_shape(self, contour):
+        shape = "unidentified"
+		#peri = cv.arcLength(contour, True)
+        #approx = cv.approxPolyDP(contour, 0.04 * peri, True)
+
+    def threshold(self, thresh):
+        self.cvimage = cv.threshold(self.cvimage, thresh, 255, cv.THRESH_BINARY)[1]
+
+    def get_contours(self):
+        return cv.findContours(self.cvimage, cv.RETR_EXTERNAL, cv.CHAIN_APPROX_SIMPLE)
+
+    def gblur(self, sigmaX, sigmaY):
+        self.cvimage = cv.GaussianBlur(self.cvimage, (sigmaX, sigmaY), 0)
+
     def draw_rectangle(self, top, bottom, left, right, rgb, thickness):
         logger.info('drawing rectangle [%s:%s] [%s:%s]' % (left, top, right, bottom))
-        cv2.rectangle(self.cvimage, (left, top), (right, bottom), rgb, thickness)
-    
+        cv.rectangle(self.cvimage, (left, top), (right, bottom), rgb, thickness)

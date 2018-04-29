@@ -6,7 +6,8 @@ from util.config import Config as Config
 
 logger = logging.getLogger('RCScv')
 config = Config()
-debug_mode = config.get_debug_mode()
+#debug_mode = config.get_debug_mode()
+debug_mode = config.get_stock_cropper_debug_mode()
 
 def process_frame(frame):
     default_low = config.get_canny_low_threshold_stocks()
@@ -16,6 +17,10 @@ def process_frame(frame):
     p1 = RCScv(image_path=None, cvimage=frame, output_name='p1frame.png')
     p1.crop(p1coords['top'], p1coords['bottom'], p1coords['left'], p1coords['right'])
     p1.greyscale()
+    p1.gblur(5, 5)
+    if debug_mode is True: p1.show()
+    p1.threshold(100)
+    if debug_mode is True: p1.show()
     p1.edge(default_low, default_high)
     if debug_mode is True: p1.show() 
     s1 = get_individual_stocks(p1.cvimage, p1coords)
@@ -26,6 +31,8 @@ def process_frame(frame):
     p2 = RCScv(image_path=None, cvimage=frame, output_name='p2frame.png')
     p2.crop(p2coords['top'], p2coords['bottom'], p2coords['left'], p2coords['right'])
     p2.greyscale()
+    p1.gblur(5, 5)
+    p1.threshold(100)
     p2.edge(default_low, default_high)
     if debug_mode is True: p2.show()
     s2 = get_individual_stocks(p2.cvimage, p2coords)
@@ -36,6 +43,8 @@ def process_frame(frame):
     p3 = RCScv(image_path=None, cvimage=frame, output_name='p2frame.png')
     p3.crop(p3coords['top'], p3coords['bottom'], p3coords['left'], p3coords['right'])
     p3.greyscale()
+    p1.gblur(5, 5)
+    p1.threshold(100)
     p3.edge(default_low, default_high)
     if debug_mode is True: p3.show()
     s3 = get_individual_stocks(p3.cvimage, p3coords)
@@ -46,9 +55,12 @@ def process_frame(frame):
     p4 = RCScv(image_path=None, cvimage=frame, output_name='p2frame.png')
     p4.crop(p4coords['top'], p4coords['bottom'], p4coords['left'], p4coords['right'])
     p4.greyscale()
+    p1.gblur(5, 5)
+    p1.threshold(100)
     p4.edge(default_low, default_high)
     if debug_mode is True: p4.show()
     s4 = get_individual_stocks(p4.cvimage, p4coords)
+    
     #p4_hist = p4.get_histogram()
     #print(p4_hist)
 
@@ -73,7 +85,14 @@ def draw_rectangles(frame):
     cv2.rectangle(frame, (p3coords['left'], p3coords['top']), (p3coords['right'], p3coords['bottom']), (0, 0, 255), 2)
     cv2.rectangle(frame, (p4coords['left'], p4coords['top']), (p4coords['right'], p4coords['bottom']), (255, 0, 255), 2)
 
-def get_individual_stocks(stock_area, coords):
+def get_individual_stocks(stock_area):
+    #Get stock contours
+    contours = stock_area.get_contrours()
+    
+    for contour in contours:
+        pass
+
+def get_individual_stocks2(stock_area, coords):
     stocks = []
 
     height = stock_area.shape[0]
@@ -90,6 +109,6 @@ def get_individual_stocks(stock_area, coords):
         stocks.append(stock)
         left = right
 
-    #if debug_mode: [s.show() for s in stocks]
+    if debug_mode: [s.show() for s in stocks]
 
     return stocks

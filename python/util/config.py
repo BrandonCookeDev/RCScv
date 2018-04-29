@@ -11,6 +11,12 @@ class Config(object):
     def get_debug_mode(self):
         return bool(self.config.get('debug_mode', 'on') == 'True')
 
+    def get_follow_stocks_debug_mode(self):
+        return bool(self.config.get('debug_mode', 'follow_stocks') == 'True')
+
+    def get_stock_cropper_debug_mode(self):
+        return bool(self.config.get('debug_mode', 'stock_cropper') == 'True')
+
     def get_letterbox_crop(self):
         return {
             'left': int(self.config.get('letterbox', 'left')),

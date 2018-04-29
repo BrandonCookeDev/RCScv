@@ -6,9 +6,11 @@ from util.config import Config as Config
 
 logger = logging.getLogger('RCScv')
 config = Config()
+
 buffer_size = config.get_follow_stocks_buffer_size()
 player_threshold = config.get_follow_stocks_player_threshold()
 non_player_threshold = config.get_follow_stocks_non_player_threshold()
+debug_mode = config.get_follow_stocks_debug_mode()
 
 # This buffer will hold x amount of frame data to perform calculations on
 stock_image_buffers = {}
