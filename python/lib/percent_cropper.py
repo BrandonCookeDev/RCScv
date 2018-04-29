@@ -29,11 +29,11 @@ def process_frame(frame):
 
     # Start cropping player percent signs
     p1 = RCScv(frame, 'p1frame.png')
-    p1coords = config.get_p2_percent()
+    p1coords = config.get_p1_percent()
     p1.crop(p1coords['top'], p1coords['bottom'], p1coords['left'], p1coords['right'])
     p1.greyscale()
+    p1.gauss_Blur(5,5)
     p1.edge(percentCanny['low'], percentCanny['high'])
-    print('Logging p1 histagram: ' )
     p1.show()
     
     p1Hist = p1.get_histogram()
@@ -43,8 +43,8 @@ def process_frame(frame):
     p2coords = config.get_p2_percent()
     p2.crop(p2coords['top'], p2coords['bottom'], p2coords['left'], p2coords['right'])
     p2.greyscale()
+    p2.gauss_Blur(5,5)
     p2.edge(percentCanny['low'], percentCanny['high'])
-    print('Logging p2 histagram: ' )
     p2.show()
    
     p2Hist = p2.get_histogram()
@@ -54,8 +54,8 @@ def process_frame(frame):
     p3coords = config.get_p3_percent()
     p3.crop(p3coords['top'], p3coords['bottom'], p3coords['left'], p3coords['right'])
     p3.greyscale()
+    p3.gauss_Blur(5,5)
     p3.edge(percentCanny['low'], percentCanny['high'])
-    print('Logging p3 histagram: ' )
     p3.show()
     
     p3Hist = p3.get_histogram()
@@ -65,6 +65,7 @@ def process_frame(frame):
     p4coords = config.get_p4_percent()
     p4.crop(p4coords['top'], p4coords['bottom'], p4coords['left'], p4coords['right'])
     p4.greyscale()
+    p4.gauss_Blur(5,5)
     p4.edge(percentCanny['low'], percentCanny['high'])
     print('Logging p4 histagram: ' )
     p4.show()
