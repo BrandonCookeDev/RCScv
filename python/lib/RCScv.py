@@ -59,5 +59,20 @@ class RCScv(object):
 
     def draw_rectangle(self, top, bottom, left, right, rgb, thickness):
         cv.rectangle(self.cvimage, (left, top), (right, bottom), rgb, thickness)
+
+    def gauss_Blur(self, sigX, sigY):
+        self.cvimage = cv.GaussianBlur(self.cvimage, (sigX, sigY), 0)
+
+    # Takes in grayscaled + filtered image and looks for circles
+    # TODO? 
+    def detect_circles(self):
+        # circles = cv.HoughCircles(self.cvimage, cv.HOUGH_GRADIENT, 1, 20, param1=50,param2=30, minRadius=0, maxRadius=0)
+
+        # circles = np.uint16(np.around(circles))
+        # for i in circles[0, :]:
+        #     cv.circle(self.cvimage, (i[0], i[1]), i[2], (0,255, 0), 2)
+        #     cv.circle(self.cvimage, (i[0], i[1]), i[2], (0,255, 0), 3)
         
+        # cv.imshow('detected circles', self.cvimage)
+        return 
 

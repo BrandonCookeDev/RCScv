@@ -22,7 +22,7 @@ if __name__ == '__main__':
     #c = stock_cropper.process_frame(MELEE3)
     p1 = percent_cropper.process_frame(MELEE1)
     p2 = percent_cropper.process_frame(MELEE2)
-    p2 = percent_cropper.process_frame(MELEE3)
+    p3 = percent_cropper.process_frame(MELEE3)
     p4 = percent_cropper.process_frame(MELEE4)
 
     
