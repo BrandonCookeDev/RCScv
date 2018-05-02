@@ -1,75 +1,63 @@
-# Name Jeff
 import os, sys
-import cv2
+import cv2 as cv
 import logging
 from lib.RCScv import RCScv as RCScv
 from util.config import Config as Config
 
 config = Config()
-logger = logging.getLogger()
 
-def process_frame(frame): 
+# Looks for circle with specified area. Defaults to optimal percent area (50)
+def find_circles(self, circleArea=40):
+    gray = cv.cvtColor(self.cvimage, cv.COLOR_BGR2GRAY)
+    self.gauss_Blur(5,5)
+    ret, thresh = cv.threshold(gray, 127, 255, 0)
+    im2, contours, hierarchy = cv.findContours(thresh, cv.RETR_TREE, cv.CHAIN_APPROX_SIMPLE)
+    contourList = []
+    for c in contours: 
+        # obtains number of points found in figure, second argument is a accuracy parameter. Needs to be extremely small for small circles
+        approx = cv.approxPolyDP(c, 0.01*cv.arcLength(c, True), True)
+        # print('Approx is ' + str(approx))
+        area = cv.contourArea(c)
+        if ((len(approx) > 6 and (area < circleArea))): contourList.append(c)
+    self.cvimage = cv.drawContours(self.cvimage, contourList, -1, (0 , 0, 255), 2)
+    self.show()
+    return len(contourList) > 0
+
+def detect_circles(frame):
     print('we out here fam')
     # Initial test to draw boxes
     image = RCScv(frame, 'frame.png')
     drawBoxes(image)
     image.show()
 
-    # get canny values
-    percentCanny = config.get_canny_thresholds_percent()
-
-    # Do timer stuff for the fans
-    timer = RCScv(frame, 'timer.png')
-    timercoords = config.get_timer()
-    timer.crop(timercoords['top'], timercoords['bottom'], timercoords['left'], timercoords['right'])
-    timer.greyscale
-    timer.edge(percentCanny['low'], percentCanny['high'])
-    timer.show()
-
     # Start cropping player percent signs
+    # Player 1
     p1 = RCScv(frame, 'p1frame.png')
     p1coords = config.get_p1_percent()
     p1.crop(p1coords['top'], p1coords['bottom'], p1coords['left'], p1coords['right'])
-    p1.greyscale()
-    p1.gauss_Blur(5,5)
-    p1.edge(percentCanny['low'], percentCanny['high'])
-    p1.show()
-    
-    p1Hist = p1.get_histogram()
-    
+    hasPercent = find_circles(p1)
+    print(hasPercent)
 
-    p2 = RCScv(frame, 'p1frame.png')
+    # Player 2
+    p2 = RCScv(frame, 'p2frame.png')
     p2coords = config.get_p2_percent()
     p2.crop(p2coords['top'], p2coords['bottom'], p2coords['left'], p2coords['right'])
-    p2.greyscale()
-    p2.gauss_Blur(5,5)
-    p2.edge(percentCanny['low'], percentCanny['high'])
-    p2.show()
-   
-    p2Hist = p2.get_histogram()
-    
+    hasPercent = find_circles(p2)
+    print(hasPercent)
 
-    p3 = RCScv(frame, 'p1frame.png')
+    # Player 3 
+    p3 = RCScv(frame, 'p2frame.png')
     p3coords = config.get_p3_percent()
-    p3.crop(p3coords['top'], p3coords['bottom'], p3coords['left'], p3coords['right'])
-    p3.greyscale()
-    p3.gauss_Blur(5,5)
-    p3.edge(percentCanny['low'], percentCanny['high'])
-    p3.show()
-    
-    p3Hist = p3.get_histogram()
-    
+    p3.crop(p2coords['top'], p3coords['bottom'], p3coords['left'], p3coords['right'])
+    hasPercent = find_circles(p3)
+    print(hasPercent)
 
-    p4 = RCScv(frame, 'p1frame.png')
+    # Player 4
+    p4 = RCScv(frame, 'p4frame.png')
     p4coords = config.get_p4_percent()
     p4.crop(p4coords['top'], p4coords['bottom'], p4coords['left'], p4coords['right'])
-    p4.greyscale()
-    p4.gauss_Blur(5,5)
-    p4.edge(percentCanny['low'], percentCanny['high'])
-    print('Logging p4 histagram: ' )
-    p4.show()
-    p4Hist = p4.get_histogram()
-    
+    hasPercent = find_circles(p4)
+    print(hasPercent)
 
 
 def drawBoxes(frame):
@@ -88,5 +76,6 @@ def drawBoxes(frame):
 
     p4coords = config.get_p4_percent()
     frame.draw_rectangle(p3coords['top'], p4coords['bottom'], p4coords['left'], p4coords['right'], (0, 255, 0), 2)
-    
+
+
 

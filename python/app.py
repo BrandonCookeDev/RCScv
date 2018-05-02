@@ -5,6 +5,7 @@ from util.config import Config as Config
 from lib import RCScv as rcscv
 from lib import stock_cropper
 from lib import percent_cropper
+from lib import detect_circles
 
 config = Config()
 
@@ -20,9 +21,18 @@ MELEE4 = os.path.join(RESOURCES_DIR, 'Melee4.jpg')
 
 if __name__ == '__main__':
     #c = stock_cropper.process_frame(MELEE3)
-    p1 = percent_cropper.process_frame(MELEE1)
-    p2 = percent_cropper.process_frame(MELEE2)
-    p3 = percent_cropper.process_frame(MELEE3)
-    p4 = percent_cropper.process_frame(MELEE4)
+
+    # Percent detection functions
+    # p1 = percent_cropper.process_frame(MELEE1)
+    # p2 = percent_cropper.process_frame(MELEE2)
+    # p3 = percent_cropper.process_frame(MELEE3)
+    # p4 = percent_cropper.process_frame(MELEE4)
+
+    # Circle detection
+    print('Testing circle detection')
+    test1 = detect_circles.detect_circles(MELEE1)
+    test2 = detect_circles.detect_circles(MELEE2)
+    test3 = detect_circles.detect_circles(MELEE3)
+    test4 = detect_circles.detect_circles(MELEE4)
 
     
