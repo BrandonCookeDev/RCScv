@@ -1,4 +1,9 @@
 node_modules/
 *.mp4
 *.log
+<<<<<<< HEAD
 *.pyc
+=======
+*.pyc
+.env
+>>>>>>> master

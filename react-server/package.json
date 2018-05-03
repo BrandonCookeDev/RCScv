@@ -5,8 +5,11 @@
   "main": "express-server.js",
   "scripts": {
     "install-all": "npm install && cd webapp && npm install",
+<<<<<<< HEAD
     "start": "npm run watch | npm run launch",
     "launch": "node express-server.js",
+=======
+>>>>>>> master
     "build": "cd webapp && npm run build",
     "watch": "cd webapp && npm run watch",
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -19,6 +22,7 @@
     "dotenv": "^5.0.1",
     "express": "^4.16.3",
     "lodash": "^4.17.10",
+    "npm-install-all": "^1.1.21",
     "winston": "^2.4.2"
   }
 }

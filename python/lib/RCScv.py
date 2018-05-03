@@ -1,6 +1,7 @@
 import os, sys
 import cv2 as cv
 import numpy as np
+import imutils as imutils
 
 import logging
 logger = logging.getLogger('RCScv')
@@ -16,21 +17,37 @@ class RCScv(object):
             raise Exception('output_name cannot be None for RCScv obejct')
         self.output_name = output_name
 
-        try:
-            logger.info('loading image from path %s' % str(self.image_path))
-            self.cvimage = cv.imread(self.image_path)
-        except Exception as e:
-            logger.error(str(e))
-            exit(1)
+        if cvimage is None:
+            try:
+                logger.info('loading image from path %s' % str(self.image_path))
+                self.cvimage = cv.imread(self.image_path)
+                self.cvoriginal = self.cvimage.copy()
+            except Exception as e:
+                logger.error(str(e))
+                exit(1)
+        else:
+            self.cvimage = cvimage
 
     def get_cvimage(self):
         return self.cvimage 
 
-    def save(self):
-        logger.info('writting image to path %s' % self.output_name)
-        cv2.imwrite(self.output_path, self.cvimage)
+    def save(self, output_name=None):
+        if output_name is None:
+            output_name = self.output_name
+
+        logger.info('writting image to path %s' % output_name)
+        cv.imwrite(output_name, self.cvimage)
 
     def crop(self, top, bottom, left, right):
+        if top is None:
+            top = 0
+        if bottom is None:
+            bottom = self.cvimage.shape[0]
+        if left is None:
+            left = 0
+        if right is None:
+            right = self.cvimage.shape[1]
+
         logger.info('cropping cvimage to follcalcHist([img], [0], None, [256], [0, 256])owing specs [top %s, bottom %s, left %s, right %s]'
                     % (top, bottom, left, right))
 
@@ -57,3 +74,43 @@ class RCScv(object):
         cv.imshow('cvimage', self.cvimage)
         cv.waitKey()
 
+    def detect_shape(self, contour):
+        shape = "unidentified"
+		#peri = cv.arcLength(contour, True)
+        #approx = cv.approxPolyDP(contour, 0.04 * peri, True)
+
+    def threshold(self, thresh):
+        self.cvimage = cv.threshold(self.cvimage, thresh, 255, cv.THRESH_BINARY)[1]
+
+    def get_contours(self):
+        c = cv.findContours(self.cvimage, cv.RETR_EXTERNAL, cv.CHAIN_APPROX_SIMPLE)
+        c = c[0] if imutils.is_cv2() else c[1]
+        return c
+
+    def gblur(self, sigmaX, sigmaY):
+        self.cvimage = cv.GaussianBlur(self.cvimage, (sigmaX, sigmaY), 0)
+
+    def draw_rectangle(self, top, bottom, left, right, rgb, thickness):
+        logger.info('drawing rectangle [%s:%s] [%s:%s]' % (left, top, right, bottom))
+        cv.rectangle(self.cvimage, (left, top), (right, bottom), rgb, thickness)
+        cv.rectangle(self.cvimage, (left, top), (right, bottom), rgb, thickness)
+
+    def gauss_Blur(self, sigX, sigY):
+        self.cvimage = cv.GaussianBlur(self.cvimage, (sigX, sigY), 0)
+
+# # Looks for circle with specified area. Defaults to optimal percent area (50)
+#     def detect_circles(self, circleArea=50):
+#         gray = cv.cvtColor(self.cvimage, cv.COLOR_BGR2GRAY)
+#         self.gauss_Blur(5,5)
+#         ret, thresh = cv.threshold(gray, 127, 255, 0)
+#         im2, contours, hierarchy = cv.findContours(thresh, cv.RETR_TREE, cv.CHAIN_APPROX_SIMPLE)
+#         contourList = []
+#         for c in contours: 
+#             # obtains number of points found in figure, second argument is a accuracy parameter. Needs to be extremely small for small circles
+#             approx = cv.approxPolyDP(c, 0.01*cv.arcLength(c, True), True)
+#             # print('Approx is ' + str(approx))
+#             area = cv.contourArea(c)
+#             if ((len(approx) > 6 and (area < circleArea))): contourList.append(c)
+#         self.cvimage = cv.drawContours(self.cvimage, contourList, -1, (0 , 0, 255), 2)
+#         self.show()
+#         return len(contourList) > 0
