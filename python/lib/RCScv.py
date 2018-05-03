@@ -8,8 +8,8 @@ logger = logging.getLogger('RCScv')
 
 class RCScv(object):
 
-    def __init__(self, image_path, output_name, cvimage=None):
-        if image_path is None and cvimage is None:
+    def __init__(self, image_path, output_name):
+        if image_path is None:
             raise Exception('image_path cannot be None for RCScv object')
         self.image_path = image_path
 
@@ -38,7 +38,7 @@ class RCScv(object):
         logger.info('writting image to path %s' % output_name)
         cv.imwrite(output_name, self.cvimage)
 
-    def crop(self, top=None, bottom=None, left=None, right=None):
+    def crop(self, top, bottom, left, right):
         if top is None:
             top = 0
         if bottom is None:
@@ -47,14 +47,9 @@ class RCScv(object):
             left = 0
         if right is None:
             right = self.cvimage.shape[1]
-            
+
         logger.info('cropping cvimage to follcalcHist([img], [0], None, [256], [0, 256])owing specs [top %s, bottom %s, left %s, right %s]'
                     % (top, bottom, left, right))
-
-        top = int(top)
-        bottom = int(bottom)
-        left = int(left)
-        right = int(right)
 
         assert top < bottom, 'Top crop must be smaller than the bottom crop'
         assert left < right, 'Left crop must be smaller than the right crop'
@@ -98,3 +93,24 @@ class RCScv(object):
     def draw_rectangle(self, top, bottom, left, right, rgb, thickness):
         logger.info('drawing rectangle [%s:%s] [%s:%s]' % (left, top, right, bottom))
         cv.rectangle(self.cvimage, (left, top), (right, bottom), rgb, thickness)
+        cv.rectangle(self.cvimage, (left, top), (right, bottom), rgb, thickness)
+
+    def gauss_Blur(self, sigX, sigY):
+        self.cvimage = cv.GaussianBlur(self.cvimage, (sigX, sigY), 0)
+
+# # Looks for circle with specified area. Defaults to optimal percent area (50)
+#     def detect_circles(self, circleArea=50):
+#         gray = cv.cvtColor(self.cvimage, cv.COLOR_BGR2GRAY)
+#         self.gauss_Blur(5,5)
+#         ret, thresh = cv.threshold(gray, 127, 255, 0)
+#         im2, contours, hierarchy = cv.findContours(thresh, cv.RETR_TREE, cv.CHAIN_APPROX_SIMPLE)
+#         contourList = []
+#         for c in contours: 
+#             # obtains number of points found in figure, second argument is a accuracy parameter. Needs to be extremely small for small circles
+#             approx = cv.approxPolyDP(c, 0.01*cv.arcLength(c, True), True)
+#             # print('Approx is ' + str(approx))
+#             area = cv.contourArea(c)
+#             if ((len(approx) > 6 and (area < circleArea))): contourList.append(c)
+#         self.cvimage = cv.drawContours(self.cvimage, contourList, -1, (0 , 0, 255), 2)
+#         self.show()
+#         return len(contourList) > 0

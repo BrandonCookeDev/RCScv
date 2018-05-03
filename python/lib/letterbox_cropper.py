@@ -12,9 +12,9 @@ def crop_letterbox(frame):
     left = crop['left']
     right = crop['right']
 
-    height = frame.shape[0]
-    width = frame.shape[1]
+    #height = frame.shape[0]
+    #width = frame.shape[1]
 
-    game = RCScv(cvimage=frame, image_path=None, output_name='gamecap.png')
+    game = RCScv(image_path=frame, output_name='gamecap.png')
     game.crop(None, None, left, right)
-    return game.cvimage
+    return game
