@@ -8,6 +8,8 @@ from lib.RCScv import RCScv as RCScv
 from lib import stock_cropper
 from lib import letterbox_cropper
 from algorithms import follow_stocks
+from lib import percent_cropper
+from lib import detect_circles
 
 config = Config()
 debug_mode = config.get_main_debug_mode()

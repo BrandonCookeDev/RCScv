@@ -3,17 +3,18 @@ import logging
 import numpy
 from lib import RCScv as cv
 from util.config import Config as Config
+from lib import Models as m
 
 logger = logging.getLogger('RCScv')
 config = Config()
 
-buffer_size = config.get_follow_stocks_buffer_size()
+#buffer_size = config.get_follow_stocks_buffer_size()
 player_threshold = config.get_follow_stocks_player_threshold()
 non_player_threshold = config.get_follow_stocks_non_player_threshold()
 debug_mode = config.get_follow_stocks_debug_mode()
 
 # This buffer will hold x amount of frame data to perform calculations on
-stock_image_buffers = {}
+stock_image_buffers = m.FrameBuffer(config.get_follow_stocks_buffer_size())
 
 def process(cvimages, player_number):
     process_stock_images(cvimages, player_number)
@@ -36,8 +37,8 @@ def process_stock_images(cvimages, player_number):
         # Generate key and cache the results for calculation
         # Then average the existing frame buffer for this player on this stock
         key_name = "P%sS%s" % (player_number, i)
-        add_to_stock_image_buffers(key_name, white)
-        avg = average_stock_image_buffers(key_name)
+        stock_image_buffer.add(key_name, white)
+        avg = stock_image_buffer.average(key_name)
         logger.debug("%s average: %s" % (key_name, avg))
 
         # Deterministically rule out "non-players" ie empty controller ports
