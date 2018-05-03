@@ -69,3 +69,25 @@ class RCScv(object):
         cv.imshow('cvimage', self.cvimage)
         cv.waitKey()
 
+    def draw_rectangle(self, top, bottom, left, right, rgb, thickness):
+        cv.rectangle(self.cvimage, (left, top), (right, bottom), rgb, thickness)
+
+    def gauss_Blur(self, sigX, sigY):
+        self.cvimage = cv.GaussianBlur(self.cvimage, (sigX, sigY), 0)
+
+# # Looks for circle with specified area. Defaults to optimal percent area (50)
+#     def detect_circles(self, circleArea=50):
+#         gray = cv.cvtColor(self.cvimage, cv.COLOR_BGR2GRAY)
+#         self.gauss_Blur(5,5)
+#         ret, thresh = cv.threshold(gray, 127, 255, 0)
+#         im2, contours, hierarchy = cv.findContours(thresh, cv.RETR_TREE, cv.CHAIN_APPROX_SIMPLE)
+#         contourList = []
+#         for c in contours: 
+#             # obtains number of points found in figure, second argument is a accuracy parameter. Needs to be extremely small for small circles
+#             approx = cv.approxPolyDP(c, 0.01*cv.arcLength(c, True), True)
+#             # print('Approx is ' + str(approx))
+#             area = cv.contourArea(c)
+#             if ((len(approx) > 6 and (area < circleArea))): contourList.append(c)
+#         self.cvimage = cv.drawContours(self.cvimage, contourList, -1, (0 , 0, 255), 2)
+#         self.show()
+#         return len(contourList) > 0
