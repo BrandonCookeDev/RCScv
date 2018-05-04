@@ -2,6 +2,7 @@ import os, sys
 import cv2 as cv
 import numpy as np
 import imutils as imutils
+import random as random
 
 import logging
 logger = logging.getLogger('RCScv')
@@ -56,6 +57,10 @@ class RCScv(object):
 
         self.cvimage = self.cvimage[top:bottom, left:right]
 
+    def rectangle(self, top, bottom, left, right):
+        cv.rectangle(self.cvimage, (left, top),
+          (right, bottom), random_color(), 2)
+
     def greyscale(self):
         logger.info('applying greyscale to cvimage')
         self.cvimage = cv.cvtColor(self.cvimage, cv.COLOR_BGR2GRAY)
@@ -76,8 +81,8 @@ class RCScv(object):
 
     def detect_shape(self, contour):
         shape = "unidentified"
-		#peri = cv.arcLength(contour, True)
-        #approx = cv.approxPolyDP(contour, 0.04 * peri, True)
+        #peri = cv.arcLength(contour, True)
+        # #approx = cv.approxPolyDP(contour, 0.04 * peri, True)
 
     def threshold(self, thresh):
         self.cvimage = cv.threshold(self.cvimage, thresh, 255, cv.THRESH_BINARY)[1]
@@ -87,12 +92,16 @@ class RCScv(object):
         c = c[0] if imutils.is_cv2() else c[1]
         return c
 
+    def draw_contour(self, contour):
+        cv.drawContours(self.cvimage, [contour], -1, random_color(), 2)
+
     def gblur(self, sigmaX, sigmaY):
         self.cvimage = cv.GaussianBlur(self.cvimage, (sigmaX, sigmaY), 0)
 
     def draw_rectangle(self, top, bottom, left, right, rgb, thickness):
         logger.info('drawing rectangle [%s:%s] [%s:%s]' % (left, top, right, bottom))
         cv.rectangle(self.cvimage, (left, top), (right, bottom), rgb, thickness)
+<<<<<<< HEAD
         cv.rectangle(self.cvimage, (left, top), (right, bottom), rgb, thickness)
 
     def gauss_Blur(self, sigX, sigY):
@@ -114,3 +123,23 @@ class RCScv(object):
 #         self.cvimage = cv.drawContours(self.cvimage, contourList, -1, (0 , 0, 255), 2)
 #         self.show()
 #         return len(contourList) > 0
+=======
+
+    def get_contour_moments(self, contour=None):
+        if contour is None:
+            contour = self.get_contours()
+        return cv.moments(contour)
+
+def random_color():
+    color = (random.randint(0,255), random.randint(0,255), random.randint(0,255))
+    return color
+
+def random_color2():
+    color = list(np.random.choice(range(256), size=3))
+    return (color[0], color[1], color[2])
+
+def random_color3():
+    rgbl = [255, 0, 0]
+    random.shuffle(rgbl)
+    return tuple(rgbl)
+>>>>>>> 789595a0240975dbd8f32a7eb2e0c91b908f5306

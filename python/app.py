@@ -4,14 +4,17 @@ from util import log
 from util.config import Config as Config
 from lib.RCScv import RCScv as RCScv
 from lib import stock_cropper
-<<<<<<< HEAD
 from lib import letterbox_cropper
-=======
 from lib import percent_cropper
 from lib import detect_circles
->>>>>>> jarrod
 
 config = Config()
+from algorithms import follow_stocks
+from lib import percent_cropper
+from lib import detect_circles
+
+config = Config()
+debug_mode = config.get_main_debug_mode()
 
 logger = logging.getLogger('RCScv')
 logger.info('RCScv: Beginning Main')
@@ -26,29 +29,38 @@ LETTERBOXED = os.path.join(RESOURCES_DIR, 'LetterboxedMelee.png')
 CROPPED_LETTERBOX = os.path.join(RESOURCES_DIR, 'UnletterboxedMelee.png')
 
 if __name__ == '__main__':
-<<<<<<< HEAD
-    framecv = RCScv(LETTERBOXED, CROPPED_LETTERBOX)
-    if framecv.cvimage.shape[0] > 480:
-        new_frame_cv = letterbox_cropper.crop_letterbox(LETTERBOXED)
-        new_frame_cv.save(CROPPED_LETTERBOX)
-        stock_cropper.process_frame(CROPPED_LETTERBOX)
-    else:
-        stock_cropper.process_frame(LETTERBOXED)
-=======
-    #c = stock_cropper.process_frame(MELEE3)
+    cap = cv2.VideoCapture(MELEE_FOOTAGE1)
 
-    # Percent detection functions
-    # p1 = percent_cropper.process_frame(MELEE1)
-    # p2 = percent_cropper.process_frame(MELEE2)
-    # p3 = percent_cropper.process_frame(MELEE3)
-    # p4 = percent_cropper.process_frame(MELEE4)
+    # just showing video to screen
+    while(cap.isOpened()):
+        ret, frame = cap.read()
+        if frame is None: 
+            logger.info('Done!')
+            break
 
-    # Circle detection
-    print('Testing circle detection')
-    test1 = detect_circles.detect_circles(MELEE1)
-    test2 = detect_circles.detect_circles(MELEE2)
-    test3 = detect_circles.detect_circles(MELEE3)
-    test4 = detect_circles.detect_circles(MELEE4)
+        if debug_mode is True:
+            cv2.imshow('frame', frame)
+            cv2.waitKey()
 
->>>>>>> jarrod
-    
+        height = frame.shape[0]
+        width = frame.shape[1]
+
+        if width > MELEE_WIDTH:
+            frame = letterbox_cropper.crop_letterbox(frame)
+        if debug_mode is True:
+            cv2.imshow('frame', frame)
+            cv2.waitKey()
+
+        f = stock_cropper.process_frame(frame)
+        stock_cropper.draw_rectangles(frame)
+        if debug_mode is True:
+            cv2.imshow('frame', frame)
+            cv2.waitKey()
+
+        follow_stocks.process_stock_images(f['p1_stocks'], 1)
+        follow_stocks.process_stock_images(f['p2_stocks'], 2)
+        follow_stocks.process_stock_images(f['p3_stocks'], 3)
+        follow_stocks.process_stock_images(f['p4_stocks'], 4)
+
+    cap.release()
+    cv2.destroyAllWindows()

@@ -12,6 +12,9 @@ class Config(object):
     def get_debug_mode(self):
         return bool(self.config.get('debug_mode', 'on') == 'True')
 
+    def get_main_debug_mode(self):
+        return bool(self.config.get('debug_mode', 'app') == 'True')
+
     def get_follow_stocks_debug_mode(self):
         return bool(self.config.get('debug_mode', 'follow_stocks') == 'True')
 
