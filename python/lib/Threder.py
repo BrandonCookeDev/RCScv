@@ -32,6 +32,7 @@ class Worker(object):
                 
                 t = self.buffer.pop(0)
                 t.start()
+                active = active - 1
 
                 logger.debug('Began thread for %s. [Active: %s :: Limit: %s]' % 
                     (self.name, active, self.limit))
