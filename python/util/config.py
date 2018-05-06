@@ -8,9 +8,17 @@ class Config(object):
         self.config = ConfigParser()
         self.config.read(file_path)
 
-<<<<<<< HEAD
+    def get_melee_width(self):
+        return int(self.config.get('melee', 'width'))
+
+    def get_melee_height(self):
+        return int(self.config.get('melee', 'height'))
+
     def get_debug_mode(self):
         return bool(self.config.get('debug_mode', 'on') == 'True')
+
+    def get_main_debug_mode(self):
+        return bool(self.config.get('debug_mode', 'app') == 'True')
 
     def get_follow_stocks_debug_mode(self):
         return bool(self.config.get('debug_mode', 'follow_stocks') == 'True')
@@ -18,8 +26,15 @@ class Config(object):
     def get_stock_cropper_debug_mode(self):
         return bool(self.config.get('debug_mode', 'stock_cropper') == 'True')
 
-=======
->>>>>>> master
+    def get_follow_stocks_buffer_size(self):
+        return int(self.config.get('follow_stocks', 'buffer_size'))
+
+    def get_follow_stocks_player_threshold(self):
+        return int(self.config.get('follow_stocks', 'player_threshold'))
+
+    def get_follow_stocks_non_player_threshold(self):
+        return int(self.config.get('follow_stocks', 'non_player_threshold'))
+
     def get_letterbox_crop(self):
         return {
             'left': int(self.config.get('letterbox', 'left')),

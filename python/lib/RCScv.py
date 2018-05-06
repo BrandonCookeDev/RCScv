@@ -1,6 +1,8 @@
 import os, sys
 import cv2 as cv
+import copy as copy
 import numpy as np
+import random as random
 import imutils as imutils
 
 import logging
@@ -8,9 +10,9 @@ logger = logging.getLogger('RCScv')
 
 class RCScv(object):
 
-    def __init__(self, image_path, output_name):
-        if image_path is None:
-            raise Exception('image_path cannot be None for RCScv object')
+    def __init__(self, cvimage, output_name, image_path=None):
+        if cvimage is None and image_path is None:
+            raise Exception('image_path and cvimage cannot both be None for RCScv object')
         self.image_path = image_path
 
         if output_name is None:
@@ -28,8 +30,17 @@ class RCScv(object):
         else:
             self.cvimage = cvimage
 
+    def copy(self):
+        return copy.deepcopy(self)
+
     def get_cvimage(self):
         return self.cvimage 
+
+    def get_height(self):
+        return int(self.cvimage.shape[0])
+
+    def get_width(self):
+        return int(self.cvimage.shape[1])
 
     def save(self, output_name=None):
         if output_name is None:
@@ -42,13 +53,18 @@ class RCScv(object):
         if top is None:
             top = 0
         if bottom is None:
-            bottom = self.cvimage.shape[0]
+            bottom = self.get_height()
         if left is None:
             left = 0
         if right is None:
-            right = self.cvimage.shape[1]
+            right = self.get_width()
 
-        logger.info('cropping cvimage to follcalcHist([img], [0], None, [256], [0, 256])owing specs [top %s, bottom %s, left %s, right %s]'
+        top     = int(top)
+        bottom  = int(bottom)
+        left    = int(left)
+        right   = int(right)
+
+        logger.info('cropping cvimage to [top %s, bottom %s, left %s, right %s]'
                     % (top, bottom, left, right))
 
         assert top < bottom, 'Top crop must be smaller than the bottom crop'
@@ -87,13 +103,18 @@ class RCScv(object):
         c = c[0] if imutils.is_cv2() else c[1]
         return c
 
+    def draw_contour(self, contour):
+        cv.drawContours(self.cvimage, [contour], -1, random_color(), 2)
+
+    def get_moments(self, contour):
+        return cv.moments(contour)
+
     def gblur(self, sigmaX, sigmaY):
         self.cvimage = cv.GaussianBlur(self.cvimage, (sigmaX, sigmaY), 0)
 
-    def draw_rectangle(self, top, bottom, left, right, rgb, thickness):
+    def draw_rectangle(self, top, bottom, left, right):
         logger.info('drawing rectangle [%s:%s] [%s:%s]' % (left, top, right, bottom))
-        cv.rectangle(self.cvimage, (left, top), (right, bottom), rgb, thickness)
-        cv.rectangle(self.cvimage, (left, top), (right, bottom), rgb, thickness)
+        cv.rectangle(self.cvimage, (left, top), (right, bottom), random_color(), 2)
 
     def gauss_Blur(self, sigX, sigY):
         self.cvimage = cv.GaussianBlur(self.cvimage, (sigX, sigY), 0)
@@ -114,3 +135,6 @@ class RCScv(object):
 #         self.cvimage = cv.drawContours(self.cvimage, contourList, -1, (0 , 0, 255), 2)
 #         self.show()
 #         return len(contourList) > 0
+
+def random_color():
+    return ((random.randint(0, 255), random.randint(0, 255), random.randint(0, 255)))

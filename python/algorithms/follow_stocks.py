@@ -1,6 +1,7 @@
 import os, sys
 import logging
 from lib import RCScv as cv
+from util.config import Config as Config
 
 logger = logging.getLogger('RCScv')
 config = Config()
@@ -63,7 +64,3 @@ def average_stock_image_buffers(key):
     for element in stock_image_buffers[key]:
         sum += element
     return sum/count
-
-# TODO implement
-class Hist_Buffer(list):
-pass
