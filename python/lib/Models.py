@@ -5,7 +5,7 @@ class Player(object):
         self.stocks = stocks
 
 class Match(object):
-    def __init__(self, round, best_of)
+    def __init__(self, round, best_of):
         self.round = round
         self.best_of = best_of
 
@@ -13,7 +13,6 @@ class FrameBuffer(object):
     def __init__(self, buffer_size):
         self.buffer_size = buffer_size
 
-    
     def add(self, key, val):
         """
         FrameBuffer add will add an object property to an object and set it to 
@@ -45,12 +44,12 @@ class FrameBuffer(object):
         assert key is not None, 'FrameBuffer.add: Key may not be None'
         assert val is not None, 'FrameBuffer.add: Val may not be None'
 
-        if key not in self:
-            self[key] = []
-        elif len(self[key]) > buffer_size:
-            del self[key][0]
-        self[key].append(val)
-
+        if key not in self.__dict__:
+            self.__dict__[key] = []
+        elif len(self.__dict__[key]) > self.buffer_size:
+            del self.__dict__[key][0]
+        self.__dict__[key].append(val)
+        
     def pop(self, key):
         """
         FrameBuffer pop removes the first element from the array at the specified
@@ -60,15 +59,15 @@ class FrameBuffer(object):
         """   
 
         assert key is not None, 'FrameBuffer.pop key cannot be None'
-        assert key is in self, 'FrameBuffer.pop key must be a property of FrameBuffer object'
+        assert key in self, 'FrameBuffer.pop key must be a property of FrameBuffer object'
 
-        val = self[key][0]
-        del self[key][0]
+        val = self.__dict__[key][0]
+        del self.__dict__[key][0]
         return val
 
-    def get(self, key, index):
+    def get_index(self, key, index):
         """
-        FrameBuffer get retrieves the element at the specified property name and array index
+        FrameBuffer get_index retrieves the element at the specified property name and array index
         and returns it to the caller
             :param self: this object
             :param key: property name owning the target array
@@ -76,16 +75,29 @@ class FrameBuffer(object):
         """   
 
         assert key is not None, 'FrameBuffer.get key cannot be None'
-        assert key is in self, 'FrameBuffer.get key must be a property of FrameBuffer object'
+        assert key in self, 'FrameBuffer.get key must be a property of FrameBuffer object'
         assert index is not None, 'FrameBuffer.get index cannot be None'
-        assert len(self[key] > index), 'FrameBuffer.get index is out of range for the array at key %s' % key
+        assert len(self.__dict__[key]) > index, 'FrameBuffer.get index is out of range for the array at key %s' % key
 
-        val = self[key][index]
+        val = self.__dict__[key][index]
         return val
 
-    def remove(self, key, index):
+    def get(self, key):
         """
-        FrameBuffer remove deletes a value from the array owned by the given property name
+        FrameBuffer get returns the array value at the given property name
+            :param self: this object
+            :param key: property name owning the target array
+        """   
+
+        assert key is not None, 'FrameBuffer.get key cannot be None'
+        assert key in self.__dict__, 'FrameBuffer.get key must be a property of FrameBuffer object'
+
+        val = self.__dict__[key]
+        return val
+
+    def remove_index(self, key, index):
+        """
+        FrameBuffer remove_index deletes a value from the array owned by the given property name
         at the given index
             :param self: this object
             :param key: property name owning the target array
@@ -93,23 +105,35 @@ class FrameBuffer(object):
         """
 
         assert key is not None, 'FrameBuffer.get key cannot be None'
-        assert key is in self, 'FrameBuffer.get key must be a property of FrameBuffer object'
+        assert key in self.__dict__, 'FrameBuffer.get key must be a property of FrameBuffer object'
         assert index is not None, 'FrameBuffer.get index cannot be None'
-        assert len(self[key] > index), 'FrameBuffer.get index is out of range for the array at key %s' % key
+        assert len(self.__dict__[key]) > index, 'FrameBuffer.get index is out of range for the array at key %s' % key
 
-        del self[key][index]
+        del self.__dict__[key][index]
 
-    def average_stock_image_buffers(self, key):
+    def remove(self, key):
+        """
+        FrameBuffer remove returns the array value at the given property name
+            :param self: this object
+            :param key: property name owning the target array
+        """   
+
+        assert key is not None, 'FrameBuffer.get key cannot be None'
+        assert key in self.__dict__, 'FrameBuffer.get key must be a property of FrameBuffer object'
+
+        del self.__dict__[key]
+
+    def average(self, key):
         """
         FrameBuffer average takes a property name, and returns the average of
         the values in the array located at that property name 
             :param self: this object
             :param key: name of the property owning the array to be averaged
         """   
-        assert self[key] is not None, 'Null image buffer for key %s' % key
+        assert self.__dict__[key] is not None, 'Null image buffer for key %s' % key
 
         sum = 0
-        count = len(self[key])
-        for element in self[key]:
+        count = len(self.__dict__[key])
+        for element in self.__dict__[key]:
             sum += element
         return sum/count

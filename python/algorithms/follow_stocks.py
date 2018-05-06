@@ -2,6 +2,7 @@ import os, sys
 import logging
 from lib import RCScv as cv
 from util.config import Config as Config
+from lib import Models as M
 
 logger = logging.getLogger('RCScv')
 config = Config()
@@ -12,7 +13,7 @@ non_player_threshold = config.get_follow_stocks_non_player_threshold()
 debug_mode = config.get_follow_stocks_debug_mode()
 
 # This buffer will hold x amount of frame data to perform calculations on
-stock_image_buffers = {}
+stock_image_buffer = M.FrameBuffer(buffer_size)
 
 def process(cvimages, player_number):
     process_stock_images(cvimages, player_number)
@@ -35,15 +36,15 @@ def process_stock_images(cvimages, player_number):
         # Generate key and cache the results for calculation
         # Then average the existing frame buffer for this player on this stock
         key_name = "P%sS%s" % (player_number, i)
-        add_to_stock_image_buffers(key_name, white)
-        avg = average_stock_image_buffers(key_name)
+        stock_image_buffer.add(key_name, white)
+        avg = stock_image_buffer.average(key_name)
         logger.debug("%s average: %s" % (key_name, avg))
 
         # Deterministically rule out "non-players" ie empty controller ports
         # Deterministically rule is a present player has lost a stock
         #  by stating if the frames average below threshold and have enough frames
         #  for evidence that the player has definitively lost a stock
-        if len(stock_image_buffers[key_name]) > buffer_size:
+        if len(stock_image_buffer.get(key_name)) > buffer_size:
             if avg < non_player_threshold: pass
             elif avg < player_threshold:
                 logger.warning('P%s has lost a stock!' % player_number)
