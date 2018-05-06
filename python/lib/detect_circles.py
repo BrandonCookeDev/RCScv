@@ -7,9 +7,9 @@ from util.config import Config as Config
 config = Config()
 
 # Looks for circle with specified area. Defaults to optimal percent area (50)
-def find_circles(self, circleArea=40):
-    gray = cv.cvtColor(self.cvimage, cv.COLOR_BGR2GRAY)
-    self.gauss_Blur(5,5)
+def find_circles(framecv, circleArea=40):
+    gray = cv.cvtColor(framecv.cvimage, cv.COLOR_BGR2GRAY)
+    framecv.gauss_Blur(5,5)
     ret, thresh = cv.threshold(gray, 127, 255, 0)
     im2, contours, hierarchy = cv.findContours(thresh, cv.RETR_TREE, cv.CHAIN_APPROX_SIMPLE)
     contourList = []
@@ -19,8 +19,8 @@ def find_circles(self, circleArea=40):
         # print('Approx is ' + str(approx))
         area = cv.contourArea(c)
         if ((len(approx) > 6 and (area < circleArea))): contourList.append(c)
-    self.cvimage = cv.drawContours(self.cvimage, contourList, -1, (0 , 0, 255), 2)
-    self.show()
+    framecv.cvimage = cv.drawContours(framecv.cvimage, contourList, -1, (0 , 0, 255), 2)
+    framecv.show()
     return len(contourList) > 0
 
 def detect_circles(frame):
