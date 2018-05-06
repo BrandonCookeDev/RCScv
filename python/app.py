@@ -4,7 +4,7 @@ import logging
 from util import log
 from util.config import Config as Config
 from lib.RCScv import RCScv as RCScv
-from lib.Threader import Threader
+from lib.Threader import Worker
 from lib import stock_cropper
 from lib import letterbox_cropper
 from lib import percent_cropper
