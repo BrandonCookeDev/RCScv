@@ -4,11 +4,11 @@ import logging
 from util import log
 from util.config import Config as Config
 from lib.RCScv import RCScv as RCScv
-from lib.Threader import Worker
-from lib import stock_cropper
-from lib import letterbox_cropper
-from lib import percent_cropper
-from lib import detect_circles
+from lib.Worker import Worker
+from lib.croppers import stock_cropper
+from lib.croppers import letterbox_cropper
+from lib.croppers import percent_cropper
+from lib.detectors import detect_circles
 from algorithms import follow_stocks
 
 config = Config()
