@@ -22,15 +22,18 @@ class Worker(object):
 
     def run():
         logger.info('Beginning thread buffer %s' % self.name)
-        active = 0
-        while len(self.buffer) > 0:
-            while active >= self.limit:
-                pass #wait until barrier is reached
-            
-            t = buffer.pop(0)
-            t.start()
 
-            logger.debug('Began thread for %s. [Active: %s :: Limit: %s]' % 
-                (self.name, active, self.limit))
+        #continue processing 
+        active = 0
+        while True: 
+            while len(self.buffer) > 0:
+                while active >= self.limit:
+                    pass #wait until barrier is reached
+                
+                t = self.buffer.pop(0)
+                t.start()
+
+                logger.debug('Began thread for %s. [Active: %s :: Limit: %s]' % 
+                    (self.name, active, self.limit))
 
 
