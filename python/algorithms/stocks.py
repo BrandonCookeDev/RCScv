@@ -1,8 +1,9 @@
 import os, sys
 import logging
 from lib import RCScv as cv
-from util.config import Config as Config
 from lib import Models as M
+from lib.croppers import stock_cropper
+from util.config import Config as Config
 
 logger = logging.getLogger('RCScv')
 config = Config()
@@ -15,11 +16,25 @@ debug_mode = config.get_follow_stocks_debug_mode()
 # This buffer will hold x amount of frame data to perform calculations on
 stock_image_buffer = M.FrameBuffer(buffer_size)
 
-def process(cvimages, player_number):
-    process_stock_images(cvimages, player_number)
+def do(framecv):
+    """
+    thread running function to crop the frame and analyze the stocks
+        :param rcscv: 
+    """
+    copy = framecv.copy()
+    f = stock_cropper.process_frame(copy)
+    stock_cropper.draw_rectangles(copy)
+    if debug_mode is True:
+        copy.show()
+
+    process_stock_images(f['p1_stocks'], 1)
+    process_stock_images(f['p2_stocks'], 2)
+    process_stock_images(f['p3_stocks'], 3)
+    process_stock_images(f['p4_stocks'], 4)
 
 def process_stock_images(cvimages, player_number):
     # Get black and white pixel distribution
+    logger = logging.getLogger('RCScv')
     logger.debug('processing player %s', player_number) #TODO change player_number to Player model and do stuff
     # TODO also, implement function that deactivates a player for a match so we reduce false positives
 
@@ -49,19 +64,3 @@ def process_stock_images(cvimages, player_number):
             elif avg < player_threshold:
                 logger.warning('P%s has lost a stock!' % player_number)
     logger.debug('====================')
-
-def add_to_stock_image_buffers(key, element):
-    if key not in stock_image_buffers:
-        stock_image_buffers[key] = []
-    elif len(stock_image_buffers[key]) > buffer_size:
-        del stock_image_buffers[key][0]
-    stock_image_buffers[key].append(element)
-
-def average_stock_image_buffers(key):
-    assert stock_image_buffers[key] is not None, 'Null image buffer for key %s' % key
-
-    sum = 0
-    count = len(stock_image_buffers[key])
-    for element in stock_image_buffers[key]:
-        sum += element
-    return sum/count
