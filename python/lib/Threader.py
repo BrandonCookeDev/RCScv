@@ -4,15 +4,31 @@ import threading
 import logging
 logger = logging.getLogger('RCScv')
 
-class Worker(object):
+class Threader(object):
 
-    def __init__(self, name, limit=0, buffer=[], active=0):
+    def __init__(self, name, limit=0, logger=None, buffer=[], active=0):
         self.name = name
         self.limit = limit
+        self.logger = logger
         self.buffer = buffer
         self.active = active
 
-    def add(fn):
+        if self.logger is None:
+            logger = logging.getLogger('RCScv')
+
+    def run(self, fn, args):
+        assert fn is not None, 'Thread must have a function to execute'
+        assert callable(fn), 'fn parameter must be a function'
+
+        logger.debug('Adding Thread %s' % self.name)
+
+        args.logger = self.logger
+        t = threading.Thread(target=fn, args=args)
+        self.buffer.append(t)
+        self.active += 1
+
+    """
+    def add(self, fn):
         assert fn is not None, 'Thread must have a function to execute'
         assert callable(fn), 'fn parameter must be a function'
 
@@ -22,7 +38,7 @@ class Worker(object):
         self.buffer.append(t)
         self.active += 1
 
-    def run():
+    def run_buffer(self):
         logger.info('Beginning thread listener %s' % self.name)
 
         while len(self.buffer) > 0:
@@ -36,7 +52,7 @@ class Worker(object):
             logger.debug('Began thread for %s. [Active: %s :: Limit: %s]' % 
                 (self.name, active, self.limit))
 
-    def run_async():
+    def run_async(self):
         '''
         DON'T USE THIS YET
         '''
@@ -55,5 +71,5 @@ class Worker(object):
 
                 logger.debug('Began thread for %s. [Active: %s :: Limit: %s]' % 
                     (self.name, active, self.limit))
-
+    """
 

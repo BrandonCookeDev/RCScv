@@ -4,12 +4,10 @@ import logging
 from util import log
 from util.config import Config as Config
 from lib.RCScv import RCScv as RCScv
-from lib.Worker import Worker
-from lib.croppers import stock_cropper
+from lib.Threader import Threader
 from lib.croppers import letterbox_cropper
-from lib.croppers import percent_cropper
 from lib.detectors import detect_circles
-from algorithms import follow_stocks
+from algorithms import stocks
 
 config = Config()
 debug_mode = config.get_main_debug_mode()
@@ -33,6 +31,8 @@ CROPPED_LETTERBOX = get_resource('UnletterboxedMelee.png')
 
 MELEE_FOOTAGE_GO = get_resource('GO.mp4')
 MELEE_FOOTAGE_GAME = get_resource('GAME.mp4')
+
+threader = Threader('rcsThreader', 5)
 
 if __name__ == '__main__':
     video = MELEE_FOOTAGE_GAME
@@ -60,16 +60,8 @@ if __name__ == '__main__':
             #Frame After Letterbox Processing
             framecv.show()
 
-        
-        f = stock_cropper.process_frame(framecv)
-        stock_cropper.draw_rectangles(framecv)
-        if debug_mode is True:
-            framecv.show()
-
-        follow_stocks.process_stock_images(f['p1_stocks'], 1)
-        follow_stocks.process_stock_images(f['p2_stocks'], 2)
-        follow_stocks.process_stock_images(f['p3_stocks'], 3)
-        follow_stocks.process_stock_images(f['p4_stocks'], 4)
+        #threader.run(stocks.do, framecv)
+        stocks.do(framecv)
         
     cap.release()
     cv2.destroyAllWindows()

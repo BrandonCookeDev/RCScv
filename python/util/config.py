@@ -126,3 +126,19 @@ class Config(object):
             'left': int (self.config.get('p4percents', 'left')),
             'right':int (self.config.get('p4percents', 'right'))
         }
+
+    def get_go_screen(self):
+        return {
+            'top': int(self.config.get('go_screen', 'top')),
+            'bottom': int(self.config.get('go_screen', 'bottom')),
+            'left': int(self.config.get('go_screen', 'left')),
+            'right': int(self.config.get('go_screen', 'right'))
+        }
+
+    def get_game_screen(self):
+        return {
+            'top': int(self.config.get('game_screen', 'top')),
+            'bottom': int(self.config.get('game_screen', 'bottom')),
+            'left': int(self.config.get('game_screen', 'left')),
+            'right': int(self.config.get('game_screen', 'right'))
+        }
