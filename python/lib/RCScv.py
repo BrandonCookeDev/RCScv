@@ -4,6 +4,7 @@ import copy as copy
 import numpy as np
 import random as random
 import imutils as imutils
+from lib import Common as common
 
 import logging
 logger = logging.getLogger('RCScv')
@@ -90,6 +91,10 @@ class RCScv(object):
         cv.imshow('cvimage', self.cvimage)
         cv.waitKey()
 
+    def show_nowait(self):
+        logger.info('showing cvimage preview')
+        cv.imshow('cvimage', self.cvimage)
+
     def detect_shape(self, contour):
         shape = "unidentified"
 		#peri = cv.arcLength(contour, True)
@@ -103,18 +108,39 @@ class RCScv(object):
         c = c[0] if imutils.is_cv2() else c[1]
         return c
 
-    def draw_contour(self, contour):
-        cv.drawContours(self.cvimage, [contour], -1, random_color(), 2)
+    def draw_contour(self, contour, color):
+        if color is None:
+            color = common.random_color()
+        cv.drawContours(self.cvimage, [contour], -1, color, 2)
 
     def get_moments(self, contour):
+        logger.debug('RCScv.get_moments [%s]' % contour)
         return cv.moments(contour)
 
     def gblur(self, sigmaX, sigmaY):
+        logger.debug('RCScv.gblur [%s] [%s]' % (sigmaX, sigmaY))
         self.cvimage = cv.GaussianBlur(self.cvimage, (sigmaX, sigmaY), 0)
 
-    def draw_rectangle(self, top, bottom, left, right):
-        logger.info('drawing rectangle [%s:%s] [%s:%s]' % (left, top, right, bottom))
-        cv.rectangle(self.cvimage, (left, top), (right, bottom), random_color(), 2)
+    def draw_rectangle(self, top, bottom, left, right, color):
+        if top is None:
+            top = 0
+        if bottom is None:
+            bottom = self.get_height()
+        if left is None:
+            left = 0
+        if right is None:
+            right = self.get_width()
+
+        if color is None:
+            color = common.random_color()
+
+        top     = int(top)
+        bottom  = int(bottom)
+        left    = int(left)
+        right   = int(right)
+
+        logger.info('RCScv: drawing rectangle [%s:%s] [%s:%s]' % (left, top, right, bottom))
+        cv.rectangle(self.cvimage, (left, top), (right, bottom), color, 2)
 
     def gauss_Blur(self, sigX, sigY):
         self.cvimage = cv.GaussianBlur(self.cvimage, (sigX, sigY), 0)
@@ -134,6 +160,3 @@ class RCScv(object):
         self.cvimage = cv.drawContours(self.cvimage, contourList, -1, (0 , 0, 255), 2)
         self.show()
         return len(contourList) > 0
-
-def random_color():
-    return ((random.randint(0, 255), random.randint(0, 255), random.randint(0, 255)))

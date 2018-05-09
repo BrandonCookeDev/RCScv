@@ -60,16 +60,16 @@ if __name__ == '__main__':
 
         #If width of capture is more than X, cut off the letterboxing   
         if width > MELEE_WIDTH:
-            letterbox_cropper.crop_letterbox(framecv)
+            letterbox_cropper.crop(framecv)
 
         if debug_mode is True:
             #Frame After Letterbox Processing
             framecv.show()
 
         #threader.run(stocks.do, framecv)
-        go.do(framecv)
-        game.do(framecv)
-        stocks.do(framecv)
+        go.draw(framecv)
+        game.draw(framecv)
+        #stocks.do(framecv)
         
         
     cap.release()

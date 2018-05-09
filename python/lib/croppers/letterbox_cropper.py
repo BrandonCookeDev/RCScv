@@ -6,14 +6,13 @@ from util.config import Config as Config
 
 logger = logging.getLogger('RCScv')
 config = Config()
+crop = config.get_letterbox_crop()
+left = crop['left']
+right = crop['right']
 
-def crop_letterbox(framecv):
-    crop = config.get_letterbox_crop()
-    left = crop['left']
-    right = crop['right']
-
-    #height = frame.shape[0]
-    #width = frame.shape[1]
-    
+def crop(framecv):
     #Crop off the letterbox
     framecv.crop(None, None, left, right)
+
+def draw_recatangles(framecv):
+    framecv.draw_rectangle(None, None, left, right)

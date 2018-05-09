@@ -9,7 +9,7 @@ logger = logging.getLogger('RCScv')
 config = Config()
 debug_mode = config.get_stock_cropper_debug_mode()
 
-
+#TODO change to crop, move tranformative logic to algorithm
 def process_frame(framecv):
     default_low = config.get_canny_low_threshold_stocks()
     default_high = config.get_canny_high_threshold_stocks()
@@ -35,8 +35,8 @@ def process_frame(framecv):
     p2.crop(p2coords['top'], p2coords['bottom'],
             p2coords['left'], p2coords['right'])
     p2.greyscale()
-    p1.gblur(5, 5)
-    p1.threshold(100)
+    p2.gblur(5, 5)
+    p2.threshold(100)
     p2.edge(default_low, default_high)
     if debug_mode is True:
         p2.show()
@@ -47,8 +47,8 @@ def process_frame(framecv):
     p3.crop(p3coords['top'], p3coords['bottom'],
             p3coords['left'], p3coords['right'])
     p3.greyscale()
-    p1.gblur(5, 5)
-    p1.threshold(100)
+    p3.gblur(5, 5)
+    p3.threshold(100)
     p3.edge(default_low, default_high)
     if debug_mode is True:
         p3.show()
@@ -59,8 +59,8 @@ def process_frame(framecv):
     p4.crop(p4coords['top'], p4coords['bottom'],
             p4coords['left'], p4coords['right'])
     p4.greyscale()
-    p1.gblur(5, 5)
-    p1.threshold(100)
+    p4.gblur(5, 5)
+    p4.threshold(100)
     p4.edge(default_low, default_high)
     if debug_mode is True:
         p4.show()

@@ -32,6 +32,11 @@ def do(framecv):
     process_stock_images(f['p3_stocks'], 3)
     process_stock_images(f['p4_stocks'], 4)
 
+def draw(framecv):
+    copy = framecv.copy()
+    stock_cropper.draw_rectangles(copy)
+    copy.show()
+
 def process_stock_images(cvimages, player_number):
     # Get black and white pixel distribution
     logger = logging.getLogger('RCScv')
