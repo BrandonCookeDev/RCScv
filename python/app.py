@@ -7,6 +7,8 @@ from lib.RCScv import RCScv as RCScv
 from lib.Threader import Threader
 from lib.croppers import letterbox_cropper
 from lib.detectors import detect_circles
+from algorithms import go
+from algorithms import game
 from algorithms import stocks
 
 config = Config()
@@ -31,16 +33,20 @@ CROPPED_LETTERBOX = get_resource('UnletterboxedMelee.png')
 
 MELEE_FOOTAGE_GO = get_resource('GO.mp4')
 MELEE_FOOTAGE_GAME = get_resource('GAME.mp4')
+MELEE_FOOTAGE_BF = get_resource('P3-BF.mp4')
+MELEE_FOOTAGE_DL = get_resource('P3-Dreamland.mp4')
 
 threader = Threader('rcsThreader', 5)
 
 if __name__ == '__main__':
-    video = MELEE_FOOTAGE_GAME
+    video = MELEE_FOOTAGE_BF
+
     print('Capturing %s' % video)
     print('Debug mode %s' % debug_mode)
     cap = cv2.VideoCapture(video)
 
     while(cap.isOpened()):
+
         ret, frame = cap.read()
 
         #When no more frames we are done
@@ -61,7 +67,10 @@ if __name__ == '__main__':
             framecv.show()
 
         #threader.run(stocks.do, framecv)
+        go.do(framecv)
+        game.do(framecv)
         stocks.do(framecv)
+        
         
     cap.release()
     cv2.destroyAllWindows()

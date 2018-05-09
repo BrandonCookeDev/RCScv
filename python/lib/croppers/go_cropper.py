@@ -5,7 +5,7 @@ from util.config import Config
 config = Config()
 go_screen = config.get_go_screen()
 
-def crop_go(imagecv):
+def crop_go(framecv):
     framecv.crop(
         go_screen['top'], 
         go_screen['bottom'], 
@@ -13,7 +13,7 @@ def crop_go(imagecv):
         go_screen['right']
     )
 
-def draw_box(imagecv):
+def draw_box(framecv):
     framecv.draw_rectangle(
         go_screen['top'], 
         go_screen['bottom'], 
