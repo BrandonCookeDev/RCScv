@@ -1,9 +1,10 @@
+import cv2
 import os, sys
 import logging
 from lib import RCScv as cv
 from lib import Models as M
-from lib.croppers import stock_cropper
 from util.config import Config as Config
+from lib.croppers import stock_cropper as cropper
 
 logger = logging.getLogger('RCScv')
 config = Config()
@@ -16,26 +17,65 @@ debug_mode = config.get_follow_stocks_debug_mode()
 # This buffer will hold x amount of frame data to perform calculations on
 stock_image_buffer = M.FrameBuffer(buffer_size)
 
+def draw(framecv):
+    copy = framecv.copy()
+    cropper.draw_rectangles(copy)
+    copy.show()
+
 def do(framecv):
     """
     thread running function to crop the frame and analyze the stocks
         :param rcscv: 
     """
     copy = framecv.copy()
-    f = stock_cropper.process_frame(copy)
-    stock_cropper.draw_rectangles(copy)
+    players = cropper.crop(copy)
+
+    p1 = players.p1.copy()
+    p1.greyscale()
+    p1.gblur(5, 5)
     if debug_mode is True:
-        copy.show()
+        p1.show()
+    p1.threshold(100)
+    if debug_mode is True:
+        p1.show()
+    p1.edge(default_low, default_high)
+    if debug_mode is True:
+        p1.show()
+    s1 = cropper.get_individual_stocks(p1)
+
+    p2 = players.p2.copy()
+    p2.greyscale()
+    p2.gblur(5, 5)
+    p2.threshold(100)
+    p2.edge(default_low, default_high)
+    if debug_mode is True:
+        p2.show()
+    s2 = cropper.get_individual_stocks(p2)
+
+    p3 = players.p3.copy()
+    p3.greyscale()
+    p3.gblur(5, 5)
+    p3.threshold(100)
+    p3.edge(default_low, default_high)
+    if debug_mode is True:
+        p3.show()
+    s3 = cropper.get_individual_stocks(p3)
+
+    p4 = players.p4.copy()
+    p4.greyscale()
+    p4.gblur(5, 5)
+    p4.threshold(100)
+    p4.edge(default_low, default_high)
+    if debug_mode is True:
+        p4.show()
+    s4 = cropper.get_individual_stocks(p4)
+
+    #TODO return something
 
     process_stock_images(f['p1_stocks'], 1)
     process_stock_images(f['p2_stocks'], 2)
     process_stock_images(f['p3_stocks'], 3)
     process_stock_images(f['p4_stocks'], 4)
-
-def draw(framecv):
-    copy = framecv.copy()
-    stock_cropper.draw_rectangles(copy)
-    copy.show()
 
 def process_stock_images(cvimages, player_number):
     # Get black and white pixel distribution

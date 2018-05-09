@@ -121,7 +121,7 @@ class RCScv(object):
         logger.debug('RCScv.gblur [%s] [%s]' % (sigmaX, sigmaY))
         self.cvimage = cv.GaussianBlur(self.cvimage, (sigmaX, sigmaY), 0)
 
-    def draw_rectangle(self, top, bottom, left, right, color):
+    def draw_rectangle(self, top, bottom, left, right, color=None):
         if top is None:
             top = 0
         if bottom is None:

@@ -10,6 +10,7 @@ from lib.detectors import detect_circles
 from algorithms import go
 from algorithms import game
 from algorithms import stocks
+from algorithms import percents
 
 config = Config()
 debug_mode = config.get_main_debug_mode()
@@ -39,7 +40,7 @@ MELEE_FOOTAGE_DL = get_resource('P3-Dreamland.mp4')
 threader = Threader('rcsThreader', 5)
 
 if __name__ == '__main__':
-    video = MELEE_FOOTAGE_BF
+    video = MELEE_FOOTAGE_GAME
 
     print('Capturing %s' % video)
     print('Debug mode %s' % debug_mode)
@@ -67,10 +68,10 @@ if __name__ == '__main__':
             framecv.show()
 
         #threader.run(stocks.do, framecv)
-        go.draw(framecv)
-        game.draw(framecv)
-        #stocks.do(framecv)
-        
+        #go.draw(framecv)
+        #game.draw(framecv)
+        #stocks.draw(framecv)
+        percents.draw(framecv)
         
     cap.release()
     cv2.destroyAllWindows()
