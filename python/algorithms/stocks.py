@@ -14,6 +14,9 @@ player_threshold = config.get_follow_stocks_player_threshold()
 non_player_threshold = config.get_follow_stocks_non_player_threshold()
 debug_mode = config.get_follow_stocks_debug_mode()
 
+default_high = config.get_canny_high_threshold_stocks()
+default_low = config.get_canny_low_threshold_stocks()
+
 # This buffer will hold x amount of frame data to perform calculations on
 stock_image_buffer = M.FrameBuffer(buffer_size)
 
@@ -27,10 +30,11 @@ def do(framecv):
     thread running function to crop the frame and analyze the stocks
         :param rcscv: 
     """
+
     copy = framecv.copy()
     players = cropper.crop(copy)
 
-    p1 = players.p1.copy()
+    p1 = players['p1_stocks'].copy()
     p1.greyscale()
     p1.gblur(5, 5)
     if debug_mode is True:
@@ -43,7 +47,7 @@ def do(framecv):
         p1.show()
     s1 = cropper.get_individual_stocks(p1)
 
-    p2 = players.p2.copy()
+    p2 = players['p2_stocks'].copy()
     p2.greyscale()
     p2.gblur(5, 5)
     p2.threshold(100)
@@ -52,7 +56,7 @@ def do(framecv):
         p2.show()
     s2 = cropper.get_individual_stocks(p2)
 
-    p3 = players.p3.copy()
+    p3 = players['p3_stocks'].copy()
     p3.greyscale()
     p3.gblur(5, 5)
     p3.threshold(100)
@@ -61,7 +65,7 @@ def do(framecv):
         p3.show()
     s3 = cropper.get_individual_stocks(p3)
 
-    p4 = players.p4.copy()
+    p4 = players['p4_stocks'].copy()
     p4.greyscale()
     p4.gblur(5, 5)
     p4.threshold(100)
@@ -72,10 +76,10 @@ def do(framecv):
 
     #TODO return something
 
-    process_stock_images(f['p1_stocks'], 1)
-    process_stock_images(f['p2_stocks'], 2)
-    process_stock_images(f['p3_stocks'], 3)
-    process_stock_images(f['p4_stocks'], 4)
+    process_stock_images(s1, 1)
+    process_stock_images(s2, 2)
+    process_stock_images(s3, 3)
+    process_stock_images(s4, 4)
 
 def process_stock_images(cvimages, player_number):
     # Get black and white pixel distribution

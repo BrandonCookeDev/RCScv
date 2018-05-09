@@ -71,7 +71,9 @@ if __name__ == '__main__':
         #go.draw(framecv)
         #game.draw(framecv)
         #stocks.draw(framecv)
-        percents.draw(framecv)
+        #percents.draw(framecv)
+
+        stocks.do(framecv)
         
     cap.release()
     cv2.destroyAllWindows()
