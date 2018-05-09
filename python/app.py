@@ -5,12 +5,12 @@ from util import log
 from util.config import Config as Config
 from lib.RCScv import RCScv as RCScv
 from lib.Threader import Threader
-from lib.croppers import letterbox_cropper
 from lib.detectors import detect_circles
-from algorithms import go
-from algorithms import game
-from algorithms import stocks
+from algorithms.go import Go
+from algorithms.game import Game
+from algorithms.stocks import Stocks
 from algorithms import percents
+from lib.croppers.letterbox_cropper import Letterbox_Cropper
 
 config = Config()
 debug_mode = config.get_main_debug_mode()
@@ -18,6 +18,11 @@ MELEE_WIDTH = config.get_melee_width()
 
 logger = logging.getLogger('RCScv')
 logger.info('RCScv: Beginning Main')
+
+go = Go()
+game = Game()
+stocks = Stocks()
+letterbox_cropper = Letterbox_Cropper()
 
 
 ROOT_DIR = os.path.dirname(__file__)
@@ -68,10 +73,10 @@ if __name__ == '__main__':
             framecv.show()
 
         #threader.run(stocks.do, framecv)
-        #go.draw(framecv)
-        #game.draw(framecv)
-        #stocks.draw(framecv)
-        #percents.draw(framecv)
+        go.draw(framecv)
+        game.draw(framecv)
+        stocks.draw(framecv)
+        percents.draw(framecv)
 
         stocks.do(framecv)
         
