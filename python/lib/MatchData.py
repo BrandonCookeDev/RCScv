@@ -1,8 +1,8 @@
 import os, sys, json
 import logging
 from enum import Enum
-from Models import Player
-from Models import Match
+from lib.Models import Player
+from lib.Models import Match
 
 logger = logging.getLogger('RCScv')
 
@@ -53,4 +53,4 @@ class JSON_Peerer(object):
         contents = ''
         with open(self.file_path, 'r') as f:
             data = json.load(f)
-            print data
+            print(data)

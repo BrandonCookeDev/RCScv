@@ -3,6 +3,7 @@ import os, sys
 import logging
 from lib import RCScv as cv
 from lib import Models as M
+from lib.MatchData import MatchData
 from util.config import Config as Config
 from lib.croppers import stock_cropper as cropper
 
