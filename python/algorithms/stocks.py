@@ -4,10 +4,11 @@ import logging
 from interface import implements
 from lib import RCScv as cv
 from lib import Models as M
-from lib.MatchData import MatchData
+from lib.StreamControl import MatchData
 from util.config import Config as Config
 from lib.croppers.stock_cropper import Stock_Cropper as Cropper
 from lib.Interfaces import IAlgorithm
+
 
 logger = logging.getLogger('RCScv')
 config = Config()
@@ -20,6 +21,9 @@ debug_mode = config.get_follow_stocks_debug_mode()
 
 default_high = config.get_canny_high_threshold_stocks()
 default_low = config.get_canny_low_threshold_stocks()
+
+MD = MatchData(None, None, None)
+match_data = MD.get_instance()
 
 # This buffer will hold x amount of frame data to perform calculations on
 stock_image_buffer = M.FrameBuffer(buffer_size)
@@ -81,12 +85,9 @@ class Stocks(implements(IAlgorithm)):
 
         #TODO return something
 
-        self.process_stock_images(s1, 1)
-        self.process_stock_images(s2, 2)
-        self.process_stock_images(s3, 3)
-        self.process_stock_images(s4, 4)
+    def process_stock_images(self, cvimages, player_number, stock_number):
+        assert stock_number > 0 and stock_number < 5, 'stock_number must be 1-4'
 
-    def process_stock_images(self, cvimages, player_number):
         # Get black and white pixel distribution
         logger = logging.getLogger('RCScv')
         logger.debug('processing player %s', player_number) #TODO change player_number to Player model and do stuff
@@ -95,7 +96,12 @@ class Stocks(implements(IAlgorithm)):
         histograms = [img.get_histogram() for img in cvimages]
 
         logger.debug('Player %s:' % player_number)
-        for i in range(0, len(histograms), 1):
+        for i in range(1, len(histograms) + 1, 1):
+
+            #If we want a certain stock, this logic targets that
+            if stock_number is not None and i != stock_number: 
+                continue
+
             # Get and log histogram
             hist = histograms[i]
             black = hist[0][0]

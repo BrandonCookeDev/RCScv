@@ -1,3 +1,8 @@
+from lib.StreamControl import MatchData
+from lib import Models as M
+MD = MatchData(M.Player(), M.Player(), M.Match())
+match_data = MD.get_instance()
+
 import cv2
 import os, sys
 import logging
@@ -12,6 +17,7 @@ from algorithms.stocks import Stocks
 from algorithms import percents
 from lib.croppers.letterbox_cropper import Letterbox_Cropper
 
+
 config = Config()
 debug_mode = config.get_main_debug_mode()
 MELEE_WIDTH = config.get_melee_width()
@@ -23,6 +29,8 @@ go = Go()
 game = Game()
 stocks = Stocks()
 letterbox_cropper = Letterbox_Cropper()
+
+
 
 
 ROOT_DIR = os.path.dirname(__file__)

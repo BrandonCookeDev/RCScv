@@ -14,6 +14,9 @@ class Config(object):
     def get_melee_height(self):
         return int(self.config.get('melee', 'height'))
 
+    def get_melee_default_stocks(self):
+        return int(self.config.get('melee', 'stocks'))
+
     def get_debug_mode(self):
         return bool(self.config.get('debug_mode', 'on') == 'True')
 
