@@ -44,13 +44,17 @@ class MatchData(object):
 
 
 class JSON_Peerer(object):
+    def __init__(self, file_path, data):
+        self.file_path = file_path
+        self.data = data
 
-    def __init__(self, file_path):
-        MatchData.__instance.file_path = file_path
-
-    def read():
+    def read(self):
         logger.debug('JSON_Peerer.read called')
         contents = ''
         with open(self.file_path, 'r') as f:
             data = json.load(f)
             print(data)
+        
+    def write(self, data):
+        logger.debug('JSON_Peerer.write called [%s]' % data)
+

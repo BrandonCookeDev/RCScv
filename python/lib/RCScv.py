@@ -32,25 +32,31 @@ class RCScv(object):
             self.cvimage = cvimage
 
     def copy(self):
+        logger.debug('RCScv: copy called')
         return copy.deepcopy(self)
 
     def get_cvimage(self):
+        logger.debug('RCScv: get cvimage')
         return self.cvimage 
 
     def get_height(self):
+        logger.debug('RCScv: get height')
         return int(self.cvimage.shape[0])
 
     def get_width(self):
+        logger.debug('RCScv: get width')
         return int(self.cvimage.shape[1])
 
     def save(self, output_name=None):
         if output_name is None:
+            logger.debug('RCScv: save called [%s]' % output_name)
             output_name = self.output_name
 
         logger.info('writting image to path %s' % output_name)
         cv.imwrite(output_name, self.cvimage)
 
     def crop(self, top, bottom, left, right):
+        logger.debug('RCScv: crop called [%s] [%s] [%s] [%s]' % (top, bottom, left, right))
         if top is None:
             top = 0
         if bottom is None:
@@ -74,41 +80,45 @@ class RCScv(object):
         self.cvimage = self.cvimage[top:bottom, left:right]
 
     def greyscale(self):
-        logger.info('applying greyscale to cvimage')
+        logger.info('RCScv: applying greyscale to cvimage')
         self.cvimage = cv.cvtColor(self.cvimage, cv.COLOR_BGR2GRAY)
 
     def edge(self, low_threshold, high_threshold):
-        logger.info('applying canny edge algorithm to cvimage')
+        logger.debug('RCScv: applying canny edge algorithm to cvimage [%s] [%s]' % (low_threshold, high_threshold))
         self.cvimage = cv.Canny(self.cvimage, low_threshold, high_threshold)
     
     def get_histogram(self):
-        logger.info('getting cvimage histogram')
+        logger.debug('RCScv: getting cvimage histogram')
         hist = cv.calcHist([self.cvimage], [0], None, [256], [0, 256])
         return hist
 
     def show(self):
-        logger.info('showing cvimage preview')
+        logger.debug('RCScv: showing cvimage preview')
         cv.imshow('cvimage', self.cvimage)
         cv.waitKey()
 
     def show_nowait(self):
-        logger.info('showing cvimage preview')
+        logger.debug('RCScv: showing cvimage preview')
         cv.imshow('cvimage', self.cvimage)
 
     def detect_shape(self, contour):
+        logger.debug('RCScv: dected shape called')
         shape = "unidentified"
 		#peri = cv.arcLength(contour, True)
         #approx = cv.approxPolyDP(contour, 0.04 * peri, True)
 
     def threshold(self, thresh):
+        logger.debug('RCScv: threadhold called [%s]' % thresh)
         self.cvimage = cv.threshold(self.cvimage, thresh, 255, cv.THRESH_BINARY)[1]
 
     def get_contours(self):
+        logger.debug('RCScv: get contours called')
         c = cv.findContours(self.cvimage, cv.RETR_EXTERNAL, cv.CHAIN_APPROX_SIMPLE)
         c = c[0] if imutils.is_cv2() else c[1]
         return c
 
     def draw_contour(self, contour, color):
+        logger.debug('RCScv: draw contours called [%s] [%s]' % (contour, color))
         if color is None:
             color = common.random_color()
         cv.drawContours(self.cvimage, [contour], -1, color, 2)
@@ -122,6 +132,7 @@ class RCScv(object):
         self.cvimage = cv.GaussianBlur(self.cvimage, (sigmaX, sigmaY), 0)
 
     def draw_rectangle(self, top, bottom, left, right, color=None):
+        logger.debug('RCScv: draw rectangle called [%s] [%s] [%s] [%s] [%s]' % (top, bottom, left, right, color))
         if top is None:
             top = 0
         if bottom is None:
@@ -143,9 +154,11 @@ class RCScv(object):
         cv.rectangle(self.cvimage, (left, top), (right, bottom), color, 2)
 
     def gauss_Blur(self, sigX, sigY):
+        logger.debug('RCScv: guass_blur called [%s] [%s]' % (sigX, sigY))
         self.cvimage = cv.GaussianBlur(self.cvimage, (sigX, sigY), 0)
 
     def find_circles(self, circleArea=40):
+        logger.debug('RCScv: find circles called [%s]' % circleArea)
         gray = cv.cvtColor(self.cvimage, cv.COLOR_BGR2GRAY)
         self.gauss_Blur(5,5)
         ret, thresh = cv.threshold(gray, 127, 255, 0)

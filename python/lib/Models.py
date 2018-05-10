@@ -3,6 +3,16 @@ from enum import Enum
 
 logger = logging.getLogger('RCScv')
 
+
+class game_modes(Enum):
+    SINGLES = 1
+    DOUBLES = 2
+    PAUSED = 3
+    START = 4
+    STOPPED = 5
+    HAND_WARMER = 6
+
+
 class Player(object):
     def __init__(self, tag, character, score):
         self.tag = tag
@@ -34,13 +44,101 @@ class Match(object):
         self.game_mode = game_mode
         self.best_of = best_of
 
-class game_modes(Enum):
-    SINGLES = 1
-    DOUBLES = 2
-    PAUSED = 3
-    START = 4
-    STOPPED = 5
-    HAND_WARMER = 6
+
+class VoterBallot(object):
+    def __init__(self, component_name, vote_weight, p1_score, p1_stock_count, p2_score, p2_stock_count, game_mode):
+        self.component_name = component_name
+        self.vote_weight = vote_weight
+        self.p1_score = p1_score
+        self.p1_stock_count = p1_stock_count
+        self.p2_score = p2_score
+        self.p2_stock_count = p2_stock_count
+        self.game_mode = game_mode
+
+    def __hash__(self):
+        """
+        Hash function. We only hash properties that will be similar in other
+        VoterBallot objects. This is so equality checks can determine if the 
+        hash of the meaninful values of the ballot are equal to another ballot's hash.
+            :param self: 
+        """
+        
+        val = hash(self.p1_score)
+                ^ hash(self.p1_stock_count)
+                ^ hash(self.p2_score)
+                ^ hash(self.p2_stock_count)
+                ^ hash(self.game_mode)
+        return val
+
+    def __eq__(self, other):
+        """
+        Equality check. We only check for match data properties to determine
+        whether the vote this ballot represents is similar to another. We don't
+        care about who submitted the ballot, that will matter later.
+            :param self: 
+            :param other: 
+        """   
+        
+        val = isinstance(other, self.__class__) 
+                and self.p1_score == other.p1_score
+                and self.p1_stock_count == other.p1_stock_count
+                and self.p2_score == other.p2_score
+                and self.p2_stock_count == other.p2_stock_count
+                and self.game_mode == self.game_mode
+        return val
+
+
+class VotingBox(object):
+    def __init__(self, VoterBallots):
+        self.VoterBallots = VoterBallots
+
+    def count_votes(self, voting_threshold):
+        """
+        Count Votes takes the overall ballots in the Voting Box
+        and calculates the most likely results of the processed frame.
+        This process is to implement checks and balances on the algorithm
+        and reduce the margin of error produced by one or more algorithms 
+        submitting incorrect results.
+
+        Certain algorithms offer more weight in order to offset more 
+        error-prone algorithms from asserting their analysis is correct.
+            :param self: 
+            :param voting_threshold: the peak difference where the popular vote trumps the weighted vote
+        """   
+        
+        #gather the similar ballots into their repective segments (object properties)
+        collection = {}
+        for ballot in self.VoterBallots:
+            if hash(ballot) in collection.__dict__:
+                collection[hash(ballot)].append(ballot)
+            else:
+                collection[hash(ballot)] = [ballot]
+        
+        #Gather the popular vote 
+        popular_vote = []
+        for same_ballots in collection.__dict__:
+            if len(collection[same_ballots]) > len(popular_vote):
+                popular_vote = collection[same_ballots]
+
+        #Gather the weighted vote
+        electoral_college_weight = 0 
+        electoral_college_vote = []
+        for same_ballots in collection.__dict__:
+            weight = 0
+            for ballot in same_ballots: weight += ballot.vote_weight
+            if electoral_college_weight < weight:
+                electoral_college_vote = collection[same_ballots]
+
+        #compare the vote types to make a decision
+        difference = list(filter(lambda x: x not in popular_vote, electoral_college_vote))
+        if len(difference) == 0:
+            return electoral_college_vote
+        else:
+            if len(difference) > voting_threshold:
+                return popular_vote
+            else:
+                return electoral_college_vote
+
 
 class FrameBuffer(object):
     def __init__(self, buffer_size):
