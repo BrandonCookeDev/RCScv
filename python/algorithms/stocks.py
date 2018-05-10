@@ -4,7 +4,7 @@ import logging
 from interface import implements
 from lib import RCScv as cv
 from lib import Models as M
-from lib.StreamControl import MatchData
+from lib.StreamControl import MatchData as MD
 from util.config import Config as Config
 from lib.croppers.stock_cropper import Stock_Cropper as Cropper
 from lib.Interfaces import IAlgorithm
@@ -22,7 +22,6 @@ debug_mode = config.get_follow_stocks_debug_mode()
 default_high = config.get_canny_high_threshold_stocks()
 default_low = config.get_canny_low_threshold_stocks()
 
-MD = MatchData(None, None, None)
 match_data = MD.get_instance()
 
 # This buffer will hold x amount of frame data to perform calculations on

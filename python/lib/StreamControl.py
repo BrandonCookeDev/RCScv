@@ -25,7 +25,8 @@ class MatchData(object):
         MatchData.__instance.Match = Match
         return MatchData.__instance
 
-    def get_instance(self):
+    @staticmethod
+    def get_instance():
         logger.debug('MatchData get Instance called')
         return MatchData.__instance
 
