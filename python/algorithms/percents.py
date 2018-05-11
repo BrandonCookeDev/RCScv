@@ -10,10 +10,13 @@ colors = []
 for i in range(0, 4, 1):
     colors.append(common.random_color())
 
-def draw(framecv):
-    copy = framecv.copy()
-    cropper.drawBoxes(framecv)
-    framecv.show()
+def draw(framecv, copy_tf=False):
+    if copy_tf is True:
+        copy = framecv.copy()
+        cropper.drawBoxes(copy)
+        copy.show()
+    else:
+        cropper.drawBoxes(framecv)
 
 def do(framecv):
     copy = framecv.copy()

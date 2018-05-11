@@ -130,6 +130,10 @@ class RCScv(object):
     def gblur(self, sigmaX, sigmaY):
         logger.debug('RCScv.gblur [%s] [%s]' % (sigmaX, sigmaY))
         self.cvimage = cv.GaussianBlur(self.cvimage, (sigmaX, sigmaY), 0)
+        
+    def gauss_Blur(self, sigX, sigY):
+        logger.debug('RCScv: guass_blur called [%s] [%s]' % (sigX, sigY))
+        self.cvimage = cv.GaussianBlur(self.cvimage, (sigX, sigY), 0)
 
     def draw_rectangle(self, top, bottom, left, right, color=None):
         logger.debug('RCScv: draw rectangle called [%s] [%s] [%s] [%s] [%s]' % (top, bottom, left, right, color))
@@ -153,10 +157,7 @@ class RCScv(object):
         logger.info('RCScv: drawing rectangle [%s:%s] [%s:%s]' % (left, top, right, bottom))
         cv.rectangle(self.cvimage, (left, top), (right, bottom), color, 2)
 
-    def gauss_Blur(self, sigX, sigY):
-        logger.debug('RCScv: guass_blur called [%s] [%s]' % (sigX, sigY))
-        self.cvimage = cv.GaussianBlur(self.cvimage, (sigX, sigY), 0)
-
+    
     def find_circles(self, circleArea=40):
         logger.debug('RCScv: find circles called [%s]' % circleArea)
         gray = cv.cvtColor(self.cvimage, cv.COLOR_BGR2GRAY)

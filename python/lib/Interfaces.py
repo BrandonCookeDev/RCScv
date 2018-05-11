@@ -20,5 +20,5 @@ class IAlgorithm(Interface):
     def do(self, framecv):
         pass
 
-    def draw(self, framecv):
+    def draw(self, framecv, copy_tf=False):
         pass

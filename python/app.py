@@ -53,7 +53,7 @@ MELEE_FOOTAGE_DL = get_resource('P3-Dreamland.mp4')
 threader = Threader('rcsThreader', 5)
 
 if __name__ == '__main__':
-    video = MELEE_FOOTAGE_GAME
+    video = MELEE_FOOTAGE_GO
 
     print('Capturing %s' % video)
     print('Debug mode %s' % debug_mode)
@@ -80,13 +80,15 @@ if __name__ == '__main__':
             #Frame After Letterbox Processing
             framecv.show()
 
-        #threader.run(stocks.do, framecv)
+        #run algorithms
+        go.do(framecv)
+
+        #show frame and targets
         go.draw(framecv)
         game.draw(framecv)
         stocks.draw(framecv)
         percents.draw(framecv)
-
-        stocks.do(framecv)
+        #framecv.show()
         
     cap.release()
     cv2.destroyAllWindows()

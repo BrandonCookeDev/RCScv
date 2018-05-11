@@ -4,11 +4,11 @@ import logging
 from interface import implements
 from lib import RCScv as cv
 from lib import Models as M
-from lib.StreamControl import MatchData as MD
-from util.config import Config as Config
-from lib.croppers.stock_cropper import Stock_Cropper as Cropper
+from lib.RCScv import RCScv
 from lib.Interfaces import IAlgorithm
-
+from lib.StreamControl import MatchData as MD
+from lib.croppers.stock_cropper import Stock_Cropper as Cropper
+from util.config import Config as Config
 
 logger = logging.getLogger('RCScv')
 config = Config()
@@ -28,12 +28,23 @@ match_data = MD.get_instance()
 stock_image_buffer = M.FrameBuffer(buffer_size)
 
 class Stocks(implements(IAlgorithm)):
-    def draw(self, framecv):
-        copy = framecv.copy()
-        cropper.draw_rectangles(copy)
-        copy.show()
+    def draw(self, framecv, copy_tf=False):
+        assert framecv is not None, 'Stocks Algo: framecv must not be None'
+        assert isinstance(framecv, RCScv), 'Stocks Algo: framecv must be instance of RCScv'
+        assert isinstance(copy_tf, bool), 'Stocks Algo: copy_tf must be instance of bool'
+
+        if copy_tf is True:
+            copy = framecv.copy()
+            cropper.draw_rectangles(copy)
+            copy.show()
+        else:
+            cropper.draw_rectangles(framecv)
+            
 
     def do(self, framecv):
+        assert framecv is not None, 'Stocks Algo: framecv must not be None'
+        assert isinstance(framecv, RCScv), 'Stocks Algo: framecv must be instance of RCScv'
+
         """
         thread running function to crop the frame and analyze the stocks
             :param rcscv: 
@@ -43,6 +54,9 @@ class Stocks(implements(IAlgorithm)):
         players = cropper.crop(copy)
 
         p1 = players['p1_stocks'].copy()
+        p1.find_circles()
+        p1.show()
+
         p1.greyscale()
         p1.gblur(5, 5)
         if debug_mode is True:
@@ -83,8 +97,12 @@ class Stocks(implements(IAlgorithm)):
         s4 = cropper.get_individual_stocks(p4)
 
         #TODO return something
+        
 
     def process_stock_images(self, cvimages, player_number, stock_number):
+        assert cvimages is not None, 'Stock process stock images: cvimages must not be None'
+        assert player_number is not None, 'Stock process stock images: player_number must not be None'
+        assert isinstance(player_number, int), 'Stock process stock images: player_number must be an integer'
         assert stock_number > 0 and stock_number < 5, 'stock_number must be 1-4'
 
         # Get black and white pixel distribution
