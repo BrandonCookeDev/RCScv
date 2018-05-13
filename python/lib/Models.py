@@ -1,38 +1,11 @@
 import logging
 from enum import Enum
+from util.config import Config
 
 logger = logging.getLogger('RCScv')
+config = Config()
+default_stocks = config.get_melee_default_stocks
 
-class Player(object):
-    def __init__(self, tag, character, score):
-        self.tag = tag
-        self.character = character
-        self.score = score
-
-    def increment_score():
-        logger.debug('Player.increment_score called for %s' % self.tag)
-        self.score += 1
-
-    def decrement_score():
-        logger.debug('Player.decrement_score called for %s' % self.tag)
-        self.score -= 1
-
-    def set_score(new_score):
-        logger.debug('Player.set_score called for %s' % self.tag)
-        assert isinstance(new_score, int),'Player: new_score must be instance of Integer'
-        self.score = new_score
-
-    def set_character(new_character):
-        logger.debug('Player.set_character called for %s' % self.tag)
-        #TODO assert legal character and type
-        self.character = new_character
-
-
-class Match(object):
-    def __init__(self, round, game_mode, best_of):
-        self.round = round
-        self.game_mode = game_mode
-        self.best_of = best_of
 
 class game_modes(Enum):
     SINGLES = 1
@@ -41,6 +14,182 @@ class game_modes(Enum):
     START = 4
     STOPPED = 5
     HAND_WARMER = 6
+
+
+class Player(object):
+    def __init__(self, tag=None, character=None, score=0, stocks=default_stocks):
+        self.tag = tag
+        self.character = character
+        self.score = score
+        self.stocks = stocks
+
+    def increment_score(self):
+        logger.debug('Player.increment_score called for %s' % self.tag)
+        self.score += 1
+
+    def decrement_score(self):
+        logger.debug('Player.decrement_score called for %s' % self.tag)
+        self.score -= 1
+
+    def get_score(self):
+        logger.debug('Player get score called')
+        return self.score
+
+    def get_character(self):
+        logger.debug('Player get character called')
+        return self.character
+
+    def get_stocks(self):
+        logger.debug('Player get stocks called')
+        return self.stocks
+
+    def set_score(self, new_score):
+        logger.debug('Player.set_score called for %s [%s]' % (self.tag, new_score))
+        assert isinstance(new_score, int),'Player: new_score must be instance of Integer'
+        self.score = new_score
+
+    def set_character(self, new_character):
+        logger.debug('Player.set_character called for %s' % self.tag)
+        #TODO assert legal character and type
+        self.character = new_character
+
+    def set_stocks(self, new_stocks):
+        logger.debug('Player.set_stocks called for %s [%s]' % (self.tag, new_stocks))
+        assert isinstance(new_stocks, int), 'Player: new_stocks must be instance of Integer'
+        self.stocks = new_stocks
+
+
+class Match(object):
+    def __init__(self, round=None, game_mode=None, best_of=3):
+        self.round = round
+        self.game_mode = game_mode
+        self.best_of = best_of
+
+    def get_round(self):
+        logger.debug('Match get round called')
+        return self.round
+
+    def get_game_mode(self):
+        logger.debug('Match get game mode called')
+        return self.game_mode
+
+    def get_best_of(self):
+        logger.debug('Match get best of called')
+        return self.best_of
+
+    def set_round(self, new_round):
+        logger.debug('Match set round of called [%s]' % new_round)
+        assert new_round is not None, 'Match new_round must not be None'
+        assert isinstance(new_round, str), 'Match new_round must be instance of string'
+        self.round = new_round
+
+    def set_game_mode(self, new_game_mode):
+        logger.debug('Match get best of called')
+        assert new_game_mode is not None, 'Match new_game_mode must not be None'
+        assert isinstance(new_game_mode, game_modes), 'Match new_game_mode must be Enum game_modes'
+        self.game_mode = new_game_mode
+
+    def set_best_of(self, new_best_of):
+        logger.debug('Match get best of called')
+        assert new_best_of is not None, 'Match new_best_of must not be None'
+        assert isinstance(new_best_of, int), 'Match new_best_of must be instance of Integer'
+        self.best_of = new_best_of
+        
+
+class VoterBallot(object):
+    def __init__(self, component_name, vote_weight, p1_score, p1_stock_count, p2_score, p2_stock_count, game_mode):
+        self.component_name = component_name
+        self.vote_weight = vote_weight
+        self.p1_score = p1_score
+        self.p1_stock_count = p1_stock_count
+        self.p2_score = p2_score
+        self.p2_stock_count = p2_stock_count
+        self.game_mode = game_mode
+
+    def __hash__(self):
+        """
+        Hash function. We only hash properties that will be similar in other
+        VoterBallot objects. This is so equality checks can determine if the 
+        hash of the meaninful values of the ballot are equal to another ballot's hash.
+            :param self: 
+        """
+        
+        val = hash(self.p1_score) \
+                ^ hash(self.p1_stock_count) \
+                ^ hash(self.p2_score) \
+                ^ hash(self.p2_stock_count) \
+                ^ hash(self.game_mode) 
+        return val
+
+    def __eq__(self, other):
+        """
+        Equality check. We only check for match data properties to determine
+        whether the vote this ballot represents is similar to another. We don't
+        care about who submitted the ballot, that will matter later.
+            :param self: 
+            :param other: 
+        """   
+        
+        val = isinstance(other, self.__class__)  \
+                and self.p1_score == other.p1_score \
+                and self.p1_stock_count == other.p1_stock_count \
+                and self.p2_score == other.p2_score \
+                and self.p2_stock_count == other.p2_stock_count \
+                and self.game_mode == self.game_mode 
+        return val
+
+
+class VotingBox(object):
+    def __init__(self, VoterBallots):
+        self.VoterBallots = VoterBallots
+
+    def count_votes(self, voting_threshold):
+        """
+        Count Votes takes the overall ballots in the Voting Box
+        and calculates the most likely results of the processed frame.
+        This process is to implement checks and balances on the algorithm
+        and reduce the margin of error produced by one or more algorithms 
+        submitting incorrect results.
+
+        Certain algorithms offer more weight in order to offset more 
+        error-prone algorithms from asserting their analysis is correct.
+            :param self: 
+            :param voting_threshold: the peak difference where the popular vote trumps the weighted vote
+        """   
+        
+        #gather the similar ballots into their repective segments (object properties)
+        collection = {}
+        for ballot in self.VoterBallots:
+            if hash(ballot) in collection.__dict__:
+                collection[hash(ballot)].append(ballot)
+            else:
+                collection[hash(ballot)] = [ballot]
+        
+        #Gather the popular vote 
+        popular_vote = []
+        for same_ballots in collection.__dict__:
+            if len(collection[same_ballots]) > len(popular_vote):
+                popular_vote = collection[same_ballots]
+
+        #Gather the weighted vote
+        electoral_college_weight = 0 
+        electoral_college_vote = []
+        for same_ballots in collection.__dict__:
+            weight = 0
+            for ballot in same_ballots: weight += ballot.vote_weight
+            if weight > electoral_college_weight:
+                electoral_college_vote = collection[same_ballots]
+
+        #compare the vote types to make a decision
+        difference = list(filter(lambda x: x not in popular_vote, electoral_college_vote))
+        if len(difference) == 0:
+            return electoral_college_vote
+        else:
+            if len(difference) > voting_threshold:
+                return popular_vote
+            else:
+                return electoral_college_vote
+
 
 class FrameBuffer(object):
     def __init__(self, buffer_size):
