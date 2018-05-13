@@ -7,7 +7,7 @@ from lib.RCScv import RCScv as RCScv
 from lib.Threader import Threader
 from lib.croppers import letterbox_cropper
 from lib.detectors import detect_circles
-from algorithms import stocks
+from algorithms import percents as stockDetection
 
 config = Config()
 debug_mode = config.get_main_debug_mode()
@@ -61,7 +61,7 @@ if __name__ == '__main__':
             framecv.show()
 
         #threader.run(stocks.do, framecv)
-        stocks.do(framecv)
+        stockDetection.run(framecv)
         
     cap.release()
     cv2.destroyAllWindows()
