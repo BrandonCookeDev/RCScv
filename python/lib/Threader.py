@@ -24,8 +24,6 @@ class Threader(object):
 
         args.logger = self.logger
         t = threading.Thread(target=fn, args=args)
-        self.buffer.append(t)
-        self.active += 1
 
     """
     def add(self, fn):

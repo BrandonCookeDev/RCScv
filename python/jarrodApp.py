@@ -61,7 +61,7 @@ if __name__ == '__main__':
             framecv.show()
 
         #threader.run(stocks.do, framecv)
-        gameFlow.run(framecv)
+        stockDetection.run(framecv)
         
     cap.release()
     cv2.destroyAllWindows()

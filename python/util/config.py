@@ -14,6 +14,9 @@ class Config(object):
     def get_melee_height(self):
         return int(self.config.get('melee', 'height'))
 
+    def get_melee_default_stocks(self):
+        return int(self.config.get('melee', 'stocks'))
+
     def get_debug_mode(self):
         return bool(self.config.get('debug_mode', 'on') == 'True')
 
@@ -129,16 +132,16 @@ class Config(object):
 
     def get_go_screen(self):
         return {
-            'top': int(self.config.get('go_screen', 'top')),
-            'bottom': int(self.config.get('go_screen', 'bottom')),
-            'left': int(self.config.get('go_screen', 'left')),
-            'right': int(self.config.get('go_screen', 'right'))
+            'top': int(self.config.get('go_cropper', 'top')),
+            'bottom': int(self.config.get('go_cropper', 'bottom')),
+            'left': int(self.config.get('go_cropper', 'left')),
+            'right': int(self.config.get('go_cropper', 'right'))
         }
 
     def get_game_screen(self):
         return {
-            'top': int(self.config.get('game_screen', 'top')),
-            'bottom': int(self.config.get('game_screen', 'bottom')),
-            'left': int(self.config.get('game_screen', 'left')),
-            'right': int(self.config.get('game_screen', 'right'))
+            'top': int(self.config.get('game_cropper', 'top')),
+            'bottom': int(self.config.get('game_cropper', 'bottom')),
+            'left': int(self.config.get('game_cropper', 'left')),
+            'right': int(self.config.get('game_cropper', 'right'))
         }
