@@ -1,11 +1,5 @@
 import os, sys
 import logging
-from lib.detectors import detect_circles
-
-logger = logging.getLogger('RCScv')
-
-def do(framecv):
-    copy = framecv.copy()
 from interface import implements
 from lib import Models as M
 from lib.detectors import detect_circles

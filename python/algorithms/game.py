@@ -1,10 +1,5 @@
 import os, sys
 import logging
-
-logger = logging.getLogger('RCScv')
-
-def do(framecv):
-    copy = framecv.copy()
 from interface import implements
 from lib.RCScv import RCScv
 from lib.Interfaces import IAlgorithm

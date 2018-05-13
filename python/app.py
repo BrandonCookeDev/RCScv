@@ -10,9 +10,6 @@ from util import log
 from util.config import Config as Config
 from lib.RCScv import RCScv as RCScv
 from lib.Threader import Threader
-from lib.croppers import letterbox_cropper
-from lib.detectors import detect_circles
-from algorithms import stocks
 from lib.detectors import detect_circles
 from algorithms.go import Go
 from algorithms.game import Game
@@ -55,8 +52,6 @@ MELEE_FOOTAGE_DL = get_resource('P3-Dreamland.mp4')
 
 threader = Threader('rcsThreader', 5)
 
-threader = Threader('rcsThreader', 5)
-
 if __name__ == '__main__':
     video = MELEE_FOOTAGE_GO
 
@@ -85,8 +80,6 @@ if __name__ == '__main__':
             #Frame After Letterbox Processing
             framecv.show()
 
-        #threader.run(stocks.do, framecv)
-        stocks.do(framecv)
         #run algorithms
         go.do(framecv)
 
