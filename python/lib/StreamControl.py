@@ -1,5 +1,6 @@
 import os, sys, json
 import logging
+import keyboard
 from enum import Enum
 from lib.Models import Player
 from lib.Models import Match
@@ -88,3 +89,34 @@ class JSON_Peerer(object):
     def write(self, data):
         logger.debug('JSON_Peerer.write called [%s]' % data)
 
+
+class Key_Combination(object):
+    def __init__(self, name, **kwargs):
+        self.name = name
+        self.combo = ''
+        for key in kwargs:
+            combo += key + "+"
+        #Remove overflow '+' character
+        if len(combo) > 0: combo = combo[0:len(combo)] 
+        
+    def verify_keys(self):
+        pass
+
+
+class Key_Presser(set):
+    def add(self, element):
+        assert element is not None: 'Element must not be None for Key_Presser add'
+        assert isinstance(element, Key_Combination), 'Element must be an instance of Key_Combination'
+        super(Key_Presser, self).add(element)
+
+    def get(self, name):
+        assert name is not None, 'name must not be None for Key Presser get'
+        assert isinstance(name, str), 'name must be a string for Key Presser get'
+        for element in self.iteritems():
+            if element.name == name:
+                return element.combo
+
+    def press(self, name):
+        assert name is not None, 'name must not be None for Key Presser press'
+        assert isinstance(name, str), 'name must be a string for Key Presser press'
+        keyboard.press_and_release(self.get(name))
