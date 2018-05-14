@@ -157,6 +157,29 @@ class RCScv(object):
         logger.info('RCScv: drawing rectangle [%s:%s] [%s:%s]' % (left, top, right, bottom))
         cv.rectangle(self.cvimage, (left, top), (right, bottom), color, 2)
 
+    def find_circles2(self, minR=40, maxR=40):
+        logger.debug('RCScv: find circles 2 called [%s] [%s]' % (minR, maxR))
+        copy = self.copy()
+        copy.greyscale()
+        circles = cv.HoughCircles(copy.cvimage, cv.HOUGH_GRADIENT, minR, maxR)
+
+        # ensure at least some circles were found
+        if circles is not None:
+            # convert the (x, y) coordinates and radius of the circles to integers
+            circles = np.round(circles[0, :]).astype("int")
+        
+            # loop over the (x, y) coordinates and radius of the circles
+            for (x, y, r) in circles:
+                # draw the circle in the output image, then draw a rectangle
+                # corresponding to the center of the circle
+                cv.circle(copy.cvimage, (x, y), r, (0, 255, 0), 4)
+                cv.rectangle(copy.cvimage, (x - 5, y - 5), (x + 5, y + 5), (0, 128, 255), -1)
+        
+            # show the output image
+            copy.show()
+            #cv.imshow("output", np.hstack([self.cvimage, copy.cvimage]))
+            #cv.waitKey(0)
+
     
     def find_circles(self, circleArea=40):
         logger.debug('RCScv: find circles called [%s]' % circleArea)
@@ -174,3 +197,21 @@ class RCScv(object):
         self.cvimage = cv.drawContours(self.cvimage, contourList, -1, (0 , 0, 255), 2)
         self.show()
         return len(contourList) > 0
+
+    def show_threshold(self, thresh=150, sigmaX=5, sigmaY=5):
+        copy = self.copy()
+        copy.greyscale()
+        copy.gblur(sigmaX, sigmaY)
+        copy.threshold(thresh)
+        copy.show()
+
+    def show_greyscale(self):
+        copy = self.copy()
+        copy.greyscale()
+        copy.show()
+    
+    def show_gblur(self, sigmaX=5, sigmaY=5):
+        copy = self.copy()
+        copy.greyscale()
+        copy.gblur(sigmaX, sigmaY)
+        copy.show()
