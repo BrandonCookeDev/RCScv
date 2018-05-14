@@ -76,18 +76,30 @@ class MatchData(object):
 
 class JSON_Peerer(object):
     def __init__(self, file_path, data):
-        self.file_path = file_path
+        self.file_path = file_path if file_path is not None else config.get_json_path
         self.data = data
 
     def read(self):
-        logger.debug('JSON_Peerer.read called')
-        contents = ''
+        logger.debug('JSON Reader.read called')
         with open(self.file_path, 'r') as f:
-            data = json.load(f)
-            print(data)
+            data = json.loads(f)
+            self.data = data
+            logger.debug('JSON Reader Data %s' % self.data)
         
     def write(self, data):
         logger.debug('JSON_Peerer.write called [%s]' % data)
+        assert data is not None, 'JSON Write data cannot be None'
+        assert isinstance(data, MatchData), 'JSON Write data must be instance of MatchData'
+        
+        for key, val in self.data.iteritems():
+            for new_key, new_val in data.__dict__.iteritems():
+                if key == new_key:
+                    self.data[key] = new_val
+
+        new_json = json.dumps(self.data)
+        with open(self.file_path, 'w') as f:
+            f.write(new_json)
+            logger.debug('JSON Writer wrote data %s' % self.data)
 
 
 class Key_Combination(object):
@@ -99,17 +111,20 @@ class Key_Combination(object):
         #Remove overflow '+' character
         if len(combo) > 0: combo = combo[0:len(combo)] 
         
+    @DeprecationWarning
     def verify_keys(self):
         pass
 
 
 class Key_Presser(set):
     def add(self, element):
-        assert element is not None: 'Element must not be None for Key_Presser add'
+        logger.debug('Key Presser add called [%s]' % element)
+        assert element is not None, 'Element must not be None for Key_Presser add'
         assert isinstance(element, Key_Combination), 'Element must be an instance of Key_Combination'
         super(Key_Presser, self).add(element)
 
     def get(self, name):
+        logger.debug('Key Presser get called [%s]' % name)
         assert name is not None, 'name must not be None for Key Presser get'
         assert isinstance(name, str), 'name must be a string for Key Presser get'
         for element in self.iteritems():
@@ -117,6 +132,7 @@ class Key_Presser(set):
                 return element.combo
 
     def press(self, name):
+        logger.debug('Key Presser press called [%s]' % name)
         assert name is not None, 'name must not be None for Key Presser press'
         assert isinstance(name, str), 'name must be a string for Key Presser press'
         keyboard.press_and_release(self.get(name))

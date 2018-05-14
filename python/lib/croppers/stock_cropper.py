@@ -18,6 +18,10 @@ for i in range (0, 4, 1):
 
 class Stock_Cropper(implements(ICropper)):
     def draw_rectangles(self, framecv):
+        logger.debug('Stock Cropper draw rectangles called [%s]' % framecv)
+        assert framecv is not None, 'Stock Cropper framecv cannot be None'
+        assert isinstance(framecv, RCScv), 'Stock Cropper framecv must be instance of RCScv'
+        
         p1coords = config.get_p1_stocks()
         p2coords = config.get_p2_stocks()
         p3coords = config.get_p3_stocks()
@@ -32,6 +36,10 @@ class Stock_Cropper(implements(ICropper)):
         framecv.draw_rectangle(p4coords['top'], p4coords['bottom'], p4coords['left'], p4coords['right'], colors[3])
 
     def crop(self, framecv):
+        logger.debug('Stock Cropper crop called [%s]' % framecv)
+        assert framecv is not None, 'Stock Cropper framecv cannot be None'
+        assert isinstance(framecv, RCScv), 'Stock Cropper framecv must be instance of RCScv'
+
         p1 = framecv.copy()
         p1coords = config.get_p1_stocks()
         p1.crop(p1coords['top'], p1coords['bottom'],
@@ -68,6 +76,7 @@ class Stock_Cropper(implements(ICropper)):
         }
 
     def get_individual_stocks(self, stock_area_cv):
+        logger.debug('Stock Cropper get individual stocks called [%s]' % stock_area_cv)
         stocks = []
 
         height = stock_area_cv.get_height()
@@ -91,6 +100,7 @@ class Stock_Cropper(implements(ICropper)):
         return stocks
 
     def get_individual_stocks2(self, stock_area_cv):
+        logger.debug('Stock Cropper get individual stocks2 called [%s]' % stock_area_cv)
         # Get stock contours
         contours = stock_area_cv.get_contours()
 

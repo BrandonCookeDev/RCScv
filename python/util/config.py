@@ -8,6 +8,12 @@ class Config(object):
         self.config = ConfigParser()
         self.config.read(file_path)
 
+    def get_json_path(self):
+        return str(self.config.get('program', 'json_path'))
+
+    def get_frame_delay(self):
+        return int(self.config.get('program', 'frame_delay'))
+
     def get_melee_width(self):
         return int(self.config.get('melee', 'width'))
 
