@@ -30,12 +30,6 @@ class Go(implements(IAlgorithm)):
         copy = framecv.copy()
         cropper.crop(copy)
 
-        c = copy.find_circles(500)
-        """
-        copy.greyscale()
-        copy.gblur(5,5)
-        copy.threshold(100)
-        """
+        #copy.show_threshold(215)
+        copy.find_circles2(500, 1000)
 
-        copy.show()
-        
