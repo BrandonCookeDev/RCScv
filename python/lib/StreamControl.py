@@ -42,10 +42,10 @@ class MatchData(object):
 
     def reset(self):
         logger.debug('MatchData Reset called')
-        MatchData.__instance.get_Player1.set_score(0)
-        MatchData.__instance.get_Player2.set_score(0)
-        MatchData.__instance.get_Player1.set_stocks(default_stocks)
-        MatchData.__instance.get_Player2.set_stocks(default_stocks)        
+        MatchData.__instance.get_Player1().set_score(0)
+        MatchData.__instance.get_Player1().set_stocks(default_stocks)
+        MatchData.__instance.get_Player2().set_score(0)
+        MatchData.__instance.get_Player2().set_stocks(default_stocks)        
         
     def get_Player1(self):
         logger.debug('MatchData get Player1 called')
@@ -63,7 +63,7 @@ class MatchData(object):
         logger.debug('MatchData.set_Player1 called [%s]' % new_player1)
         assert MatchData.__instance is not None, 'MatchData.__instance cannot be None'
         assert isinstance(MatchData.__instance, MatchData), 'MatchData.__instance must be an instance of MatchData'
-        assert isinstance(new_player1, Player), 'MatchData: new_player1 must be instance of Player'
+        assert isinstance(new_player1, P), 'MatchData: new_player1 must be instance of Player'
         MatchData.__instance.Player1 = new_player1
 
     
@@ -71,7 +71,7 @@ class MatchData(object):
         logger.debug('MatchData.set_Player2 called [%s]' % new_player2)
         assert MatchData.__instance is not None, 'MatchData.__instance cannot be None'
         assert isinstance(MatchData.__instance, MatchData), 'MatchData.__instance must be an instance of MatchData'
-        assert isinstance(new_player2, Player), 'MatchData: new_player2 must be instance of Player'
+        assert isinstance(new_player2, P), 'MatchData: new_player2 must be instance of Player'
         MatchData.__instance.Player2 = new_player2
 
 
@@ -79,7 +79,7 @@ class MatchData(object):
         logger.debug('MatchData.set_Match called [%s]' % new_match)
         assert MatchData.__instance is not None, 'MatchData.__instance cannot be None'
         assert isinstance(MatchData.__instance, MatchData), 'MatchData.__instance must be an instance of MatchData'
-        assert isinstance(new_match, Match), 'MatchData: new_match must be instance of Match'
+        assert isinstance(new_match, M), 'MatchData: new_match must be instance of Match'
         MatchData.__instance.Match = new_match
 
 
