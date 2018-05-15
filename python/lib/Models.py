@@ -45,17 +45,21 @@ class Player(object):
 
     def set_score(self, new_score):
         logger.debug('Player.set_score called for %s [%s]' % (self.tag, new_score))
+        assert new_score is not None, 'Player: new_score must not be None'
         assert isinstance(new_score, int),'Player: new_score must be instance of Integer'
         self.score = new_score
 
     def set_character(self, new_character):
         logger.debug('Player.set_character called for %s' % self.tag)
+        assert new_character is not None, 'Player new_character must not be None'
         #TODO assert legal character and type
         self.character = new_character
 
     def set_stocks(self, new_stocks):
         logger.debug('Player.set_stocks called for %s [%s]' % (self.tag, new_stocks))
+        assert new_stocks is not None, 'Player new_stocks must not be None'
         assert isinstance(new_stocks, int), 'Player: new_stocks must be instance of Integer'
+        assert new_stocks >= 0 and new_stocks < 5, 'Player: new stocks must be between 0 and 5'
         self.stocks = new_stocks
 
 

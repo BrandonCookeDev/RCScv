@@ -16,6 +16,7 @@ from algorithms.game import Game
 from algorithms.stocks import Stocks
 from algorithms import percents
 from lib.croppers.letterbox_cropper import Letterbox_Cropper
+from lib.StreamControl import Json_Peerer as JP
 
 
 config = Config()
@@ -25,12 +26,11 @@ MELEE_WIDTH = config.get_melee_width()
 logger = logging.getLogger('RCScv')
 logger.info('RCScv: Beginning Main')
 
+jp = JP()
 go = Go()
 game = Game()
 stocks = Stocks()
 letterbox_cropper = Letterbox_Cropper()
-
-
 
 
 ROOT_DIR = os.path.dirname(__file__)
@@ -60,8 +60,10 @@ if __name__ == '__main__':
     cap = cv2.VideoCapture(video)
 
     while(cap.isOpened()):
-
+        
         ret, frame = cap.read()
+
+        matchdata = 
 
         #When no more frames we are done
         if frame is None: 

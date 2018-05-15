@@ -2,13 +2,14 @@ import os, sys, json
 import logging
 import keyboard
 from enum import Enum
-from lib.Models import Player
-from lib.Models import Match
+from lib.Models import Player as P
+from lib.Models import Match as M
 from util.config import Config
 
 logger = logging.getLogger('RCScv')
 config = Config()
 default_stocks = config.get_melee_default_stocks()
+default_json_path = config.get_json_path()
 
 
 class MatchData(object):
@@ -21,6 +22,14 @@ class MatchData(object):
     def __new__(cls, Player1, Player2, Match):
         if MatchData.__instance is None:
             MatchData.__instance = object.__new__(cls)
+
+        assert Player1 is not None, 'MatchData Player1 cannot be None'
+        assert Player2 is not None, 'MatchData Player2 cannot be None'
+        assert Match is not None, 'MatchData Match cannot be None'
+        assert isinstance(Player1, P), 'MatchData Player1 must be instance of Player'
+        assert isinstance(Player2, P), 'MatchData Player2 must be instance of Player'
+        assert isinstance(Match, M), 'MatchData Match must be instance of Match'
+
         MatchData.__instance.Player1 = Player1
         MatchData.__instance.Player2 = Player2
         MatchData.__instance.Match = Match
@@ -42,7 +51,7 @@ class MatchData(object):
         logger.debug('MatchData get Player1 called')
         return MatchData.__instance.Player1
 
-    def get_Player1(self):
+    def get_Player2(self):
         logger.debug('MatchData get Player2 called')
         return MatchData.__instance.Player2
 
@@ -75,8 +84,8 @@ class MatchData(object):
 
 
 class JSON_Peerer(object):
-    def __init__(self, file_path, data):
-        self.file_path = file_path if file_path is not None else config.get_json_path
+    def __init__(self, file_path=default_json_path, data={}):
+        self.file_path = file_path
         self.data = data
 
     def read(self):
@@ -85,7 +94,7 @@ class JSON_Peerer(object):
             data = json.loads(f)
             self.data = data
             logger.debug('JSON Reader Data %s' % self.data)
-        
+    
     def write(self, data):
         logger.debug('JSON_Peerer.write called [%s]' % data)
         assert data is not None, 'JSON Write data cannot be None'
