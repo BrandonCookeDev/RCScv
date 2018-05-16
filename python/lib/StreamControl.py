@@ -88,20 +88,53 @@ class JSON_Peerer(object):
         self.file_path = file_path
         self.data = data
 
+    def set_data(self, data):
+        assert data is not None, 'Json peerer set, data cannot be none'
+        assert isinstance(data, dict), 'Json peerer set, data must be a dict'
+        self.data = data
+
+    def get_data(self):
+        return self.data
+
     def read(self):
         logger.debug('JSON Reader.read called')
         with open(self.file_path, 'r') as f:
-            data = json.loads(f)
-            self.data = data
-            logger.debug('JSON Reader Data %s' % self.data)
+            content = f.readlines()
+        content = ''.join(content)
+        logger.debug('Got content from JSON %s' % content)
+
+        data = json.loads(content)
+        self.data = data
+        logger.debug('JSON Reader Data %s' % self.data)
+        return self.data
     
+
     def write(self, data):
+        logger.debug('JSON_Peerer.write called [%s]' % data)
+        assert data is not None, 'JSON Write data cannot be None'
+        assert isinstance(data, dict), 'JSON Write data must be instance of dictionary'
+        
+        logger.debug('self data %s' % self.data)
+        for key, val in self.data.items():
+            logger.debug('self %s::%s' % (key, val))
+            for new_key, new_val in data.items():
+                logger.debug('%s::%s' % (key, val))
+                if key == new_key:
+                    self.data[key] = new_val
+
+        new_json = json.dumps(self.data)
+        with open(self.file_path, 'w') as f:
+            f.write(new_json)
+            logger.debug('JSON Writer wrote data %s' % self.data)
+
+
+    def write_MatchData(self, data):
         logger.debug('JSON_Peerer.write called [%s]' % data)
         assert data is not None, 'JSON Write data cannot be None'
         assert isinstance(data, MatchData), 'JSON Write data must be instance of MatchData'
         
-        for key, val in self.data.iteritems():
-            for new_key, new_val in data.__dict__.iteritems():
+        for key, val in self.data.items():
+            for new_key, new_val in data.items():
                 if key == new_key:
                     self.data[key] = new_val
 

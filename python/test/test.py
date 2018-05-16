@@ -1,12 +1,14 @@
-import sys, os
+import sys, os, json
 path = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..')
 print(path)
 sys.path.insert(0, path)
 
+import logging
 import unittest
-
 from lib import Models as M
 from lib import StreamControl as SC
+
+RESOURCES_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', '..', 'resources')
 
 class TestGameModes(unittest.TestCase):
     @unittest.skip("Will revist Enum with proper testing strategy")
@@ -20,6 +22,7 @@ class TestGameModes(unittest.TestCase):
 
 class TestPlayer(unittest.TestCase):
     def setUp(self):
+        setup_logging('player')
         self.p1 = M.Player(tag='cookiE', character='Sheik', score=0, stocks=4)
         self.p2 = M.Player(tag='Dog', character='Falco', score=3, stocks=3)
 
@@ -72,6 +75,7 @@ class TestPlayer(unittest.TestCase):
 
 class TestMatch(unittest.TestCase):
     def setUp(self):
+        setup_logging('match')
         self.m1 = M.Match(round='Winners Finals', game_mode=M.game_modes.SINGLES, best_of=5)
         self.m2 = M.Match(round='Pools', game_mode=M.game_modes.DOUBLES, best_of=3)
     
@@ -111,6 +115,7 @@ class TestMatch(unittest.TestCase):
 
 class TestMatchData(unittest.TestCase):
     def setUp(self):
+        setup_logging('match_data')
         self.p1 = M.Player(tag='cookiE', character='Sheik', score=0, stocks=4)
         self.p2 = M.Player(tag='Dog', character='Falco', score=3, stocks=3)
         self.m1 = M.Match(round='Winners Finals', game_mode=M.game_modes.SINGLES, best_of=5)
@@ -149,6 +154,123 @@ class TestMatchData(unittest.TestCase):
         self.assertEqual(self.MD.get_instance().Player1.stocks, 4)
         self.assertEqual(self.MD.get_instance().Player2.score, 0)
         self.assertEqual(self.MD.get_instance().Player2.stocks, 4)
+
+
+class TestJsonPeerer(unittest.TestCase):
+    def setUp(self):
+        setup_logging('json')
+        self.json_path = os.path.join('.', 'data', 'test.json')
+        self.jp = SC.JSON_Peerer(file_path=self.json_path)
+
+        self.test_json_data = {
+            "p1_name": "cookiE",
+            "p1_games": "0",
+            "p1_char": "Sheik",
+            "p2_name": "Dog",
+            "p2_games": "3",
+            "p2_char": "Falco",
+            "round": "Winners Finals",
+            "best_of": "5",
+            "tournament": "Tipped Off 12",
+            "bracket": "https://smash.gg/to12"
+        }
+        self.jp.data = self.test_json_data
+
+        with open(self.json_path, 'w') as f:
+            s = json.dumps(self.test_json_data)
+            f.write(s)
+
+        self.test_json_data_2 = {
+            "p1_name": "Baka4Moe",
+            "p1_games": "0",
+            "p1_char": "Peach",
+            "p2_name": "RJW",
+            "p2_games": "0",
+            "p2_char": "Fox",
+            "round": "Winners Semis",
+            "best_of": "3",
+            "tournament": "Tipped Off 12",
+            "bracket": "https://smash.gg/to12"
+        }
+
+        self.test_json_data_3 = {
+            "p1_name": "cookiE",
+            "p1_games": "0",
+            "p1_char": "Sheik",
+            "p2_name": "Dog",
+            "p2_games": "3",
+            "p2_char": "Falco",
+            "round": "Winners Finals",
+            "best_of": "5",
+            "tournament": "NaCl Omega",
+            "bracket": "https://smash.gg/naclomega"
+        }
+    
+    
+    def test_get_data(self):
+        self.assertEqual(self.jp.get_data(), self.test_json_data)
+
+
+    def test_set_data(self):
+        self.jp.set_data(self.test_json_data_2)
+        self.assertEqual(self.jp.data, self.test_json_data_2)
+
+
+    def test_read(self):
+        self.assertEqual(self.jp.read(), self.test_json_data)
+
+
+    def test_write_1(self):
+        new_data = {
+            "p1_name": "Baka4Moe",
+            "p1_games": "0",
+            "p1_char": "Peach",
+            "p2_name": "RJW",
+            "p2_games": "0",
+            "p2_char": "Fox",
+            "round": "Winners Semis",
+            "best_of": "3"
+        }
+        self.jp.write(new_data)
+
+        with open(self.json_path) as f:
+            content = f.readlines()
+        content = ''.join(content)
+        
+        data = json.loads(content)
+        self.assertEqual(data, self.test_json_data_2)
+
+
+    def test_write_2(self):
+        new_data = {
+            "tournament": "NaCl Omega",
+            "bracket": "https://smash.gg/naclomega"
+        }
+        self.jp.write(new_data)
+
+        with open(self.json_path) as f:
+            content = f.readlines()
+        content = ''.join(content)
+
+        data = json.loads(content)
+        self.assertEqual(data, self.test_json_data_3)
+
+
+def setup_logging(name):
+    LOG_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'logs', name + '_test.log')
+    LOG_DIR = os.path.dirname(LOG_PATH)
+
+    if not os.path.isdir(LOG_DIR):
+        os.mkdir(LOG_DIR)
+
+    formatter = logging.Formatter(fmt='%(asctime)s - [%(levelname)-s]: %(message)s', datefmt='%Y-%m-%d %H:%M:%S')
+    handler = logging.FileHandler(LOG_PATH)
+    handler.setFormatter(formatter)
+
+    logger = logging.getLogger('RCScv')
+    logger.setLevel(logging.DEBUG)
+    logger.addHandler(handler)
+    logger.info('Logging setup for %s' % LOG_PATH)
 
 if __name__ == '__main__':
     unittest.main()
