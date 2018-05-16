@@ -256,6 +256,89 @@ class TestJsonPeerer(unittest.TestCase):
         self.assertEqual(data, self.test_json_data_3)
 
 
+class TestVoterBalleT(unittest.TestCase):
+    def setUp(self):
+        setup_logging('voter_ballet')
+        self.v1 = M.VoterBallot(
+            component_name='percent', 
+            vote_weight=5, 
+            p1_score=1, 
+            p1_stock_count=3,
+            p2_score=2,
+            p2_stock_count=2,
+            game_mode=M.game_modes.SINGLES
+        )
+        self.v2 = M.VoterBallot(
+            component_name='stocks', 
+            vote_weight=1, 
+            p1_score=1, 
+            p1_stock_count=3,
+            p2_score=2,
+            p2_stock_count=2,
+            game_mode=M.game_modes.SINGLES
+        )
+        self.v3 = M.VoterBallot(
+            component_name='go', 
+            vote_weight=5, 
+            p1_score=1, 
+            p1_stock_count=4,
+            p2_score=3,
+            p2_stock_count=4,
+            game_mode=M.game_modes.SINGLES
+        )
+
+    def test_eq(self):
+        self.assertTrue(self.v1 == self.v2)
+        self.assertFalse(self.v1 == self.v3)
+        self.assertFalse(self.v2 == self.v3)
+
+    def test_hash(self):
+        self.assertEqual(hash(self.v1), hash(self.v2))
+        self.assertNotEqual(hash(self.v1), hash(self.v3))
+        self.assertNotEqual(hash(self.v2), hash(self.v3))
+
+
+class TestVotingBox(unittest.TestCase):
+    def setUp(self):
+        setup_logging('voting_box')
+        self.v1 = M.VoterBallot(
+            component_name='percent', 
+            vote_weight=5, 
+            p1_score=1, 
+            p1_stock_count=3,
+            p2_score=2,
+            p2_stock_count=2,
+            game_mode=M.game_modes.SINGLES
+        )
+        self.v2 = M.VoterBallot(
+            component_name='stocks', 
+            vote_weight=1, 
+            p1_score=1, 
+            p1_stock_count=3,
+            p2_score=2,
+            p2_stock_count=2,
+            game_mode=M.game_modes.SINGLES
+        )
+        self.v3 = M.VoterBallot(
+            component_name='go', 
+            vote_weight=5, 
+            p1_score=1, 
+            p1_stock_count=4,
+            p2_score=3,
+            p2_stock_count=4,
+            game_mode=M.game_modes.SINGLES
+        )
+        self.v3 = M.VoterBallot(
+            component_name='game', 
+            vote_weight=5, 
+            p1_score=2, 
+            p1_stock_count=4,
+            p2_score=3,
+            p2_stock_count=4,
+            game_mode=M.game_modes.SINGLES
+        )
+
+
 def setup_logging(name):
     LOG_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'logs', name + '_test.log')
     LOG_DIR = os.path.dirname(LOG_PATH)

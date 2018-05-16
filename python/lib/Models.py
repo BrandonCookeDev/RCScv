@@ -119,10 +119,11 @@ class VoterBallot(object):
         """
         
         val = hash(self.p1_score) \
-                ^ hash(self.p1_stock_count) \
-                ^ hash(self.p2_score) \
-                ^ hash(self.p2_stock_count) \
-                ^ hash(self.game_mode) 
+            ^ hash(self.p1_stock_count) \
+            ^ hash(self.p2_score) \
+            ^ hash(self.p2_stock_count) \
+            ^ hash(self.game_mode) 
+        logger.debug(val)
         return val
 
     def __eq__(self, other):
@@ -135,11 +136,11 @@ class VoterBallot(object):
         """   
         
         val = isinstance(other, self.__class__)  \
-                and self.p1_score == other.p1_score \
-                and self.p1_stock_count == other.p1_stock_count \
-                and self.p2_score == other.p2_score \
-                and self.p2_stock_count == other.p2_stock_count \
-                and self.game_mode == self.game_mode 
+            and self.p1_score == other.p1_score \
+            and self.p1_stock_count == other.p1_stock_count \
+            and self.p2_score == other.p2_score \
+            and self.p2_stock_count == other.p2_stock_count \
+            and self.game_mode == self.game_mode 
         return val
 
 
