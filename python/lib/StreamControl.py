@@ -2,15 +2,13 @@ import os, sys, json
 import logging
 import keyboard
 from enum import Enum
-from lib.Models import Player as P
-from lib.Models import Match as M
+from lib import Models as M
 from util.config import Config
 
 logger = logging.getLogger('RCScv')
 config = Config()
 default_stocks = config.get_melee_default_stocks()
 default_json_path = config.get_json_path()
-
 
 
 class MatchData(object):
@@ -20,20 +18,23 @@ class MatchData(object):
     Singleton object representing the current match happening in realtime
         :param object: 
     """
-    def __new__(cls, Player1, Player2, Match):
+    def __new__(cls, Player1=M.Player(), Player2=M.Player(), Match=M.Match, State=M.game_states.STOPPED):
         if MatchData.__instance is None:
             MatchData.__instance = object.__new__(cls)
 
         assert Player1 is not None, 'MatchData Player1 cannot be None'
         assert Player2 is not None, 'MatchData Player2 cannot be None'
         assert Match is not None, 'MatchData Match cannot be None'
-        assert isinstance(Player1, P), 'MatchData Player1 must be instance of Player'
-        assert isinstance(Player2, P), 'MatchData Player2 must be instance of Player'
-        assert isinstance(Match, M), 'MatchData Match must be instance of Match'
+        assert State is not None, 'MatchData State cannot be None'
+        assert isinstance(Player1, M.Player), 'MatchData Player1 must be instance of Player'
+        assert isinstance(Player2, M.Player), 'MatchData Player2 must be instance of Player'
+        assert isinstance(Match, M.Match), 'MatchData Match must be instance of Match'
+        assert isinstance(State, M.game_states), 'MatchData State must be instance of game_states'
 
         MatchData.__instance.Player1 = Player1
         MatchData.__instance.Player2 = Player2
         MatchData.__instance.Match = Match
+        MatchData.__instance.State = State
         return MatchData.__instance
 
     @staticmethod
@@ -60,11 +61,15 @@ class MatchData(object):
         logger.debug('MatchData get Match called')
         return MatchData.__instance.Match
 
+    def get_State(self):
+        logger.debug('MatchData get game state called')
+        return MatchData.__instance.State
+
     def set_Player1(self, new_player1):
         logger.debug('MatchData.set_Player1 called [%s]' % new_player1)
         assert MatchData.__instance is not None, 'MatchData.__instance cannot be None'
         assert isinstance(MatchData.__instance, MatchData), 'MatchData.__instance must be an instance of MatchData'
-        assert isinstance(new_player1, P), 'MatchData: new_player1 must be instance of Player'
+        assert isinstance(new_player1, M.Player), 'MatchData: new_player1 must be instance of Player'
         MatchData.__instance.Player1 = new_player1
 
     
@@ -72,7 +77,7 @@ class MatchData(object):
         logger.debug('MatchData.set_Player2 called [%s]' % new_player2)
         assert MatchData.__instance is not None, 'MatchData.__instance cannot be None'
         assert isinstance(MatchData.__instance, MatchData), 'MatchData.__instance must be an instance of MatchData'
-        assert isinstance(new_player2, P), 'MatchData: new_player2 must be instance of Player'
+        assert isinstance(new_player2, M.Player), 'MatchData: new_player2 must be instance of Player'
         MatchData.__instance.Player2 = new_player2
 
 
@@ -80,9 +85,15 @@ class MatchData(object):
         logger.debug('MatchData.set_Match called [%s]' % new_match)
         assert MatchData.__instance is not None, 'MatchData.__instance cannot be None'
         assert isinstance(MatchData.__instance, MatchData), 'MatchData.__instance must be an instance of MatchData'
-        assert isinstance(new_match, M), 'MatchData: new_match must be instance of Match'
+        assert isinstance(new_match, M.Match), 'MatchData: new_match must be instance of Match'
         MatchData.__instance.Match = new_match
 
+    def set_State(self, new_state):
+        logger.debug('MatchData.set_game_state called [%s]' % new_state)
+        assert MatchData.__instance is not None, 'MatchData.__instance cannot be None'
+        assert isinstance(MatchData.__instance, MatchData), 'MatchData.__instance must be an instance of MatchData'
+        assert isinstance(new_state, M.game_states), 'MatchData: new_match must be instance of game_states'
+        MatchData.__instance.State = new_state
 
 class JSON_Peerer(object):
     def __init__(self, file_path=default_json_path, data={}):
@@ -90,8 +101,8 @@ class JSON_Peerer(object):
         self.data = data
 
     def set_data(self, data):
-        assert data is not None, 'Json peerer set, data cannot be none'
-        assert isinstance(data, dict), 'Json peerer set, data must be a dict'
+        assert data is not None, 'JSON peerer set, data cannot be none'
+        assert isinstance(data, dict), 'JSON peerer set, data must be a dict'
         self.data = data
 
     def get_data(self):
@@ -109,7 +120,6 @@ class JSON_Peerer(object):
         logger.debug('JSON Reader Data %s' % self.data)
         return self.data
     
-
     def write(self, data):
         logger.debug('JSON_Peerer.write called [%s]' % data)
         assert data is not None, 'JSON Write data cannot be None'
@@ -127,7 +137,6 @@ class JSON_Peerer(object):
         with open(self.file_path, 'w') as f:
             f.write(new_json)
             logger.debug('JSON Writer wrote data %s' % self.data)
-
 
     def write_MatchData(self, data):
         logger.debug('JSON_Peerer.write called [%s]' % data)

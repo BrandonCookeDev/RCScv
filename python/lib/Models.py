@@ -7,13 +7,15 @@ logger = logging.getLogger('RCScv')
 config = Config()
 default_stocks = config.get_melee_default_stocks
 
+class game_states(Enum):
+    STARTED = 1
+    STOPPED = 2
+
 class game_modes(Enum):
     SINGLES = 1
     DOUBLES = 2
     PAUSED = 3
-    START = 4
-    STOPPED = 5
-    HAND_WARMER = 6
+    HAND_WARMER = 4
 
 
 class Player(object):
@@ -101,7 +103,9 @@ class Match(object):
         
 
 class VoterBallot(object):
-    def __init__(self, component_name, vote_weight, p1_score, p1_stock_count, p2_score, p2_stock_count, game_mode):
+    def __init__(self, component_name, vote_weight,
+                 p1_score, p1_stock_count, p2_score, 
+                 p2_stock_count, game_mode, game_state):
         self.component_name = component_name
         self.vote_weight = vote_weight
         self.p1_score = p1_score
@@ -109,6 +113,7 @@ class VoterBallot(object):
         self.p2_score = p2_score
         self.p2_stock_count = p2_stock_count
         self.game_mode = game_mode
+        self.game_state = game_state
 
     def __hash__(self):
         """
@@ -130,6 +135,7 @@ class VoterBallot(object):
             ^ hash('p1_stock_count: %s' % self.p1_stock_count) \
             ^ hash('p2_score: %s' % self.p2_score) \
             ^ hash('p2_stock_count: %s ' % self.p2_stock_count) \
+            ^ hash(self.game_state) \
             ^ hash(self.game_mode) 
         logger.debug(val)
         return val
@@ -148,12 +154,16 @@ class VoterBallot(object):
             and self.p1_stock_count == other.p1_stock_count \
             and self.p2_score == other.p2_score \
             and self.p2_stock_count == other.p2_stock_count \
-            and self.game_mode == self.game_mode 
+            and self.game_mode == self.game_mode \
+            and self.game_state == self.game_state
         return val
 
 
 class VotingBox(object):
     def __init__(self, VoterBallots):
+        assert isinstance(VoterBallots, list), 'VoterBallots must be instance of list'
+        for ballot in VoterBallots:
+            assert isinstance(ballot, VoterBallot), 'all elements in the VotingBox must be instance of VoterBallot'
         self.VoterBallots = VoterBallots
 
     def count_votes(self, voting_threshold):

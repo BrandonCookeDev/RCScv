@@ -1,6 +1,6 @@
 from lib.StreamControl import MatchData
 from lib import Models as M
-MD = MatchData(M.Player(), M.Player(), M.Match())
+MD = MatchData(M.Player(), M.Player(), M.Match(), M.game_states.STOPPED)
 match_data = MD.get_instance()
 
 import cv2
@@ -16,7 +16,7 @@ from algorithms.game import Game
 from algorithms.stocks import Stocks
 from algorithms import percents
 from lib.croppers.letterbox_cropper import Letterbox_Cropper
-from lib.StreamControl import Json_Peerer as JP
+from lib.StreamControl import JSON_Peerer as JP
 
 
 config = Config()
@@ -53,18 +53,16 @@ MELEE_FOOTAGE_DL = get_resource('P3-Dreamland.mp4')
 threader = Threader('rcsThreader', 5)
 
 if __name__ == '__main__':
-    video = MELEE_FOOTAGE_GO
+    video = MELEE_FOOTAGE_GAME
 
     print('Capturing %s' % video)
     print('Debug mode %s' % debug_mode)
     cap = cv2.VideoCapture(video)
 
     while(cap.isOpened()):
-        
         ret, frame = cap.read()
-        matchdata = jp.read()
-        logger.debug('Json data is %s', matchdata)
-        print(matchdata)
+        #matchdata = jp.read()
+        #logger.debug('Json data is %s', matchdata)
 
         #When no more frames we are done
         if frame is None: 
@@ -83,15 +81,18 @@ if __name__ == '__main__':
             #Frame After Letterbox Processing
             framecv.show()
 
-        #run algorithms
-        go.do(framecv)
+
+        #run algorithms and collect votes
+        votes = []
+        votes.append(go.do(framecv))
+
 
         #show frame and targets
         go.draw(framecv)
         game.draw(framecv)
         stocks.draw(framecv)
         percents.draw(framecv)
-        #framecv.show()
+        framecv.show()
         
     cap.release()
     cv2.destroyAllWindows()

@@ -119,9 +119,12 @@ class TestMatchData(unittest.TestCase):
         self.p1 = M.Player(tag='cookiE', character='Sheik', score=0, stocks=4)
         self.p2 = M.Player(tag='Dog', character='Falco', score=3, stocks=3)
         self.m1 = M.Match(round='Winners Finals', game_mode=M.game_modes.SINGLES, best_of=5)
-        self.MD = SC.MatchData(Player1=self.p1, Player2=self.p2, Match=self.m1)
+        self.s1 = M.game_states.STARTED
+        self.state = M.game_states.STARTED
+        self.MD = SC.MatchData(Player1=self.p1, Player2=self.p2, Match=self.m1, State=self.s1)
         self.new_p = M.Player('Drax', 'Pikachu', 2, 1)
         self.new_m = M.Match('Crew Battle', M.game_modes.SINGLES, 20)
+        self.new_s = M.game_states.STOPPED
 
     def test_get_instance(self):
         self.md = SC.MatchData.get_instance()
@@ -136,6 +139,9 @@ class TestMatchData(unittest.TestCase):
     def test_get_match(self):
         self.assertEqual(self.MD.get_instance().get_Match(), self.m1)
 
+    def test_get_state(self):
+        self.assertEqual(self.MD.get_instance().get_State(), self.s1)
+
     def test_set_player1(self):
         self.MD.get_instance().set_Player1(self.new_p)
         self.assertEqual(self.MD.get_instance().Player1, self.new_p)
@@ -147,6 +153,10 @@ class TestMatchData(unittest.TestCase):
     def test_set_match(self):
         self.MD.get_instance().set_Match(self.new_m)
         self.assertEqual(self.MD.get_instance().Match, self.new_m)
+
+    def test_set_state(self):
+        self.MD.get_instance().set_State(self.new_s)
+        self.assertEqual(self.MD.get_instance().State, self.new_s)
 
     def test_reset(self):
         self.MD.get_instance().reset()
@@ -206,6 +216,7 @@ class TestJsonPeerer(unittest.TestCase):
             "bracket": "https://smash.gg/naclomega"
         }
     
+        MD = SC.MatchData.get_instance()
     
     def test_get_data(self):
         self.assertEqual(self.jp.get_data(), self.test_json_data)
@@ -255,8 +266,11 @@ class TestJsonPeerer(unittest.TestCase):
         data = json.loads(content)
         self.assertEqual(data, self.test_json_data_3)
 
+    def test_write_MD(self):
+        pass
 
-class TestVoterBalleT(unittest.TestCase):
+
+class TestVoterBallet(unittest.TestCase):
     def setUp(self):
         setup_logging('voter_ballet')
         self.v1 = M.VoterBallot(
@@ -266,7 +280,8 @@ class TestVoterBalleT(unittest.TestCase):
             p1_stock_count=3,
             p2_score=2,
             p2_stock_count=2,
-            game_mode=M.game_modes.SINGLES
+            game_mode=M.game_modes.SINGLES,
+            game_state=M.game_states.STARTED
         )
         self.v2 = M.VoterBallot(
             component_name='stocks', 
@@ -275,7 +290,8 @@ class TestVoterBalleT(unittest.TestCase):
             p1_stock_count=3,
             p2_score=2,
             p2_stock_count=2,
-            game_mode=M.game_modes.SINGLES
+            game_mode=M.game_modes.SINGLES,
+            game_state=M.game_states.STARTED
         )
         self.v3 = M.VoterBallot(
             component_name='go', 
@@ -284,7 +300,8 @@ class TestVoterBalleT(unittest.TestCase):
             p1_stock_count=4,
             p2_score=3,
             p2_stock_count=4,
-            game_mode=M.game_modes.SINGLES
+            game_mode=M.game_modes.SINGLES,
+            game_state=M.game_states.STOPPED
         )
 
     def test_eq(self):
@@ -308,7 +325,8 @@ class TestVotingBox(unittest.TestCase):
             p1_stock_count=3,
             p2_score=2,
             p2_stock_count=2,
-            game_mode=M.game_modes.SINGLES
+            game_mode=M.game_modes.SINGLES,
+            game_state=M.game_states.STARTED
         )
         self.v2 = M.VoterBallot(
             component_name='stocks', 
@@ -317,7 +335,8 @@ class TestVotingBox(unittest.TestCase):
             p1_stock_count=3,
             p2_score=2,
             p2_stock_count=2,
-            game_mode=M.game_modes.SINGLES
+            game_mode=M.game_modes.SINGLES,
+            game_state=M.game_states.STARTED
         )
         self.v3 = M.VoterBallot(
             component_name='go', 
@@ -326,7 +345,8 @@ class TestVotingBox(unittest.TestCase):
             p1_stock_count=4,
             p2_score=3,
             p2_stock_count=4,
-            game_mode=M.game_modes.SINGLES
+            game_mode=M.game_modes.SINGLES,
+            game_state=M.game_states.STARTED
         )
         self.v3 = M.VoterBallot(
             component_name='game', 
@@ -335,7 +355,8 @@ class TestVotingBox(unittest.TestCase):
             p1_stock_count=4,
             p2_score=3,
             p2_stock_count=4,
-            game_mode=M.game_modes.SINGLES
+            game_mode=M.game_modes.SINGLES,
+            game_state=M.game_states.STARTED
         )
         self.v4 = M.VoterBallot(
             component_name='x',
@@ -344,8 +365,23 @@ class TestVotingBox(unittest.TestCase):
             p1_stock_count=4,
             p2_score=3,
             p2_stock_count=4,
-            game_mode=M.game_modes.SINGLES
+            game_mode=M.game_modes.SINGLES,
+            game_state=M.game_states.STOPPED
         )
+
+        """
+        Create boxes to handle different branches:
+            1. Popular vote wins
+            2. Weighted vote wins
+            3. Popular and Weighted vote tie
+        """
+
+        self.box1 = M.VotingBox([self.v1, self.v2, self.v3, self.v4])
+        self.box2 = M.VotingBox([self.v1, self.v4])
+
+    def test_count_votes_1(self):
+        pass
+
 
 
 def setup_logging(name):
