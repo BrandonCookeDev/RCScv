@@ -14,6 +14,9 @@ class Config(object):
     def get_frame_delay(self):
         return int(self.config.get('program', 'frame_delay'))
 
+    def get_voter_threshold(self):
+        return int(self.config.get('program', 'voter_threshold'))
+
     def get_melee_width(self):
         return int(self.config.get('melee', 'width'))
 

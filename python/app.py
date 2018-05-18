@@ -21,6 +21,7 @@ from lib.StreamControl import JSON_Peerer as JP
 
 config = Config()
 debug_mode = config.get_main_debug_mode()
+voter_threshold = config.get_voter_threshold()
 MELEE_WIDTH = config.get_melee_width()
 
 logger = logging.getLogger('RCScv')
@@ -85,7 +86,11 @@ if __name__ == '__main__':
         #run algorithms and collect votes
         votes = []
         votes.append(go.do(framecv))
+        votes.append(game.do(framecv))
 
+        box = M.VotingBox(VoterBallots=votes)
+        algorithm_decision = box.count_votes(voter_threshold)
+        
 
         #show frame and targets
         go.draw(framecv)

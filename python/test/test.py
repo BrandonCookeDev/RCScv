@@ -283,6 +283,10 @@ class TestVoterBallet(unittest.TestCase):
             game_mode=M.game_modes.SINGLES,
             game_state=M.game_states.STARTED
         )
+        self.p1_1 = M.Player(score=1, stocks=3)
+        self.p1_2 = M.Player(score=2, stocks=2)
+        self.m1 = M.Match(game_mode=self.v1.game_mode)
+
         self.v2 = M.VoterBallot(
             component_name='stocks', 
             vote_weight=1, 
@@ -303,6 +307,28 @@ class TestVoterBallet(unittest.TestCase):
             game_mode=M.game_modes.SINGLES,
             game_state=M.game_states.STOPPED
         )
+        self.p3_1 = M.Player(score=1, stocks=4)
+        self.p3_2 = M.Player(score=3, stocks=4)
+        self.m3 = M.Match(game_mode=self.v3.game_mode)
+
+        self.v4 = M.VoterBallot(
+            component_name='mode only',
+            vote_weight=1,
+            game_mode=M.game_modes.SINGLES
+        )
+        self.p4_1 = M.Player()
+        self.p4_2 = M.Player()
+        self.m4 = M.Match(game_mode=self.v4.game_mode)
+
+        self.v5 = M.VoterBallot(
+            component_name='mode only',
+            vote_weight=1,
+            game_state=M.game_states.STOPPED
+        )
+        self.p5_1 = M.Player()
+        self.p5_2 = M.Player()
+        self.m5 = M.Match()
+
 
     def test_eq(self):
         self.assertTrue(self.v1 == self.v2)
@@ -314,6 +340,43 @@ class TestVoterBallet(unittest.TestCase):
         self.assertNotEqual(hash(self.v1), hash(self.v3))
         self.assertNotEqual(hash(self.v2), hash(self.v3))
 
+    def test_classify(self):
+        self.assertEqual(self.v1.classify_ballot(), M.ballot_types.MATCH_DATA)
+        self.assertEqual(self.v4.classify_ballot(), M.ballot_types.GAME_MODE_ONLY)
+        self.assertEqual(self.v5.classify_ballot(), M.ballot_types.GAME_STATE_ONLY)
+
+    def test_get_state(self):
+        self.assertEqual(self.v1.get_game_state(), M.game_states.STARTED)
+        self.assertEqual(self.v5.get_game_state(), M.game_states.STOPPED)
+
+    def test_parse_player_objects_1(self):
+        players = self.v1.parse_player_objects()
+        self.assertTrue(len(players) == 2)
+
+        self.assertEqual(players[0], self.p1_1)
+        self.assertEqual(players[1], self.p1_2)
+
+    def test_parse_player_objects_2(self):
+        players = self.v3.parse_player_objects()
+        self.assertTrue(len(players) == 2)
+
+        self.assertEqual(players[0], self.p3_1)
+        self.assertEqual(players[1], self.p3_2)
+
+    def test_parse_player_objects_3(self):
+        players = self.v4.parse_player_objects()
+        self.assertTrue(len(players) == 2)
+
+        print(str(players[0]))
+        print(str(self.p4_1))
+        self.assertEqual(players[0], self.p4_1)
+        self.assertEqual(players[1], self.p4_2)
+
+    def test_parse_match_object(self):
+        self.assertEqual(self.v1.parse_match_object(), self.m1)
+        self.assertEqual(self.v3.parse_match_object(), self.m3)
+        self.assertEqual(self.v4.parse_match_object(), self.m4)
+        self.assertEqual(self.v5.parse_match_object(), self.m5)
 
 class TestVotingBox(unittest.TestCase):
     def setUp(self):

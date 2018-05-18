@@ -1,6 +1,7 @@
 import os, sys
 import logging
 from interface import implements
+from lib import Models as M
 from lib.RCScv import RCScv
 from lib.Interfaces import IAlgorithm
 from lib.croppers.game_cropper import Game_Cropper as Cropper
@@ -25,7 +26,15 @@ class Game(implements(IAlgorithm)):
         assert framecv is not None, 'Game Algo: framecv must not be None'
         assert isinstance(framecv, RCScv), 'Game Algo: framecv must be instance of RCScv'
 
+        detected = False
+
         copy = framecv.copy()
         cropper.crop(framecv)
         
-
+        #if detected, we should make a ballot that the game has ended
+        if detected is True:
+            state = M.game_states.STOPPED
+        else: 
+            state = M.game_states.STARTED
+        ballot = M.VoterBallot(component_name='GAME algorithm', vote_weight=3, game_state=state)
+        return ballot

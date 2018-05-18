@@ -17,6 +17,12 @@ class game_modes(Enum):
     PAUSED = 3
     HAND_WARMER = 4
 
+class ballot_types(Enum):
+    MATCH_DATA = 1
+    GAME_STATE_ONLY = 2
+    GAME_MODE_ONLY = 3
+    OUTLIER = 4
+
 
 class Player(object):
     def __init__(self, tag=None, character=None, score=0, stocks=default_stocks):
@@ -24,6 +30,20 @@ class Player(object):
         self.character = character
         self.score = score
         self.stocks = stocks
+
+    def __hash__(self):
+        return hash(self.tag) ^ hash(self.character) ^ hash(self.score) ^ hash(self.stocks)
+
+    def __eq__(self, other):
+        return isinstance(other, self.__class__) \
+            and self.tag == other.tag \
+            and self.character == other.character \
+            and self.score == other.score \
+            and self.stocks == other.stocks
+
+    def __str__(self):
+        return "Player object: [tag: %s] [character: %s] [score: %s] [stocks: %s]" \
+            % (self.tag, self.character, self.score, self.stocks)
 
     def increment_score(self):
         logger.debug('Player.increment_score called for %s' % self.tag)
@@ -71,6 +91,18 @@ class Match(object):
         self.game_mode = game_mode
         self.best_of = best_of
 
+    def __hash__(self):
+        return hash(self.round) ^ hash(self.game_mode) ^ hash(self.best_of)
+
+    def __eq__(self, other):
+        return isinstance(other, self.__class__) \
+            and self.round == other.round \
+            and self.game_mode == other.game_mode \
+            and self.best_of == other.best_of
+
+    def __str__(self):
+        return "Match object: [round: %s] [game mode: %s] [best of: %s]" % (self.round, self.game_mode, self.best_of)
+
     def get_round(self):
         logger.debug('Match get round called')
         return self.round
@@ -103,9 +135,9 @@ class Match(object):
         
 
 class VoterBallot(object):
-    def __init__(self, component_name, vote_weight,
-                 p1_score=None, p1_stock_count=None, p2_score=None, 
-                 p2_stock_count=None, game_mode=None, game_state=None):
+    def __init__(self, component_name, vote_weight, p1_score=None, p1_stock_count=None, 
+                 p2_score=None, p2_stock_count=None, game_mode=None, game_state=None,
+                 classification=ballot_types.GAME_STATE_ONLY):
         assert component_name is not None, 'VoterBallot: component name cannot be None'
         assert vote_weight is not None, 'VoterBallot: vote weight cannot be None'
 
@@ -117,6 +149,8 @@ class VoterBallot(object):
         self.p2_stock_count = p2_stock_count
         self.game_mode = game_mode
         self.game_state = game_state
+        self.classification = classification or self.classify_ballot()
+
 
     def __hash__(self):
         """
@@ -143,6 +177,7 @@ class VoterBallot(object):
         logger.debug(val)
         return val
 
+
     def __eq__(self, other):
         """
         Equality check. We only check for match data properties to determine
@@ -161,6 +196,36 @@ class VoterBallot(object):
             and self.game_state == self.game_state
         return val
 
+    def classify_ballot(self):
+        if self.p1_score is None \
+            and self.p1_stock_count is None \
+            and self.p2_score is None \
+            and self.p2_stock_count is None:
+            
+            if self.game_mode is not None \
+                and self.game_state is None:
+                self.classification = ballot_types.GAME_MODE_ONLY
+            elif self.game_state is not None \
+                and self.game_mode is None:
+                self.classification = ballot_types.GAME_STATE_ONLY
+            else:
+                self.classification = ballot_types.OUTLIER
+        else:
+            self.classification = ballot_types.MATCH_DATA
+        
+        return self.classification
+
+    def parse_player_objects(self):
+        p1 = Player(score=self.p1_score or 0, stocks=self.p1_stock_count or default_stocks)
+        p2 = Player(score=self.p2_score or 0, stocks=self.p2_stock_count or default_stocks)
+        return [p1, p2]
+    
+    def parse_match_object(self):
+        m = Match(game_mode=self.game_mode)
+        return m
+
+    def get_game_state(self):
+        return self.game_state
 
 class VotingBox(object):
     def __init__(self, VoterBallots):
@@ -186,23 +251,24 @@ class VotingBox(object):
         #gather the similar ballots into their repective segments (object properties)
         collection = {}
         for ballot in self.VoterBallots:
-            if hash(ballot) in collection.__dict__:
+            if hash(ballot) in collection.keys():
                 collection[hash(ballot)].append(ballot)
             else:
                 collection[hash(ballot)] = [ballot]
         
         #Gather the popular vote 
         popular_vote = []
-        for same_ballots in collection.__dict__:
+        for same_ballots in collection.keys():
             if len(collection[same_ballots]) > len(popular_vote):
                 popular_vote = collection[same_ballots]
 
         #Gather the weighted vote
         electoral_college_weight = 0 
         electoral_college_vote = []
-        for same_ballots in collection.__dict__:
+        for same_ballots in collection.keys():
             weight = 0
-            for ballot in same_ballots: weight += ballot.vote_weight
+            for ballot in collection[same_ballots]: 
+                weight += ballot.vote_weight
             if weight > electoral_college_weight:
                 electoral_college_vote = collection[same_ballots]
 
