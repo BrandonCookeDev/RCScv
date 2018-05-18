@@ -8,8 +8,7 @@ from util.config import Config
 logger = logging.getLogger('RCScv')
 config = Config()
 default_stocks = config.get_melee_default_stocks()
-default_json_path = config.get_json_path()
-
+default_json_path = os.path.abspath(config.get_json_path())
 
 class MatchData(object):
     __instance = None

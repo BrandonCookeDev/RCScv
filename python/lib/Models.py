@@ -104,8 +104,11 @@ class Match(object):
 
 class VoterBallot(object):
     def __init__(self, component_name, vote_weight,
-                 p1_score, p1_stock_count, p2_score, 
-                 p2_stock_count, game_mode, game_state):
+                 p1_score=None, p1_stock_count=None, p2_score=None, 
+                 p2_stock_count=None, game_mode=None, game_state=None):
+        assert component_name is not None, 'VoterBallot: component name cannot be None'
+        assert vote_weight is not None, 'VoterBallot: vote weight cannot be None'
+
         self.component_name = component_name
         self.vote_weight = vote_weight
         self.p1_score = p1_score

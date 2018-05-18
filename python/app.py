@@ -53,7 +53,7 @@ MELEE_FOOTAGE_DL = get_resource('P3-Dreamland.mp4')
 threader = Threader('rcsThreader', 5)
 
 if __name__ == '__main__':
-    video = MELEE_FOOTAGE_GAME
+    video = MELEE_FOOTAGE_GO
 
     print('Capturing %s' % video)
     print('Debug mode %s' % debug_mode)
@@ -61,8 +61,8 @@ if __name__ == '__main__':
 
     while(cap.isOpened()):
         ret, frame = cap.read()
-        #matchdata = jp.read()
-        #logger.debug('Json data is %s', matchdata)
+        matchdata = jp.read()
+        logger.debug('JSON data is %s', matchdata)
 
         #When no more frames we are done
         if frame is None: 
@@ -92,7 +92,7 @@ if __name__ == '__main__':
         game.draw(framecv)
         stocks.draw(framecv)
         percents.draw(framecv)
-        framecv.show()
+        #framecv.show()
         
     cap.release()
     cv2.destroyAllWindows()

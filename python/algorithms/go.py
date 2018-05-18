@@ -42,5 +42,5 @@ class Go(implements(IAlgorithm)):
             state = M.game_states.STARTED
         else: 
             state = M.game_states.STOPPED
-        ballot = M.VoterBallot(game_state=state)
+        ballot = M.VoterBallot(component_name='GO algorithm', vote_weight=3, game_state=state)
         return ballot
