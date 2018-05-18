@@ -321,7 +321,7 @@ class TestVotingBox(unittest.TestCase):
         )
         self.v3 = M.VoterBallot(
             component_name='go', 
-            vote_weight=5, 
+            vote_weight=3, 
             p1_score=1, 
             p1_stock_count=4,
             p2_score=3,
@@ -330,7 +330,16 @@ class TestVotingBox(unittest.TestCase):
         )
         self.v3 = M.VoterBallot(
             component_name='game', 
-            vote_weight=5, 
+            vote_weight=2, 
+            p1_score=2, 
+            p1_stock_count=4,
+            p2_score=3,
+            p2_stock_count=4,
+            game_mode=M.game_modes.SINGLES
+        )
+        self.v4 = M.VoterBallot(
+            component_name='x',
+            vote_weight=3, 
             p1_score=2, 
             p1_stock_count=4,
             p2_score=3,

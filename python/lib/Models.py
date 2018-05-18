@@ -1,11 +1,11 @@
 import logging
 from enum import Enum
 from util.config import Config
+from lib import Common as common
 
 logger = logging.getLogger('RCScv')
 config = Config()
 default_stocks = config.get_melee_default_stocks
-
 
 class game_modes(Enum):
     SINGLES = 1
@@ -115,13 +115,21 @@ class VoterBallot(object):
         Hash function. We only hash properties that will be similar in other
         VoterBallot objects. This is so equality checks can determine if the 
         hash of the meaninful values of the ballot are equal to another ballot's hash.
+
+        NOTE: Because hashing integers only yields the integer itself, some ballots can
+        resolve hashes similar to others with different values 
+        ie:
+            1^3^2^2 == 1^4^3^4
+
+        ergo, the below implementation uses static strings to differentiate the values
+        of different properties from each other and always generate a unique hash
             :param self: 
         """
         
-        val = hash(self.p1_score) \
-            ^ hash(self.p1_stock_count) \
-            ^ hash(self.p2_score) \
-            ^ hash(self.p2_stock_count) \
+        val = hash('p1_score: %s' % self.p1_score) \
+            ^ hash('p1_stock_count: %s' % self.p1_stock_count) \
+            ^ hash('p2_score: %s' % self.p2_score) \
+            ^ hash('p2_stock_count: %s ' % self.p2_stock_count) \
             ^ hash(self.game_mode) 
         logger.debug(val)
         return val

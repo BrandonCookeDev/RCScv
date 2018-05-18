@@ -62,8 +62,9 @@ if __name__ == '__main__':
     while(cap.isOpened()):
         
         ret, frame = cap.read()
-
-        matchdata = 
+        matchdata = jp.read()
+        logger.debug('Json data is %s', matchdata)
+        print(matchdata)
 
         #When no more frames we are done
         if frame is None: 
